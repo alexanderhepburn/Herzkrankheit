@@ -42,7 +42,12 @@ geschlecht = st.sidebar.selectbox("Geschlecht", options=["Männlich", "Weiblich"
 schlaganfall = st.sidebar.selectbox("Schlaganfall", options=["Ja", "Nein"])
 asthma = st.sidebar.selectbox("Asthma", options=["Ja", "Nein"])
 physicalactivity = st.sidebar.selectbox("Physical Activity", options=["Ja", "Nein"])
-
+kidneyDisease = st.sidebar.selectbox("Kidney Disease", options=["Ja", "Nein"])
+skinCancer = st.sidebar.selectbox("Skin Cancer", options=["Ja", "Nein"])
+diabetic = st.sidebar.selectbox("Diabetic", options=["Ja", "Nein"])
+genHealth = st.sidebar.selectbox("GenHealth", options=["Poor", "Fair", "Excellent", "Good", "Very Good"])
+ageCategory = st.sidebar.selectbox("Age Category", options=["18-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80+"])
+race = st.sidebar.selectbox("Race", options=["American Indian/Alaskan Native", "Asian", "Black", "Hispanic", "Other", "White"])
 
 st.markdown('Bitte beantworten Sie die angegebene Fragen auf der linken Seite!')
 
@@ -75,7 +80,7 @@ df['Race']              = df.Race.replace(                  {'American Indian/Al
 y = df['HeartDisease']
 x = df.copy().drop(columns='HeartDisease', axis=1) 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
-model = LogisticRegression()
+model = LogisticRegression(random_state=1, C=0.004291934260128779, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, l1_ratio=None, max_iter=3000, multi_class='auto', n_jobs=None, penalty='l2',  solver='lbfgs', tol=0.0001, verbose=0, warm_start=False)
 Log_Reg = model.fit(x_train, y_train)
 
 def jaOderNein(input):
@@ -93,16 +98,16 @@ def berechneHeartDisease():
         "PhysicalHealth": [0.0],
         "MentalHealth": [0.0],
         "Diffwalking": [1],
-        "Sex": [0],
-        "AgeCategory": [8],
+        "Sex": [1],
+        "AgeCategory": [3],
         "Race": [5],
-        "Diabetic": [1],
-        "PhysicalActivity": [0],
-        "GenHealth": [4],
+        "Diabetic": [jaOderNein(diabetic)],
+        "PhysicalActivity": [jaOderNein(physicalactivity)],
+        "GenHealth": [1],
         "SleepTime": [8.000],
-        "Asthma": [0],
-        "KidneyDisease": [0],
-        "SkinCancer": [1]
+        "Asthma": [jaOderNein(asthma)],
+        "KidneyDisease": [jaOderNein(kidneyDisease)],
+        "SkinCancer": [jaOderNein(skinCancer)]
     }
     inputInfos = pd.DataFrame(data=data)
     st.write(inputInfos)
