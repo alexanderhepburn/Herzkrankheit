@@ -1,10 +1,16 @@
 #DER MOMENTANE STAND DER APP
 #ANLEITUNG: LADE DIE DREI NEUEN DATEIEN HERUNTER, TU SIE IN DEN GLEICHEN ORDNER WIE 
 #DIE APP DATEI, FOLGE DEM VIDEO TUTORIAL FALLS STREAMLIT NOCH NICHT INSTALLIERT
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from pandas import DataFrame
 import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.svm import LinearSVC
 import pickle
 ################
 ################
