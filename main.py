@@ -4,7 +4,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
 from pandas import DataFrame
 import streamlit as st
 from sklearn.model_selection import train_test_split
@@ -33,6 +32,7 @@ st.set_page_config(
     )
 st.title('Heart Health Assessment App')
 
+#UI
 
 körpergewicht = st.sidebar.slider("Geben Sie Ihr Körpergewicht ein", 30, 150, 70)
 körpergrösse = st.sidebar.slider("Geben Sie Ihre Körpergrösse ein", 60, 250, 180)
