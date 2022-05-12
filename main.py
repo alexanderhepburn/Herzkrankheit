@@ -1,30 +1,23 @@
-#DER MOMENTANE STAND DER APP
-#ANLEITUNG: LADE DIE DREI NEUEN DATEIEN HERUNTER, TU SIE IN DEN GLEICHEN ORDNER WIE 
-#DIE APP DATEI, FOLGE DEM VIDEO TUTORIAL FALLS STREAMLIT NOCH NICHT INSTALLIERT
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from pandas import DataFrame
 import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
-from sklearn.svm import LinearSVC
 import pickle
-################
-################
+from Herz import Herz
 
-#Loading of the data
 #@st.cache()
-path    = '' #Dieser Abschnitt muss an euer lokales System angepasst werden
-x_train = pd.read_csv(path + "x_train_heart_data.csv")
-x_test  = pd.read_csv(path + "x_test_heart_data.csv")
-x_train = pd.read_csv(path + "x_train_heart_data.csv")
-Log_Reg = pickle.load(open(path + 'finalized_LogReg_model.sav', 'rb'))
+
+x_train = pd.read_csv("x_train_heart_data.csv")
+x_test  = pd.read_csv("x_test_heart_data.csv")
+x_train = pd.read_csv("x_train_heart_data.csv")
+Log_Reg = pickle.load(open('finalized_LogReg_model.sav', 'rb'))
 ################
 ################
 
-#General Look of the App
+manager = Herz()
+
+#UI
+
 st.set_page_config(
     page_title = 'Heart Health Assessment App',
     page_icon = '❤️',
@@ -32,14 +25,17 @@ st.set_page_config(
     )
 st.title('Heart Health Assessment App')
 
-#UI
-
+st.sidebar.markdown('Bitte beantworten Sie die folgenden Fragen:')
 körpergewicht = st.sidebar.slider("Geben Sie Ihr Körpergewicht ein", 30, 150, 70)
 körpergrösse = st.sidebar.slider("Geben Sie Ihre Körpergrösse ein", 60, 250, 180)
+schlaffZeit = st.sidebar.slider("Wie lange schlaffen sie pro Abend?", 1, 14, 8)
 raucher = st.sidebar.selectbox("Rauchen Sie?", options=["Ja", "Nein"])
 alkohol = st.sidebar.selectbox("Trinken Sie regelmässig?", options=["Ja", "Nein"])
 geschlecht = st.sidebar.selectbox("Geschlecht", options=["Männlich", "Weiblich"])
+physicalHealth = st.sidebar.slider("Wie oft in den vergangen 30 Tagen füllten Sie sich physisch nicht gut?", 0, 30, 5)
+mentalHealth = st.sidebar.slider("Wie oft in den vergangen 30 Tagen füllten Sie sich mental nicht gut?", 0, 30, 5)
 schlaganfall = st.sidebar.selectbox("Schlaganfall", options=["Ja", "Nein"])
+problemeBeimGehen = st.sidebar.selectbox("Haben Sie Probleme beim Gehen?", options=["Ja", "Nein"])
 asthma = st.sidebar.selectbox("Asthma", options=["Ja", "Nein"])
 physicalactivity = st.sidebar.selectbox("Physical Activity", options=["Ja", "Nein"])
 kidneyDisease = st.sidebar.selectbox("Kidney Disease", options=["Ja", "Nein"])
@@ -47,9 +43,7 @@ skinCancer = st.sidebar.selectbox("Skin Cancer", options=["Ja", "Nein"])
 diabetic = st.sidebar.selectbox("Diabetic", options=["Ja", "Nein"])
 genHealth = st.sidebar.selectbox("GenHealth", options=["Poor", "Fair", "Excellent", "Good", "Very Good"])
 ageCategory = st.sidebar.selectbox("Age Category", options=["18-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80+"])
-race = st.sidebar.selectbox("Race", options=["American Indian/Alaskan Native", "Asian", "Black", "Hispanic", "Other", "White"])
-
-st.markdown('Bitte beantworten Sie die angegebene Fragen auf der linken Seite!')
+rasse = st.sidebar.selectbox("Race", options=["American Indian/Alaskan Native", "Asian", "Black", "Hispanic", "Other", "White"])
 
 
 
@@ -83,34 +77,27 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_
 model = LogisticRegression(random_state=1, C=0.004291934260128779, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, l1_ratio=None, max_iter=3000, multi_class='auto', n_jobs=None, penalty='l2',  solver='lbfgs', tol=0.0001, verbose=0, warm_start=False)
 Log_Reg = model.fit(x_train, y_train)
 
-def jaOderNein(input):
-    if input == "Ja":
-        return 1
-    else:
-        return 0
-
 def berechneHeartDisease():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
-        'Smoking': [jaOderNein(raucher)],
-        'AlcoholDrinking': [jaOderNein(alkohol)],
-        "Stroke": [jaOderNein(schlaganfall)],
-        "PhysicalHealth": [0.0],
-        "MentalHealth": [0.0],
-        "Diffwalking": [1],
-        "Sex": [1],
-        "AgeCategory": [3],
-        "Race": [5],
-        "Diabetic": [jaOderNein(diabetic)],
-        "PhysicalActivity": [jaOderNein(physicalactivity)],
-        "GenHealth": [1],
-        "SleepTime": [8.000],
-        "Asthma": [jaOderNein(asthma)],
-        "KidneyDisease": [jaOderNein(kidneyDisease)],
-        "SkinCancer": [jaOderNein(skinCancer)]
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
     }
     inputInfos = pd.DataFrame(data=data)
-    st.write(inputInfos)
     heartdisease = model.predict_proba(inputInfos)[0][1]
     return heartdisease
 
