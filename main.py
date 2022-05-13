@@ -86,4 +86,6 @@ fig, ax  = plt.subplots()
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
 
+
+#row1_col2.pyplot(fig1, use_container_width = True)
 #st.write(berechneHeartDisease())
