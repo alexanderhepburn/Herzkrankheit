@@ -78,9 +78,10 @@ row1_col1, row1_col2 = st.columns([1, 2])
 row1_col1.subheader("Mein persönliches Risiko")
 
 fig, ax  = plt.subplots()
-ax.bar([1], heartdisease, width=1,
-       tick_label=['A'], align='center')
 
+#GRAPH
+
+#row1_col1.pyplot(fig1, use_container_width = True)
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
