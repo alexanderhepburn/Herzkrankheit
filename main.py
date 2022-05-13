@@ -77,17 +77,10 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Mein persönliches Risiko")
 
-def graph1():
-    data = {'C'}
-    Courses = list(data)
+fig, ax  = plt.subplots()
+ax.bar([1], heartdisease, width=1,
+       tick_label=['A'], align='center')
 
-    fig = plt.figure(figsize = (10, 5))
-
-    plt.bar(Courses, heartdisease)
-    plt.xlabel("Programming Environment")
-    plt.ylabel("Number of Students")
-    plt.title("Students enrolled in different courses")
-st.pyplot(fig)
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
