@@ -75,9 +75,10 @@ def berechneHeartDisease():
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
 row1_col1, row1_col2 = st.columns([1, 2])
 
+X = ["Ihr Risiko"]
 row1_col1.subheader("Ihr Herzkrankheits-Risiko")
 fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(0.0, heartdisease, color = "green")
+ax.bar(X, heartdisease, color = "green")
 row1_col1.pyplot(fig1, use_container_width = True)
 
 
