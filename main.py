@@ -137,13 +137,13 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
-#def plot_variable_importance(model, X_train):
-imp=DataFrame({"imp":model.feature_importances_, "names":X_train.columns}).sort_values("imp", ascending=True)
-fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
-ax.barh(imp["names"],imp["imp"], color="#93c47d") 
-ax.set_xlabel('\nBedeutung der Variablen')
-ax.set_ylabel('Features\n') 
-ax.set_title('Bedeutung der Variablen - Abbildung\n') 
-#plt.show() 
+def plot_variable_importance(model, X_train):
+    imp=DataFrame({"imp":model.feature_importances_, "names":X_train.columns}).sort_values("imp", ascending=True)
+    fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
+    ax.barh(imp["names"],imp["imp"], color="#93c47d") 
+    ax.set_xlabel('\nBedeutung der Variablen')
+    ax.set_ylabel('Features\n') 
+    ax.set_title('Bedeutung der Variablen - Abbildung\n') 
+    plt.show() 
 
-row2_col1.pyplot(fig2, use_container_width = True)
+row2_col1.pyplot(fig2, use_container_width = True) #Führt zu Fehler, muss nochmal schauen, woher der kommt
