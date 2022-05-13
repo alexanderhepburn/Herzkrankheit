@@ -75,7 +75,7 @@ def berechneHeartDisease():
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
 row1_col1, row1_col2 = st.columns([1, 2])
 
-
+row1_col1.subheader("Mein persönliches Risiko")
 
 
 
