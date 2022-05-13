@@ -81,13 +81,13 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
-for x in range(0, 1):
-    if heartdisease < 0.3:
-        st.write("Das sieht gut aus! Ihr Risiko, später an einer Herzkrankheit zu leiden, liegt bei unter 30 %")
-    elif heartdisease in range(0.3, 0.6):
-        st.write("Ihr Risiko ist leicht erhöht. Aber keine Sorge, finden Sie weiter unten heraus, wie Sie Ihr Risiko effektiv reduzieren können.")
-    else:
-        st.write("Ihr Risiko liegt leider bei über 60 %. Bitte prüfen Sie die Optionen zur effektiven Senkung Ihres Risikos weiter unten, oder suchen Sie ärztlichen Rat.")
+#for x in range(0, 1):
+   # if heartdisease < 0.3:
+     #   st.write("Das sieht gut aus! Ihr Risiko, später an einer Herzkrankheit zu leiden, liegt bei unter 30 %")
+   # elif heartdisease in range(0.3, 0.6):
+      #  st.write("Ihr Risiko ist leicht erhöht. Aber keine Sorge, finden Sie weiter unten heraus, wie Sie Ihr Risiko effektiv reduzieren können.")
+  #  else:
+     #   st.write("Ihr Risiko liegt leider bei über 60 %. Bitte prüfen Sie die Optionen zur effektiven Senkung Ihres Risikos weiter unten, oder suchen Sie ärztlichen Rat.")
 
 
 #st.write(berechneHeartDisease())
