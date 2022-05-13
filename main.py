@@ -95,7 +95,6 @@ fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
 ax.set_ylabel("Risiko [%]")
 plt.yticks([0, 0.25, 0.5, 1])
-plt.xticks(1)
 row1_col1.pyplot(fig1, use_container_width = True)
 
 
