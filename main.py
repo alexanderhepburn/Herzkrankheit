@@ -76,7 +76,7 @@ def berechneHeartDisease():
 row1_col1, row1_col2 = st.columns([1, 2])
 
 #Header links
-row1_col1.subheader("Mein persönliches Risiko")
+row1_col1.subheader("Ihr Resultat")
 
 #Zuteilung der Farbe je nach Risiko
 def barcolor(berechneHeartDisease):
@@ -100,10 +100,25 @@ ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 row1_col1.pyplot(fig1, use_container_width = True)
 
+#Header rechts
+row1_col2.subheader("Wie ist Ihr Risiko zu interpretieren?")
 
-row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
+#Format des Risikos in % und gerundet:
+HeartRisk = berechneHeartDisease().round()*100
 
+#Definierung der Message je nach Ergebnis:
+def message1(berechneHeartDisease):
+    if berechneHeartDisease() < 0.25:
+        message = 'Das sieht sehr gut aus! Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei unter 25 %'
+    elif 0.25 <= berechneHeartDisease() < 0.5:
+        message = 'Kein Grund zur Sorge, Ihr Risiko liegt bei {}%'.format(HeartRisk)
+    elif 0.5 <= berechneHeartDisease() < 0.75:
+        message = 'Ihr Risiko liegt bei {}%. Bitte informieren Sie sich weiter unten, welche Faktoren Sie reduzieren können, um das Risiko zu senken.'.format(HeartRisk)
+    else:
+        message = 'Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei über 75 %. Bitte informieren Sie sich weiter unten, wie Sie das Risiko senken können, und suchen Sie bei Unwohlsein ärztlichen Rat'
+    return message
 
+#Aufruf der Nachricht
+row1_col2.st.write(message1(berechneHeartDisease), use_container_width = True)
 
-#row1_col2.pyplot(fig1, use_container_width = True)
 #st.write(berechneHeartDisease())
