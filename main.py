@@ -94,7 +94,7 @@ def barcolor(berechneHeartDisease):
 fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
 ax.set_ylabel("Risiko [%]")
-plt.yticks([0, 0.25, 0.5, 1])
+plt.yticks([0, 0.25, 0.5, 0.75, 1])
 plt.xticks([])
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
