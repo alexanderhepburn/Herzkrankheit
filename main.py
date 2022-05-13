@@ -129,7 +129,7 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 2])
 
 #Header links
-row2_col1.subheader("Welche Faktoren außgenommen des Alters wirken sich besonders aus?")
+row2_col1.subheader("Welche 5 Faktoren außgenommen des Alters wirken sich besonders aus?")
 
 #Header rechts
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
