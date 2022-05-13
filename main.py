@@ -77,11 +77,19 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Mein persönliches Risiko")
 
-fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), c = 'Width', colormap = 'RdYlGn')
-#color = barcolor())
+y = berechneHeartDisease()
+my_cmap = plt.get_cmap("RdYlGn")
+rescale = lambda y: (y - np.min(y)) / (np.max(y) - np.min(y))
+
+plt.bar(1, y, color=my_cmap(rescale(y)))
+plt.savefig("temp")
+
+
+#fig1, ax = plt.subplots(figsize = (8, 4))
+#ax.bar(1, berechneHeartDisease(), c = 'Width', colormap = 'RdYlGn')
 #'#93c47d' if berechneHeartDisease() < 0.3 else '#cc4125'
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
+
 ax.set_ylabel("Risiko [%]")
 plt.yticks([0, 0.25, 0.5, 1])
 
