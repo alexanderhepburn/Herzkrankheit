@@ -136,9 +136,9 @@ row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigste
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
-#Variablen-Bedeutung
-def plot_variable_importance(berechneHeartDisease(), Log_Reg):
-    imp=DataFrame({"imp":berechneHeartDisease().feature_importances_, "names":Log_Reg.columns}).sort_values("imp", ascending=True)
+#Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert, Zugang zu model und X_train muss noch erledigt werden
+def plot_variable_importance(model, X_train):
+    imp=DataFrame({"imp":model.feature_importances_, "names":X_train.columns}).sort_values("imp", ascending=True)
     fig, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
     ax.barh(imp["names"],imp["imp"], color="#93c47d") 
     ax.set_xlabel('\nBedeutung der Variablen')
