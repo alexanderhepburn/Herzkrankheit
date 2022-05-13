@@ -87,7 +87,7 @@ def graph1():
     plt.xlabel("Programming Environment")
     plt.ylabel("Number of Students")
     plt.title("Students enrolled in different courses")
-    st.pyplot(fig)
+st.pyplot(fig)
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
