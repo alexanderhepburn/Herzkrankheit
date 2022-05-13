@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 import pickle
 from Herz import Herz
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 #Global Variablen
 
@@ -67,5 +69,15 @@ def berechneHeartDisease():
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     return heartdisease
 
+####Beginn Graph 1: Graphische Darstellung des Risikos###############################
 
-st.write(berechneHeartDisease())
+#Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
+row1_col1, row1_col2 = st.colums([1, 2])
+
+#Titel für Graphen und Nachricht in Zeile 1
+row1_col1.subheader("Ihr Herzkrankheits-Risiko")
+row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
+
+
+
+#st.write(berechneHeartDisease())
