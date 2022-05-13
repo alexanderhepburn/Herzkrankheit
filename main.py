@@ -78,7 +78,7 @@ row1_col1, row1_col2 = st.columns([1, 2])
 row1_col1.subheader("Mein persönliches Risiko")
 
 fig, ax  = plt.subplots(figsize = (8, 4))
-ax.bar(berechneHeartDisease.index.astype(str), berechneHeartDisease, color = 'green')
+ax.bar(berechneHeartDisease().index.astype(str), berechneHeartDisease(), color = 'green')
 ax.set_ylabel("Risiko [%]")
 
 #row1_col1.pyplot(fig1, use_container_width = True)
