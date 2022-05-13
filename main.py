@@ -5,7 +5,6 @@ from sklearn.linear_model import LogisticRegression
 import pickle
 from Herz import Herz
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 #Global Variablen
 
