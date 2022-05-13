@@ -112,9 +112,9 @@ def message1(berechneHeartDisease):
     if berechneHeartDisease() < 0.25:
         message = 'Das sieht sehr gut aus! Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei unter 25 %'
     elif 0.25 <= berechneHeartDisease() < 0.5:
-        message = 'Kein Grund zur Sorge, Ihr Risiko liegt bei {}%'.format(HeartRisk)
+        message = 'Kein Grund zur Sorge, Ihr Risiko liegt bei {}%. Wenn Sie Ihr Risiko weiter reduzieren wollen, empfehlen wir einen Blick auf unsere weiteren Funktionen weiter unten.'.format(HeartRisk)
     elif 0.5 <= berechneHeartDisease() < 0.75:
-        message = 'Ihr Risiko liegt bei {}%. Bitte informieren Sie sich weiter unten, welche Faktoren Sie reduzieren können, um das Risiko zu senken.'.format(HeartRisk)
+        message = 'Ihr Risiko liegt bei {}%. Bitte nutzen Sie unsere unten beigefügten Funktionen, um Ihr Risiko effektiv zu senken.'.format(HeartRisk)
     else:
         message = 'Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei über 75 %. Bitte informieren Sie sich weiter unten, wie Sie das Risiko senken können, und suchen Sie bei Unwohlsein ärztlichen Rat'
     return message
