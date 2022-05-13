@@ -104,7 +104,8 @@ row1_col1.pyplot(fig1, use_container_width = True)
 row1_col2.subheader("Wie ist Ihr Risiko zu interpretieren?")
 
 #Format des Risikos in % und gerundet:
-HeartRisk = round(berechneHeartDisease())*100
+HeartRiskInPerc = berechneHeartDisease()*100
+HeartRisk = round(HeartRiskInPerc)
 
 #Definierung der Message je nach Ergebnis:
 def message1(berechneHeartDisease):
