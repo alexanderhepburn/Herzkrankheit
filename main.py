@@ -77,10 +77,10 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Mein persönliches Risiko")
 
-def barcolor(berechneHealthDisease()):
-    if berechneHealthDisease() < 0.3:
+def barcolor(berechneHealthDisease):
+    if berechneHealthDisease < 0.3:
         color = '#93c47d'
-    elif 0.3 <= berechneHealthDisease() < 0.6:
+    elif 0.3 <= berechneHealthDisease < 0.6:
         color = '#ffd966'
     else:
         color = '#cc4125'
