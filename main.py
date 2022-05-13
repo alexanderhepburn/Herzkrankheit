@@ -70,10 +70,10 @@ def berechneHeartDisease():
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     return heartdisease
 
-####Beginn Funktion 1: Graphische Darstellung des Risikos###############################
+####Beginn Funktion 1: Graphische Darstellung des Risikos und passende Message###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
-row1_col1, row1_col2 = st.columns([1, 2])
+row1_col1, row1_col2 = st.columns([1, 2]) #[1, 2] bezeichnet den Platz, welcher dem Graphen (links) und dem Text (rechts) zukommen soll. So 1/3 Graph, 2/3 Text 
 
 #Header links
 row1_col1.subheader("Ihr Resultat")
@@ -122,4 +122,15 @@ def message1(berechneHeartDisease):
 #Aufruf der Nachricht
 row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
-#st.write(berechneHeartDisease())
+
+#Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
+
+#Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Interpretation
+row2_col1, row2_col2 = st.columns([1, 2])
+
+#Header links
+row2_col1.subheader("Welche Faktoren außgenommen des Alters wirken sich besonders aus?")
+
+#Header rechts
+row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
+# hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
