@@ -71,7 +71,7 @@ def berechneHeartDisease():
 ####Beginn Graph 1: Graphische Darstellung des Risikos###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
-row1_col1, row1_col2 = st.colums([1, 2])
+row1_col1, row1_col2 = st.columns([1, 2])
 
 #Titel für Graphen und Nachricht in Zeile 1
 row1_col1.subheader("Ihr Herzkrankheits-Risiko")
