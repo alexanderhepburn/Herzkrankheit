@@ -87,7 +87,7 @@ def barcolor(colorcode):
     return colorcode
 
 fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), color = colorcode)
+ax.bar(1, berechneHeartDisease(), color = barcolor)
 #'#93c47d' if berechneHeartDisease() < 0.3 and '#ffd966' if 0.3 < berechneHeartDisease() < 0.6 else '#cc4125') #weiß noch nicht, wie ich hier eine farbe in der Mitte hinbekomme
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
 
