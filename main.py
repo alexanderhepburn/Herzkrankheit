@@ -81,7 +81,7 @@ y = berechneHeartDisease()
 my_cmap = plt.get_cmap("RdYlGn")
 rescale = lambda y: (y - np.min(y)) / (np.max(y) - np.min(y))
 
-plt.bar(1, y, color=my_cmap(rescale(y)))
+fig1 = plt.bar(1, y, color=my_cmap(rescale(y)))
 plt.savefig("temp")
 
 
