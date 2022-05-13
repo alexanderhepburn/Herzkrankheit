@@ -78,7 +78,7 @@ row1_col1.subheader("Ihr Herzkrankheits-Risiko")
 
 x = [1]
 y = heartdisease
-colors = ["green" if y < 0.3 else "yellow" for y in range(0.3, 0.6) else "red" for y >0.6]
+colors = ["green" if y < 0.3 "yellow" for y in range(0.3, 0.6) else "red" for y >0.6]
 plt.bar(x, y, c=colors)
 #plt.show()
 
