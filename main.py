@@ -76,18 +76,7 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Ihr Herzkrankheits-Risiko")
 
-x = 1
 
-mask1 = heartdisease < 0.3
-mask2 = 0.3 <= heartdisease < 0.6
-mask3 = heartdisease >= 0.6
-
-plt.bar(x[mask1], heartdisease[mask1], color = 'green')
-plt.bar(x[mask2], heartdisease[mask2], color = 'yellow')
-plt.bar(x[mask3], heartdisease[mask3], color = 'red')
-
-#ax.set_ylabel("Risiko [%]")
-row1_col1.pyplot(fig1, use_container_width = True)
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
