@@ -79,14 +79,14 @@ row1_col1.subheader("Mein persönliches Risiko")
 
 def barcolor(berechneHeartDisease):
     if berechneHeartDisease() < 0.3:
-        color = '#93c47d'
+        colorcode = '#93c47d'
     elif 0.3 <= berechneHeartDisease() < 0.6:
-        color = '#ffd966'
+        colorcode = '#ffd966'
     else:
-        color = '#cc4125'
+        colorcode = '#cc4125'
 
 fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
+ax.bar(1, berechneHeartDisease(), color = colorcode)
 #'#93c47d' if berechneHeartDisease() < 0.3 and '#ffd966' if 0.3 < berechneHeartDisease() < 0.6 else '#cc4125') #weiß noch nicht, wie ich hier eine farbe in der Mitte hinbekomme
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
 
