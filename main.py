@@ -126,7 +126,7 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Interpretation
-row2_col1, row2_col2 = st.columns([1, 2])
+row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
 row2_col1.subheader("Welche 5 Faktoren außgenommen des Alters wirken sich besonders aus?")
