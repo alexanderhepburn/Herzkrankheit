@@ -119,6 +119,6 @@ def message1(berechneHeartDisease):
     return message
 
 #Aufruf der Nachricht
-row1_col2.st.write(message1(berechneHeartDisease), use_container_width = True)
+row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
 #st.write(berechneHeartDisease())
