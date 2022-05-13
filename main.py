@@ -77,17 +77,9 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Mein persönliches Risiko")
 
-def barcolor():
-    for x in berechneHeartDisease():
-        if x < 0.3:
-            color = '#93c47d'
-        elif 0.3 < x < 0.6:
-            color = '#ffd966'
-        else:
-            color = '#cc4125'
-
 fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), color = barcolor())
+ax.bar(1, berechneHeartDisease(), colormap = 'RdYlGn')
+#color = barcolor())
 #'#93c47d' if berechneHeartDisease() < 0.3 else '#cc4125'
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
 ax.set_ylabel("Risiko [%]")
