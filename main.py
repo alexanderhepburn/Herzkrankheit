@@ -76,7 +76,11 @@ row1_col1, row1_col2 = st.columns([1, 2])
 
 row1_col1.subheader("Ihr Herzkrankheits-Risiko")
 
-
+x = [1]
+y = heartdisease
+colors = ["green" if y < 0.3 elif "yellow" for y in range(0.3, 0.6) else "red" for y >0.6]
+plt.bar(x, y, c=colors)
+#plt.show()
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
 
