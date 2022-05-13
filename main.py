@@ -79,7 +79,7 @@ row1_col1.subheader("Mein persönliches Risiko")
 
 
 fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), color = '#93c47d' if berechneHeartDisease() < 0.3 or '#ffd966' for 0.3 < berechneHeartDisease() < 0.6 else '#cc4125') #weiß noch nicht, wie ich hier eine farbe in der Mitte hinbekomme
+ax.bar(1, berechneHeartDisease(), color = '#93c47d' if berechneHeartDisease() < 0.3, '#ffd966' if 0.3 < berechneHeartDisease() < 0.6 else '#cc4125') #weiß noch nicht, wie ich hier eine farbe in der Mitte hinbekomme
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
 
 ax.set_ylabel("Risiko [%]")
