@@ -94,7 +94,7 @@ plt.savefig("temp")
 plt.yticks([0, 0.25, 0.5, 1])
 
 
-#row1_col1.pyplot(fig1, use_container_width = True)
+row1_col1.pyplot(fig1, use_container_width = True)
 
 
 row1_col2.subheader("Wie ist mein Risiko zu interpretieren?")
