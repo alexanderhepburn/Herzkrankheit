@@ -90,7 +90,7 @@ plt.savefig("temp")
 #'#93c47d' if berechneHeartDisease() < 0.3 else '#cc4125'
 #'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
 
-ax.set_ylabel("Risiko [%]")
+#ax.set_ylabel("Risiko [%]")
 plt.yticks([0, 0.25, 0.5, 1])
 
 
