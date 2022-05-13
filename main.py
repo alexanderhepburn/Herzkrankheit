@@ -70,31 +70,31 @@ def berechneHeartDisease():
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     return heartdisease
 
-####Beginn Graph 1: Graphische Darstellung des Risikos###############################
+####Beginn Funktion 1: Graphische Darstellung des Risikos###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
 row1_col1, row1_col2 = st.columns([1, 2])
 
+#Header links
 row1_col1.subheader("Mein persönliches Risiko")
 
+#Zuteilung der Farbe je nach Risiko
 def barcolor(berechneHeartDisease):
-    if berechneHeartDisease() < 0.3:
+    if berechneHeartDisease() < 0.25:
         colorcode = '#93c47d'
-    elif 0.3 <= berechneHeartDisease() < 0.6:
+    elif 0.25 <= berechneHeartDisease() < 0.5:
         colorcode = '#ffd966'
+    elif 0.5 <= berechneHeartDisease() < 0.75:
+        colorcode = '#f6b26b'
     else:
         colorcode = '#cc4125'
     return colorcode
 
+#Plot
 fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
-#'#93c47d' if berechneHeartDisease() < 0.3 and '#ffd966' if 0.3 < berechneHeartDisease() < 0.6 else '#cc4125') #weiß noch nicht, wie ich hier eine farbe in der Mitte hinbekomme
-#'#ffd966' if berechneHeartDisease() in range(0.3, 0.6) 
-
 ax.set_ylabel("Risiko [%]")
 plt.yticks([0, 0.25, 0.5, 1])
-
-
 row1_col1.pyplot(fig1, use_container_width = True)
 
 
