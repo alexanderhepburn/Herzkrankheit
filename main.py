@@ -7,7 +7,7 @@ from Herz import Herz
 import matplotlib.pyplot as plt
 import numpy as np
 from pandas import DataFrame
-conda install seaborn
+pip install git+https://github.com/mwaskom/seaborn.git
 
 #Global Variablen
 
