@@ -146,4 +146,4 @@ def plot_variable_importance(model, inputInfos):
     ax.set_title('Bedeutung der Variablen - Abbildung\n') 
     plt.show() 
 
-row2_col1.pyplot(plot_variable_importance(inputInfos, inputInfos), use_container_width = True)
+row2_col1.pyplot(plot_variable_importance(forest, inputInfos), use_container_width = True)
