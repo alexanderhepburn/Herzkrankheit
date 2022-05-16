@@ -135,7 +135,7 @@ row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigste
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
-Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
+#Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
 importance = model.coef_[0]
 # summarize feature importance
 for i,v in enumerate(importance):
