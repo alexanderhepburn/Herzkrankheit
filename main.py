@@ -137,7 +137,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
-importance = inputInfos.coef_
+importance = inputInfos.feature_importances_
 # summarize feature importance
 for i,v in enumerate(importance):
 	print('Feature: %0d, Score: %.5f' % (i,v))
