@@ -137,7 +137,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
 
-def plot_variable_importance(inputInfos, Log_Reg):
+def plot_variable_importance(model, Log_Reg):
     imp=DataFrame({"imp":model.feature_importances_, "names":Log_Reg.columns}).sort_values("imp", ascending=True)
     fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
     ax.barh(imp["names"],imp["imp"], color="#93c47d") 
@@ -146,4 +146,4 @@ def plot_variable_importance(inputInfos, Log_Reg):
     ax.set_title('Bedeutung der Variablen - Abbildung\n') 
     plt.show() 
 
-row2_col1.pyplot(plot_variable_importance(inputInfos, Log_Reg), use_container_width = True)
+row2_col1.pyplot(plot_variable_importance(model, Log_Reg), use_container_width = True)
