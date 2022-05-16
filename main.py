@@ -138,7 +138,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
 
 def plot_variable_importance(model, inputInfos):
-    imp=DataFrame({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
+    imp=df({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
     fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
     ax.barh(imp["names"],imp["imp"], color="#93c47d") 
     ax.set_xlabel('\nBedeutung der Variablen')
