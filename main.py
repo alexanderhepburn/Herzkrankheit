@@ -142,7 +142,7 @@ for i,v in enumerate(importance):
 	print('Feature: %0d, Score: %.5f' % (i,v))
 
 # plot feature importance
-row2_col1.pyplot.barh([x for x in range(len(importance))], importance)
+row2_col1.pyplot([x for x in range(len(importance))], importance)
 
 
 #pyplot.bar([x for x in range(len(importance))], importance)
