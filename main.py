@@ -137,25 +137,13 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
-model = LogisticRegression()
-model.fit(X_train, y_train)
-importance = model.feature_importances_
-# summarize feature importance
-for i,v in enumerate(importance):
-	print('Feature: %0d, Score: %.5f' % (i,v))
-# plot feature importance
-row2_col1.pyplot.bar([x for x in range(len(importance))], importance)
-
-
-
-
-#def plot_variable_importance(model, inputInfos):
-    #imp=DataFrame({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
-    #fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
-    #ax.barh(imp["names"],imp["imp"], color="#93c47d") 
-    #ax.set_xlabel('\nBedeutung der Variablen')
-    #ax.set_ylabel('Features\n') 
-    #ax.set_title('Bedeutung der Variablen - Abbildung\n') 
-    #plt.show()
+def plot_variable_importance(model, inputInfos):
+    imp=DataFrame({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
+    fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
+    ax.barh(imp["names"],imp["imp"], color="#93c47d") 
+    ax.set_xlabel('\nBedeutung der Variablen')
+    ax.set_ylabel('Features\n') 
+    ax.set_title('Bedeutung der Variablen - Abbildung\n') 
+    plt.show()
 
 #row2_col1.pyplot(plot_variable_importance(model, inputInfos), use_container_width = True)
