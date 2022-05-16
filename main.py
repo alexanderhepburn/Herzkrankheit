@@ -137,7 +137,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
 
-def plot_variable_importance(model, inputInfos):
+def plot_variable_importance(berechneHeartDisease(), inputInfos):
     imp=DataFrame({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
     fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
     ax.barh(imp["names"],imp["imp"], color="#93c47d") 
@@ -146,4 +146,4 @@ def plot_variable_importance(model, inputInfos):
     ax.set_title('Bedeutung der Variablen - Abbildung\n') 
     plt.show() 
 
-row2_col1.pyplot(plot_variable_importance(), use_container_width = True)
+row2_col1.pyplot(plot_variable_importance(berechneHeartDisease(), inputInfos), use_container_width = True)
