@@ -136,24 +136,14 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
-importance = berechneHeartDisease().coef_[0]
-# summarize feature importance
-for i,v in enumerate(berechneHeartDisease()):
-	print('Feature: %0d, Score: %.5f' % (i,v))
 
-# plot feature importance
-row2_col1.pyplot.bar([x for x in range(len(berechneHeartDisease()))], berechneHeartDisease())
+def plot_variable_importance(model, inputInfos):
+    imp=DataFrame({"imp":model.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
+    fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
+    ax.barh(imp["names"],imp["imp"], color="#93c47d") 
+    ax.set_xlabel('\nBedeutung der Variablen')
+    ax.set_ylabel('Features\n') 
+    ax.set_title('Bedeutung der Variablen - Abbildung\n') 
+    plt.show() 
 
-
-#pyplot.bar([x for x in range(len(importance))], importance)
-#pyplot.show()
-#def plot_variable_importance(model, X_train):
-   # imp=DataFrame({"imp":model.feature_importances_, "names":X_train.columns}).sort_values("imp", ascending=True)
-    #fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
-    #ax.barh(imp["names"],imp["imp"], color="#93c47d") 
-    #ax.set_xlabel('\nBedeutung der Variablen')
-    #ax.set_ylabel('Features\n') 
-    #ax.set_title('Bedeutung der Variablen - Abbildung\n') 
-    #plt.show() 
-
-#row2_col1.pyplot(plot_variable_importance(model, X_train), use_container_width = True).head(5) #Führt zu Fehler, muss nochmal schauen, woher der kommt
+row2_col1.pyplot(plot_variable_importance(model, inputInfos), use_container_width = True).head(5) #Führt zu Fehler, muss nochmal schauen, woher der kommt
