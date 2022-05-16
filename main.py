@@ -146,4 +146,4 @@ def plot_variable_importance(model, inputInfos):
     ax.set_title('Bedeutung der Variablen - Abbildung\n') 
     plt.show() 
 
-row2_col1.pyplot(plot_variable_importance(model, inputInfos), use_container_width = True) #Führt zu Fehler, muss nochmal schauen, woher der kommt
+row3_col1.pyplot(plot_variable_importance(model, inputInfos), use_container_width = True)
