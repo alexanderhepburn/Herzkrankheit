@@ -137,13 +137,13 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
-def plot_variable_importance(heartdisease, inputInfos):
-    imp=DataFrame({"imp":heartdisease.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
-    fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
-    ax.barh(imp["names"],imp["imp"], color="#93c47d") 
-    ax.set_xlabel('\nBedeutung der Variablen')
-    ax.set_ylabel('Features\n') 
-    ax.set_title('Bedeutung der Variablen - Abbildung\n') 
-    plt.show()
+#def plot_variable_importance(model, inputInfos):
+    #imp=DataFrame({"imp":heartdisease.feature_importances_, "names":inputInfos.columns}).sort_values("imp", ascending=True)
+    #fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
+    #ax.barh(imp["names"],imp["imp"], color="#93c47d") 
+    #ax.set_xlabel('\nBedeutung der Variablen')
+    #ax.set_ylabel('Features\n') 
+    #ax.set_title('Bedeutung der Variablen - Abbildung\n') 
+    #plt.show()
 
-row2_col1.pyplot.barh(plot_variable_importance(model, inputInfos), use_container_width = True)
+#row2_col1.pyplot.barh(plot_variable_importance(model, inputInfos), use_container_width = True)
