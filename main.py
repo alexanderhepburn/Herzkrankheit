@@ -137,6 +137,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
+model = LogisticRegression()
 model.fit(X, y)
 importance = model.feature_importances_
 # summarize feature importance
