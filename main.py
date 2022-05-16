@@ -136,13 +136,13 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert
-importance = Log_Reg.coef_[0]
+importance = heartdisease.coef_[0]
 # summarize feature importance
-for i,v in enumerate(importance):
+for i,v in enumerate(heartdisease):
 	print('Feature: %0d, Score: %.5f' % (i,v))
 
 # plot feature importance
-row2_col1.pyplot.bar([x for x in range(len(importance))], importance)
+row2_col1.pyplot.bar([x for x in range(len(heartdisease))], heartdisease)
 
 
 #pyplot.bar([x for x in range(len(importance))], importance)
