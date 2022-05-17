@@ -148,7 +148,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
     #ax.set_title('Bedeutung der Variablen - Abbildung\n') 
     #plt.show()
 
-#row2_col1.pyplot.barh(plot_variable_importance(model, X_train), use_container_width = True)
+#row2_col1.pyplot.barh(plot_variable_importance(model, X_train), use_container_width = True)   #Hier bitte schauen, was schief läuft, ich habe keine Ahnung
 
 #Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
 #Erstellen von 2 Spalten
@@ -167,6 +167,8 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 
 #Header links
 row4_col1.subheader("Hier geht's zum Abnehmen")
+button1 = st.button("Jetzt abnehmen")
+
 
 #Header mitte
 row4_col2.subheader("Aktiv werden gegen Rauchen")
