@@ -172,7 +172,9 @@ button1 = st.button("Jetzt abnehmen")
 
 #Header mitte
 row4_col2.subheader("Aktiv werden gegen Rauchen")
+button2 = st.button("Jetzt mit Rauchen aufhören")
 
 #Header mitte
 row4_col3.subheader("Jetzt Schlaf verbessern")
+button3 = st.button("Jetzt Schlaf verbessern")
 
