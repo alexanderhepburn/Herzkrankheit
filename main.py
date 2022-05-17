@@ -254,7 +254,7 @@ def berechneRisikoVonSchlaf():
 #            biggest_risk_factorsss = x
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 #
-row2_col1.subheader(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
+row2_col1.subheader(berechneRisikoVonSchlaf().values() #Test obd dies funktioniert hat
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
 #def plot_variable_importance(model, X_train):
