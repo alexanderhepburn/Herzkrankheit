@@ -181,7 +181,7 @@ with row4_col2:
     button2 = st.button("Rauchen beenden")
 url2 = ""
 if button2:
-    webbrowser.open_new_tab(url2)
+    webbrowser.open_new_tab(url2, unsafe_allow_html=True)
 
 
 #Header mitte
