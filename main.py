@@ -171,7 +171,7 @@ row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button("Jetzt abnehmen")
 url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
-if st.button1('Jetzt abnehmen'):
+if st.button('Jetzt abnehmen'):
     webbrowser.open_new_tab(url1)
 
 
@@ -180,7 +180,7 @@ row4_col2.subheader("Aktiv werden gegen Rauchen")
 with row4_col2:
     button2 = st.button("Rauchen beenden")
 url2 = ""
-if st.button2('Rauchen beenden'):
+if st.button('Rauchen beenden'):
     webbrowser.open_new_tab(url2)
 
 
@@ -189,7 +189,7 @@ row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Jetzt besser schlafen")
 url3 = ""
-if st.button3('Jetzt besser schlafen'):
+if st.button('Jetzt besser schlafen'):
     webbrowser.open_new_tab(url3)
     
     
