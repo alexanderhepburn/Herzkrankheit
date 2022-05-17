@@ -249,7 +249,7 @@ def berechneRisikoVonSchlaf():
 def biggest_risk_factor():
     biggest_risk_factorsss = berechneRisikoVonBMI()
     for x in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
-        if x.values() > biggest_risk_factorsss:
+        if x.values() > biggest_risk_factorsss.values():
             biggest_risk_factorsss = x
     return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
