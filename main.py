@@ -246,14 +246,14 @@ def berechneRisikoVonSchlaf():
     Schlaf_Risiko = user_Risiko-heartdisease
     return {'Schlaf_Risiko':Schlaf_Risiko}
 
-def biggest_risk_factor():
-    biggest_risk_factorsss = berechneRisikoVonBMI()
-    for x in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
-        if x.values() > biggest_risk_factorsss.values():
-            biggest_risk_factorsss = x
-    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
-
-row2_col1.subheader(biggest_risk_factor()) #Test obd dies funktioniert hat
+#def biggest_risk_factor():
+#    biggest_risk_factorsss = berechneRisikoVonBMI()
+#    for x in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
+#        if x.values() > biggest_risk_factorsss.values():
+#            biggest_risk_factorsss = x
+#    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
+#
+row2_col1.subheader(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
 #def plot_variable_importance(model, X_train):
