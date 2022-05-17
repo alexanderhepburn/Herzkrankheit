@@ -167,14 +167,14 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 
 #Header links
 row4_col1.subheader("Hier geht's zum Abnehmen")
-button1 = st.button("Jetzt abnehmen")
+button1 = row4_col1.st.button("Jetzt abnehmen")
 
 
 #Header mitte
 row4_col2.subheader("Aktiv werden gegen Rauchen")
-button2 = st.button("Jetzt mit Rauchen aufhören")
+button2 = row4_col2.st.button("Jetzt mit Rauchen aufhören")
 
 #Header mitte
 row4_col3.subheader("Jetzt Schlaf verbessern")
-button3 = st.button("Jetzt Schlaf verbessern")
+button3 = row4_col3.st.button("Jetzt Schlaf verbessern")
 
