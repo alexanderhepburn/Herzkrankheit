@@ -132,13 +132,128 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
+#row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
 
 #Header rechts
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
+#Ich versuche mal etwas unelegantes hier
+#NOTE: Wir haben nur 4 Effekte, welche effektiv einfach beeinflusst werden können, deswegen potentiell nur die top 1-2 Effekte darstellen
+#bzw, wenn das GesamtRisiko unter 25% ist, dann vielleicht sagen, dass das Risiko nicht weiter verringert werden muss?
+#Der Output von dieser Monstrosität ist ganz unten in biggest_risk_factor(). 
+user_Risiko = berechneHeartDisease()
 
+def berechneRisikoVonBMI():
+    data = {
+        "BMI": 20,
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    BMI_Risiko = user_Risiko-heartdisease
+    return {'BMI_Risiko':BMI_Risiko}
+
+def berechneRisikoVonAlkohol():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': 'Nein',
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Smoking_Risiko = user_Risiko-heartdisease
+    return {'Smoking_Risiko':Smoking_Risiko}
+
+
+def berechneRisikoVonSport():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": 'Ja',
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Sport_Risiko = user_Risiko-heartdisease
+    return {'Sport_Risiko':Sport_Risiko}
+
+
+def berechneRisikoVonSchlaf():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": 9,
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Schlaf_Risiko = user_Risiko-heartdisease
+    return {'Schlaf_Risiko':Schlaf_Risiko}
+
+def biggest_risk_factor():
+    biggest_risk_factorsss = berechneRisikoVonBMI()
+    for x.values() in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
+        if x > biggest_risk_factorsss:
+            biggest_risk_factorsss = x
+    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
+
+row2_col1.subheader(biggest_risk_factor()) #Test obd dies funktioniert hat
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
 #def plot_variable_importance(model, X_train):
