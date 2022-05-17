@@ -169,7 +169,7 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 #Header links
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
-    button1 = st.button('Jetzt abnehmen')
+    button1 = st.button('Verschiedene Quellen')
 #url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/" #Das für den Fall, dass der Button eventuell reicht
 if button1:
     #webbrowser.open_new_tab(url1) #Lasse ich mal da just in case, dass das jemand zum laufen bekommt...In den Foren wird zumindest Ende 2021 noch gesagt, dass es hierzu noch keine Ideallösung gibt.
@@ -179,18 +179,18 @@ if button1:
 #Header mitte
 row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
-    button2 = st.button("Rauchen beenden")
+    button2 = st.button("Verschiedene Quellen")
 
 if button2:
-    st.write('[]()')
+    st.write('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
 
 
 #Header mitte
 row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
-    button3 = st.button("Jetzt besser schlafen")
+    button3 = st.button("Verschiedene Quellen")
 
 if button3:
-    st.write('[]()')
+    st.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
     
     
