@@ -136,10 +136,6 @@ row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigste
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
-Imp = berechneHeartDisease().importance_getter
-row2_col1.write(Imp, use_container_width = True)
-
-
 
 #Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
 
@@ -153,3 +149,28 @@ row2_col1.write(Imp, use_container_width = True)
     #plt.show()
 
 #row2_col1.pyplot.barh(plot_variable_importance(model, X_train), use_container_width = True)
+
+#Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
+#Erstellen von 2 Spalten
+row3_col1, row3_col2 = st.columns([1, 1])
+
+#Header links
+row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
+
+#Header rechts
+row3_col2.subheader("action title?")
+# weiß noch nicht, was man hier machen kann
+
+#Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
+#Erstellen von 3 Spalten
+row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
+
+#Header links
+row4_col1.subheader("Hier geht's zum Abnehmen")
+
+#Header mitte
+row4_col2.subheader("Aktiv werden gegen Rauchen")
+
+#Header mitte
+row4_col3.subheader("Jetzt Schlaf verbessern")
+
