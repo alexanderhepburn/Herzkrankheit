@@ -166,7 +166,7 @@ row3_col2.subheader("action title?")
 #Erstellen von 3 Spalten
 row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
 
-#Header links
+#Spalte links
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button('Optionen Abnehmen')
@@ -176,20 +176,18 @@ if button1:
     row4_col1.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)')
 
 
-#Header mitte
+#Spalte mitte
 row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Optionen Rauchen")
-
 if button2:
     row4_col2.write('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
 
 
-#Header mitte
+#Spalte rechts
 row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Optionen besser schlafen")
-
 if button3:
     row4_col3.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
     
