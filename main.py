@@ -9,7 +9,6 @@ import numpy as np
 from pandas import DataFrame
 from sklearn.feature_selection import RFE
 import webbrowser
-from link_button import link_button
 
 #Global Variablen
 
@@ -170,10 +169,10 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 #Header links
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
-    button1 = st.button('Jetzt abnehmen', "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/")
-#url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
-#if button1:
- #   webbrowser.open_new_tab(url1)
+    button1 = st.button('Jetzt abnehmen')
+url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
+if button1:
+    webbrowser.open_new_tab(url1)
 
 
 #Header mitte
