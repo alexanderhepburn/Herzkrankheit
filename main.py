@@ -170,9 +170,10 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button('Jetzt abnehmen')
-url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
+#url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
 if button1:
-    webbrowser.open_new_tab(url1)
+    #webbrowser.open_new_tab(url1)
+    st.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)')
 
 
 #Header mitte
