@@ -72,6 +72,7 @@ def berechneHeartDisease():
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     return heartdisease
 
+#############################################################################################################
 ####Beginn Funktion 1: Graphische Darstellung des Risikos und passende Message###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
@@ -95,7 +96,7 @@ def barcolor(berechneHeartDisease):
 #Plot
 fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
-ax.set_ylabel("Risiko [%]")
+ax.set_ylabel("Risiko") #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
 plt.yticks([0, 0.25, 0.5, 0.75, 1])
 plt.xticks([])
 ax.spines['top'].set_visible(False)
@@ -124,7 +125,7 @@ def message1(berechneHeartDisease):
 #Aufruf der Nachricht
 row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
-
+#############################################################################################################
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Interpretation
@@ -151,6 +152,7 @@ row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
 #row2_col1.pyplot.barh(plot_variable_importance(model, X_train), use_container_width = True)   #Hier bitte schauen, was schief läuft, ich habe keine Ahnung
 
+##############################################################################################
 #Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
 #Erstellen von 2 Spalten
 row3_col1, row3_col2 = st.columns([1, 1])
@@ -162,6 +164,7 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 row3_col2.subheader("action title?")
 # weiß noch nicht, was man hier machen kann
 
+##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
 #Erstellen von 3 Spalten
 row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
@@ -191,4 +194,7 @@ with row4_col3:
 if button3:
     row4_col3.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
     
-    
+##########################################################################################
+#Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
+
+
