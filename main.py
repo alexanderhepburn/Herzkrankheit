@@ -246,6 +246,7 @@ def berechneRisikoVonSchlaf():
     Schlaf_Risiko = user_Risiko-heartdisease
     return {'Schlaf_Risiko':Schlaf_Risiko}
 
+#Diese Funktion funktioniert noch nicht ganz. Eine Idee?
 #def biggest_risk_factor():
 #    biggest_risk_factorsss = berechneRisikoVonBMI()
 #    for x in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
