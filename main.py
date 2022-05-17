@@ -172,9 +172,11 @@ row4_col1.write(button1)
 
 #Header mitte
 row4_col2.subheader("Aktiv werden gegen Rauchen")
-button2 = row4_col2.st.button("Jetzt mit Rauchen aufhören")
+button2 = st.button("Jetzt mit Rauchen aufhören")
+row4_col2.write(button2)
 
 #Header mitte
 row4_col3.subheader("Jetzt Schlaf verbessern")
-button3 = row4_col3.st.button("Jetzt Schlaf verbessern")
+button3 = st.button("Jetzt Schlaf verbessern")
+row4_col3.write(button3)
 
