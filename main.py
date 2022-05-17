@@ -173,7 +173,7 @@ with row4_col1:
 #url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/" #Das für den Fall, dass der Button eventuell reicht
 if button1:
     #webbrowser.open_new_tab(url1) #Lasse ich mal da just in case, dass das jemand zum laufen bekommt...In den Foren wird zumindest Ende 2021 noch gesagt, dass es hierzu noch keine Ideallösung gibt.
-    st.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)')
+    row4_col1.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)')
 
 
 #Header mitte
@@ -182,7 +182,7 @@ with row4_col2:
     button2 = st.button("Optionen Rauchen")
 
 if button2:
-    st.write('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
+    row4_col2.write('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
 
 
 #Header mitte
@@ -191,6 +191,6 @@ with row4_col3:
     button3 = st.button("Optionen besser schlafen")
 
 if button3:
-    st.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
+    row4_col3.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
     
     
