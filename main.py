@@ -170,9 +170,9 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button('Jetzt abnehmen')
-#url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
+#url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/" #Das für den Fall, dass der Button eventuell reicht
 if button1:
-    #webbrowser.open_new_tab(url1)
+    #webbrowser.open_new_tab(url1) #Lasse ich mal da just in case, dass das jemand zum laufen bekommt...In den Foren wird zumindest Ende 2021 noch gesagt, dass es hierzu noch keine Ideallösung gibt.
     st.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)')
 
 
@@ -180,17 +180,17 @@ if button1:
 row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Rauchen beenden")
-url2 = ""
+
 if button2:
-    webbrowser.open_new_tab(url2)
+    st.write('[]()')
 
 
 #Header mitte
 row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Jetzt besser schlafen")
-url3 = ""
+
 if button3:
-    webbrowser.open_new_tab(url3)
+    st.write('[]()')
     
     
