@@ -172,7 +172,7 @@ with row4_col1:
     button1 = st.button("Jetzt abnehmen")
 url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/"
 if button1:
-    webbrowser.open_new_tab(url1), unsafe_allow_html=True
+    webbrowser.open_new_tab(url1)
 
 
 #Header mitte
