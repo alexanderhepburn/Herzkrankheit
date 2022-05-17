@@ -176,7 +176,7 @@ if button1:
 
 
 #Header mitte
-row4_col2.subheader("Aktiv werden gegen Rauchen")
+row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Rauchen beenden")
 url2 = ""
