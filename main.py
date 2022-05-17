@@ -42,9 +42,9 @@ physicalactivity = st.sidebar.selectbox("Haben Sie in den letzten 30 Tagen physi
 kidneyDisease = st.sidebar.selectbox("Hatten Sie jemals Nierenkrankheiten (exkl. Nierensteine/Niereninfektionen", options=["Ja", "Nein"])
 skinCancer = st.sidebar.selectbox("Hatten Sie jemals Hautkrebs", options=["Ja", "Nein"])
 diabetic = st.sidebar.selectbox("Haben Sie Diabetis", options=["Ja", "Nein"])
-genHealth = st.sidebar.selectbox("Wie würden Sie ihre Gesundheit beschreiben", options=["Poor", "Fair", "Excellent", "Good", "Very Good"])
+genHealth = st.sidebar.selectbox("Wie würden Sie ihre Gesundheit beschreiben", options=["Poor", "Fair", "Good", "Very Good", "Excellent"])
 ageCategory = st.sidebar.selectbox("Wie alt sind Sie", options=["18-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80+"])
-rasse = st.sidebar.selectbox("Was ist ihre ethnische Zugehörigkeit", options=["American Indian/Alaskan Native", "Asian", "Black", "Hispanic", "Other", "White"])
+rasse = st.sidebar.selectbox("Was ist ihre ethnische Zugehörigkeit", options=["White", "American Indian/Alaskan Native", "Asian", "Black", "Hispanic", "Other"])
 
 
 #Logistische Regression
