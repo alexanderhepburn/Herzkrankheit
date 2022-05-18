@@ -254,7 +254,7 @@ def berechneRisikoVonSchlaf():
 #            biggest_risk_factorsss = x
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
-list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf()]
+list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 #list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 row2_col2.subheader(list_of_all_risk_factors)
 
