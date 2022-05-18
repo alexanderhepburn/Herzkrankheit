@@ -255,7 +255,8 @@ def berechneRisikoVonSchlaf():
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
-
+def make_a_list_of_the_risk_results():
+    return [berechneRisikoVonBMI().values(), berechneRisikoVonSport().values(), berechneRisikoVonAlkohol().values(), berechneRisikoVonSchlaf().values()]
 
 def all_risks():
     for i in berechneRisikoVonBMI(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonSchlaf():
