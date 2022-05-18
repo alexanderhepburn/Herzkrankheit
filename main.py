@@ -257,11 +257,6 @@ def berechneRisikoVonSchlaf():
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 
 
-A = berechneRisikoVonBMI()
-B = berechneRisikoVonAlkohol()
-C = berechneRisikoVonSport()
-D = berechneRisikoVonSchlaf()
-
 #brfs = (A, B, C, D)
 #y_achse = np.arange(len(brfs))
 
