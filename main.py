@@ -132,7 +132,7 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-#row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
+row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
 
 #Header rechts
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
@@ -254,19 +254,9 @@ def berechneRisikoVonSchlaf():
 #            biggest_risk_factorsss = x
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 #
-row2_col1.subheader(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
-#Variablen-Bedeutung -> Hier erstmal vom Kurs rauskopiert (4 - Trees, Forests, Ensembles)
+row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 
-#def plot_variable_importance(model, X_train):
-    #imp=DataFrame({"imp":model.feature_importances_, "names":X_train.columns}).sort_values("imp", ascending=True)
-    #fig2, ax = plt.subplots(figsize=(imp.shape[0]/6,imp.shape[0]/5), dpi=300)
-    #ax.barh(imp["names"],imp["imp"], color="#93c47d") 
-    #ax.set_xlabel('\nBedeutung der Variablen')
-    #ax.set_ylabel('Features\n') 
-    #ax.set_title('Bedeutung der Variablen - Abbildung\n') 
-    #plt.show()
 
-#row2_col1.pyplot.barh(plot_variable_importance(model, X_train), use_container_width = True)   #Hier bitte schauen, was schief läuft, ich habe keine Ahnung
 
 ##############################################################################################
 #Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
