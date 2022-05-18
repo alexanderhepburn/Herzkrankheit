@@ -254,7 +254,7 @@ def berechneRisikoVonSchlaf():
 #            biggest_risk_factorsss = x
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
-#row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
+row2_col1.write(berechneRisikoVonSchlaf()['BMI_Risiko']) #Test obd dies funktioniert hat
 
 D = {1: berechneRisikoVonBMI(), 2: berechneRisikoVonSchlaf(), 3: berechneRisikoVonSport(), 4: berechneRisikoVonAlkohol()}
 list(D.values())
