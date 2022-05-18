@@ -135,13 +135,9 @@ row2_col1, row2_col2 = st.columns([1, 1])
 row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
 
 #Header rechts
-#row2_col2.subheader("Welche konkreten Maßnahmen können helfen?") #das ist temporär Kommentiert für tests AM SCHLUSS # ENTFERNEN
-# hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
+row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
 
-#Ich versuche mal etwas unelegantes hier
-#NOTE: Wir haben nur 4 Effekte, welche effektiv einfach beeinflusst werden können, deswegen potentiell nur die top 1-2 Effekte darstellen
-#bzw, wenn das GesamtRisiko unter 25% ist, dann vielleicht sagen, dass das Risiko nicht weiter verringert werden muss?
-#Der Output von dieser Monstrosität ist ganz unten in biggest_risk_factor(). 
+#Die Funktionen mit welchen das Risiko von einzelnen Faktoren berechnet werden können
 user_Risiko = berechneHeartDisease()
 
 def berechneRisikoVonBMI():
@@ -167,13 +163,13 @@ def berechneRisikoVonBMI():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     BMI_Risiko = user_Risiko-heartdisease
-    return {'BMI_Risiko':BMI_Risiko}
+    return BMI_Risiko #{'BMI_Risiko':BMI_Risiko}
 
 def berechneRisikoVonAlkohol():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
         'Smoking': [manager.jaOderNein(raucher)],
-        'AlcoholDrinking': 0,
+        'AlcoholDrinking': 0, # 0 = 'Nein'
         "Stroke": [manager.jaOderNein(schlaganfall)],
         "PhysicalHealth": [physicalHealth],
         "MentalHealth": [mentalHealth],
@@ -192,7 +188,7 @@ def berechneRisikoVonAlkohol():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Smoking_Risiko = user_Risiko-heartdisease
-    return {'Smoking_Risiko':Smoking_Risiko}
+    return Smoking_Risiko #{'Smoking_Risiko':Smoking_Risiko}
 
 
 def berechneRisikoVonSport():
@@ -208,7 +204,7 @@ def berechneRisikoVonSport():
         "AgeCategory": [manager.alterKonvertieren(ageCategory)],
         "Race": [manager.rasseKonvertieren(rasse)],
         "Diabetic": [manager.jaOderNein(diabetic)],
-        "PhysicalActivity": 1,
+        "PhysicalActivity": 1, #1 = 'Ja'
         "GenHealth": [manager.genHealthKonvertieren(genHealth)],
         "SleepTime": [schlaffZeit],
         "Asthma": [manager.jaOderNein(asthma)],
@@ -218,7 +214,7 @@ def berechneRisikoVonSport():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Sport_Risiko = user_Risiko-heartdisease
-    return {'Sport_Risiko':Sport_Risiko}
+    return Sport_Risiko #{'Sport_Risiko':Sport_Risiko}
 
 
 def berechneRisikoVonSchlaf():
@@ -244,18 +240,9 @@ def berechneRisikoVonSchlaf():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Schlaf_Risiko = user_Risiko-heartdisease
-    return {'Schlaf_Risiko':Schlaf_Risiko}
+    return Schlaf_Risiko #{'Schlaf_Risiko':Schlaf_Risiko}
 
-#Diese Funktion funktioniert noch nicht ganz. Eine Idee?
-#def biggest_risk_factor():
-#    biggest_risk_factorsss = berechneRisikoVonBMI()
-#    for x in [berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]:
-#        if x.values() > biggest_risk_factorsss.values():
-#            biggest_risk_factorsss = x
-#    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
-
-list_of_all_risk_factors = [berechneRisikoVonBMI().values(), berechneRisikoVonSchlaf().values(), berechneRisikoVonSport().values(), berechneRisikoVonAlkohol().values()]
-row2_col2.subheader(list_of_all_risk_factors)
+list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 
 #D = {1: berechneRisikoVonBMI(), 2: berechneRisikoVonSchlaf(), 3: berechneRisikoVonSport(), 4: berechneRisikoVonAlkohol()}
 #list(D.values())
