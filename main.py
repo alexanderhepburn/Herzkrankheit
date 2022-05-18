@@ -255,15 +255,12 @@ def berechneRisikoVonSchlaf():
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
-#def make_a_list_of_the_risk_results():
-#    return [berechneRisikoVonBMI().values(), berechneRisikoVonSport().values(), berechneRisikoVonAlkohol().values(), berechneRisikoVonSchlaf().values()]
-row2_col2.subheader(berechneRisikoVonBMI().values())
-def all_risks():
-    for i in berechneRisikoVonBMI(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonSchlaf():
-        i.append(all_risks())
-    return all_risks()
 
-y_achse = np.arange(len(all_risks()))
+D = {1: berechneRisikoVonBMI(), 2: berechneRisikoVonSchlaf(), 3: berechneRisikoVonSport(), 4: berechneRisikoVonAlkohol()}
+list(D.values())
+
+
+#y_achse = np.arange(len(all_risks()))
 
 #fig2, ax = plt.subplots(figsize = (8, 4))
 #ax.barh(y_pos, brfs, align='center')
