@@ -290,7 +290,9 @@ row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button('Optionen Abnehmen')
 if button1:
-    row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 'Sport: [foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)  \n') + 'Ernährung: [EatSmarter](https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen)')
+    row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
+                       'Sport: [foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)  \n' + 
+                       'Ernährung: [EatSmarter](https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen)')
 
 
 #Spalte mitte
