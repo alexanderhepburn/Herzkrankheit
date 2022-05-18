@@ -256,7 +256,7 @@ def berechneRisikoVonSchlaf():
 
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 
-brfs = [berechneRisikoVonBMI(); berechneRisikoVonAlkohol(); berechneRisikoVonSport(); berechneRisikoVonSchlaf()]
+brfs = [berechneRisikoVonBMI(), berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]
 y_achse = np.arange(len(brfs))
 brfs_perc = brfs*100
 
