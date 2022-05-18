@@ -292,7 +292,7 @@ with row4_col1:
 #url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/" #Das für den Fall, dass der Button eventuell reicht
 if button1:
     #webbrowser.open_new_tab(url1) #Lasse ich mal da just in case, dass das jemand zum laufen bekommt...In den Foren wird zumindest Ende 2021 noch gesagt, dass es hierzu noch keine Ideallösung gibt.
-    row4_col1.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)' + '<p>' + '[foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)')
+    row4_col1.write('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)\n' + '[foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)')
 
 
 #Spalte mitte
