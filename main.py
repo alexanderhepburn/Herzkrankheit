@@ -167,7 +167,7 @@ def berechneRisikoVonBMI():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     BMI_Risiko = user_Risiko-heartdisease
-    return {'BMI_Risiko':BMI_Risiko}
+    return BMI_Risiko
 
 def berechneRisikoVonAlkohol():
     data = {
@@ -192,7 +192,7 @@ def berechneRisikoVonAlkohol():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Smoking_Risiko = user_Risiko-heartdisease
-    return {'Smoking_Risiko':Smoking_Risiko}
+    return Smoking_Risiko
 
 
 def berechneRisikoVonSport():
@@ -218,7 +218,7 @@ def berechneRisikoVonSport():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Sport_Risiko = user_Risiko-heartdisease
-    return {'Sport_Risiko':Sport_Risiko}
+    return Sport_Risiko
 
 
 def berechneRisikoVonSchlaf():
@@ -244,7 +244,7 @@ def berechneRisikoVonSchlaf():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Schlaf_Risiko = user_Risiko-heartdisease
-    return {'Schlaf_Risiko':Schlaf_Risiko}
+    return Schlaf_Risiko
 
 #Diese Funktion funktioniert noch nicht ganz. Eine Idee?
 #def biggest_risk_factor():
@@ -254,7 +254,9 @@ def berechneRisikoVonSchlaf():
 #            biggest_risk_factorsss = x
 #    return biggest_risk_factorsss #Output ist ein dic mit dem Risiko Factor und dem Risiko im 0.XX Format
 
-row2_col1.write(print(berechneRisikoVonSchlaf().values())) #Test obd dies funktioniert hat
+
+list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
+row2_col2.subheader(list_of_all_risk_factors)
 
 #D = {1: berechneRisikoVonBMI(), 2: berechneRisikoVonSchlaf(), 3: berechneRisikoVonSport(), 4: berechneRisikoVonAlkohol()}
 #list(D.values())
