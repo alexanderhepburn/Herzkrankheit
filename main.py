@@ -257,7 +257,7 @@ def berechneRisikoVonSchlaf():
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 #def make_a_list_of_the_risk_results():
 #    return [berechneRisikoVonBMI().values(), berechneRisikoVonSport().values(), berechneRisikoVonAlkohol().values(), berechneRisikoVonSchlaf().values()]
-row2_col2.subheader(type(berechneRisikoVonBMI()))
+row2_col2.subheader(berechneRisikoVonBMI().values())
 def all_risks():
     for i in berechneRisikoVonBMI(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonSchlaf():
         i.append(all_risks())
