@@ -291,7 +291,7 @@ with row4_col1:
     button1 = st.button('Optionen Abnehmen')
 if button1:
     row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
-                       'Sport: [foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)  \n' + 
+                       'Sport: [weightwatchers](https://www.weightwatchers.com/ch/de/blog/abnehmen?g_acctid=578-410-2929&g_adgroupid=131213429166&g_adid=576066783055&g_adtype=search&g_campaign=GE_WW_CH-DE_qdstw_qobjc_qbudc_qaudp_qrtgn_qpma_qostz_qdevz_qlobr_qgeon_qkwn&g_campaignid=11226104309&g_keyword=abnehmen&g_keywordid=kwd-44003010&g_network=g&gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVS2v2dR9a22u8y84x_mV9qO7KHGpA5qqYyorvUXO-R_-YZ0naegcaArI4EALw_wcB&gclsrc=aw.ds)  \n' + 
                        'Ernährung: [EatSmarter](https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen)')
 
 
@@ -300,7 +300,9 @@ row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Optionen Rauchen")
 if button2:
-    row4_col2.markdown('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
+    row4_col2.markdown('Infobroschüre: [Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)'  \n +
+                      'Schweizerische Herzstiftung: [swissheart](https://swissheart.ch/so-bleiben-sie-gesund/gesund-leben/rauchstopp)'  \n +
+                      'Nikotinersatztherapie: [Nicorette](https://www.nicorette.de/raucherentwoehnung/rauchen-aufhoeren-tipps)')
 
 
 #Spalte rechts
@@ -308,7 +310,9 @@ row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Optionen besser schlafen")
 if button3:
-    row4_col3.markdown('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
+    row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)'  \n +
+                      'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)'  \n +
+                      'Hintergründe und weitere Tipps: [Helios](https://www.helios-gesundheit.de/magazin/gesunder-schlaf/news/schlafhygiene-8-wertvolle-tipps-zum-einschlafen/)')
     
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
