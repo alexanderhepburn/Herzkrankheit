@@ -256,7 +256,7 @@ def berechneRisikoVonSchlaf():
 
 
 #list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-#row2_col2.subheader(list_of_all_risk_factors)
+row2_col2.subheader('hi')
 
 #D = {1: berechneRisikoVonBMI(), 2: berechneRisikoVonSchlaf(), 3: berechneRisikoVonSport(), 4: berechneRisikoVonAlkohol()}
 #list(D.values())
