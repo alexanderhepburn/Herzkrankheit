@@ -300,8 +300,8 @@ row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Optionen Rauchen")
 if button2:
-    row4_col2.markdown('Infobroschüre: [Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)'  \n +
-                      'Schweizerische Herzstiftung: [swissheart](https://swissheart.ch/so-bleiben-sie-gesund/gesund-leben/rauchstopp)'  \n +
+    row4_col2.markdown('Infobroschüre: [Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)  \n' +
+                      'Schweizerische Herzstiftung: [swissheart](https://swissheart.ch/so-bleiben-sie-gesund/gesund-leben/rauchstopp)  \n' +
                       'Nikotinersatztherapie: [Nicorette](https://www.nicorette.de/raucherentwoehnung/rauchen-aufhoeren-tipps)')
 
 
@@ -310,8 +310,8 @@ row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Optionen besser schlafen")
 if button3:
-    row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)'  \n +
-                      'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)'  \n +
+    row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)  \n' +
+                      'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)  \n' +
                       'Hintergründe und weitere Tipps: [Helios](https://www.helios-gesundheit.de/magazin/gesunder-schlaf/news/schlafhygiene-8-wertvolle-tipps-zum-einschlafen/)')
     
 ##########################################################################################
