@@ -256,13 +256,18 @@ def berechneRisikoVonSchlaf():
 
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 
-brfs = [berechneRisikoVonBMI(), berechneRisikoVonAlkohol(), berechneRisikoVonSport(), berechneRisikoVonSchlaf()]
+
+A = berechneRisikoVonBMI()
+B = berechneRisikoVonAlkohol()
+C = berechneRisikoVonSport()
+D = berechneRisikoVonSchlaf()
+
+brfs = (A, B, C, D)
 y_achse = np.arange(len(brfs))
-brfs_perc = brfs*100
 
 fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_pos, brfs_perc, align='center')
-ax.set_yticks(y_pos, labels=brfs_perc)
+ax.barh(y_pos, brfs, align='center')
+ax.set_yticks(y_pos, labels=brfs)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
