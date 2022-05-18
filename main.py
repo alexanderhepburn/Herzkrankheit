@@ -300,7 +300,7 @@ row4_col2.subheader("Mit Rauchen aufhören")
 with row4_col2:
     button2 = st.button("Optionen Rauchen")
 if button2:
-    row4_col2.write('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
+    row4_col2.markdown('[Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)')
 
 
 #Spalte rechts
@@ -308,7 +308,7 @@ row4_col3.subheader("Jetzt besser schlafen")
 with row4_col3:
     button3 = st.button("Optionen besser schlafen")
 if button3:
-    row4_col3.write('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
+    row4_col3.markdown('[atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)')
     
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
