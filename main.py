@@ -257,7 +257,11 @@ def berechneRisikoVonSchlaf():
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 
 
-#brfs = (A, B, C, D)
+def all_risks():
+    for i in berechneRisikoVonBMI(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonSchlaf():
+        i.append(all_risks())
+    return all_risks()
+
 #y_achse = np.arange(len(brfs))
 
 #fig2, ax = plt.subplots(figsize = (8, 4))
