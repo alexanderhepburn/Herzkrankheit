@@ -262,7 +262,7 @@ def all_risks():
         i.append(all_risks())
     return all_risks()
 
-#y_achse = np.arange(len(brfs))
+y_achse = np.arange(len(all_risks()))
 
 #fig2, ax = plt.subplots(figsize = (8, 4))
 #ax.barh(y_pos, brfs, align='center')
