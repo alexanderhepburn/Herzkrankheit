@@ -262,7 +262,7 @@ B = berechneRisikoVonAlkohol()
 C = berechneRisikoVonSport()
 D = berechneRisikoVonSchlaf()
 
-brfs = (A, B, C, D)
+#brfs = (A, B, C, D)
 #y_achse = np.arange(len(brfs))
 
 #fig2, ax = plt.subplots(figsize = (8, 4))
