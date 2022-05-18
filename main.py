@@ -263,16 +263,16 @@ C = berechneRisikoVonSport()
 D = berechneRisikoVonSchlaf()
 
 brfs = (A, B, C, D)
-y_achse = np.arange(len(brfs))
+#y_achse = np.arange(len(brfs))
 
-fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_pos, brfs, align='center')
-ax.set_yticks(y_pos, labels=brfs)
-ax.invert_yaxis()  # labels read top-to-bottom
-ax.set_xlabel('Anteil am Risiko')
-ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+#fig2, ax = plt.subplots(figsize = (8, 4))
+#ax.barh(y_pos, brfs, align='center')
+#ax.set_yticks(y_pos, labels=brfs)
+#ax.invert_yaxis()  # labels read top-to-bottom
+#ax.set_xlabel('Anteil am Risiko')
+#ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 
-row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
+#row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
 
 
 
