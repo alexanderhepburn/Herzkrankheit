@@ -135,7 +135,7 @@ row2_col1, row2_col2 = st.columns([1, 1])
 row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
 
 #Header rechts
-row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
+#row2_col2.subheader("Welche konkreten Maßnahmen können helfen?") #das ist temporär Kommentiert für tests AM SCHLUSS # ENTFERNEN
 # hier dachte ich daran, Nachrichten zu generieren, wie etwa: Gesunde Ernährung, Sport, weniger Rauchen etc.
 
 #Ich versuche mal etwas unelegantes hier
@@ -257,7 +257,7 @@ def berechneRisikoVonSchlaf():
 #row2_col1.write(berechneRisikoVonSchlaf()) #Test obd dies funktioniert hat
 def make_a_list_of_the_risk_results():
     return [berechneRisikoVonBMI().values(), berechneRisikoVonSport().values(), berechneRisikoVonAlkohol().values(), berechneRisikoVonSchlaf().values()]
-
+row2_col2.subheader(make_a_list_of_the_risk_results())
 def all_risks():
     for i in berechneRisikoVonBMI(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonSchlaf():
         i.append(all_risks())
