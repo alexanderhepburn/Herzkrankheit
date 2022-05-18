@@ -289,10 +289,10 @@ row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf W
 row4_col1.subheader("Hilfe beim Abnehmen")
 with row4_col1:
     button1 = st.button('Optionen Abnehmen')
-#url1 = "https://www.minimed.at/medizinische-themen/stoffwechsel-verdauung/abnehmen-diaeten/" #Das für den Fall, dass der Button eventuell reicht
 if button1:
-    #webbrowser.open_new_tab(url1) #Lasse ich mal da just in case, dass das jemand zum laufen bekommt...In den Foren wird zumindest Ende 2021 noch gesagt, dass es hierzu noch keine Ideallösung gibt.
-    row4_col1.markdown('[CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + '[foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)')
+    row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
+                       'Sport: [foodspring](https://www.foodspring.ch/magazine/abnehmen-mit-sport-die-wichtigsten-tipps-fur-anfanger)  \n') + 
+                       'Ernährung: [EatSmarter](https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen)')
 
 
 #Spalte mitte
