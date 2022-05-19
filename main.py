@@ -142,7 +142,7 @@ user_Risiko = berechneHeartDisease()
 
 def berechneRisikoVonBMI():
     data = {
-        "BMI": 20,
+        "BMI": 21,
         'Smoking': [manager.jaOderNein(raucher)],
         'AlcoholDrinking': [manager.jaOderNein(alkohol)],
         "Stroke": [manager.jaOderNein(schlaganfall)],
