@@ -169,7 +169,7 @@ def berechneRisikoVonAlkohol():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
         'Smoking': [manager.jaOderNein(raucher)],
-        'AlcoholDrinking': 1, # 1 = 'Ja'
+        'AlcoholDrinking': 0, # 0 = 'Nein'
         "Stroke": [manager.jaOderNein(schlaganfall)],
         "PhysicalHealth": [physicalHealth],
         "MentalHealth": [mentalHealth],
@@ -246,7 +246,7 @@ def berechneRisikoVonSchlaf():
 def berechneRisikoVonRauchen():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
-        'Smoking': 1, # 1 = 'Ja'
+        'Smoking': 0, # 0 = 'Nein'
         'AlcoholDrinking': [manager.jaOderNein(alkohol)],
         "Stroke": [manager.jaOderNein(schlaganfall)],
         "PhysicalHealth": [physicalHealth],
