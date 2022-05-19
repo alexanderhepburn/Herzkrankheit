@@ -619,7 +619,7 @@ y_label = ['BMI',
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 def farbederbars():
-    for i in num:
+    for i in list_of_all_risk_factors:
         if i < 0:
             colorbar = '#93c47d'
         elif 0 <= i < 0.02:
