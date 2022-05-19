@@ -169,7 +169,7 @@ def berechneRisikoVonAlkohol():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
         'Smoking': [manager.jaOderNein(raucher)],
-        'AlcoholDrinking': 0, # 0 = 'Nein'
+        'AlcoholDrinking': 1, # 1 = 'Ja'
         "Stroke": [manager.jaOderNein(schlaganfall)],
         "PhysicalHealth": [physicalHealth],
         "MentalHealth": [mentalHealth],
@@ -242,8 +242,34 @@ def berechneRisikoVonSchlaf():
     Schlaf_Risiko = user_Risiko-heartdisease
     return Schlaf_Risiko #{'Schlaf_Risiko':Schlaf_Risiko}
 
-list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
+
+def berechneRisikoVonRauchen():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': 1, # 1 = 'Ja'
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Rauchen_Risiko = user_Risiko-heartdisease
+    return Rauchen_Risiko #{'Rauchen_Risiko':Rauchen_Risiko}
+
+list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol(), berechneRisikoVonRauchen()]
+y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum', 'Rauchen']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 fig2, ax = plt.subplots(figsize = (8, 4))
