@@ -710,4 +710,4 @@ if button3:
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
-
+row5_col1.write(list_of_all_risk_factors)
