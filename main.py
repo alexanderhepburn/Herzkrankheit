@@ -618,7 +618,12 @@ y_label = ['BMI',
            'Hautkrebs']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
-    
+row5_col1 = st.columns([1])
+
+#Header links
+row5_col1.write(list_of_all_risk_factors)
+
+
 fig2, ax = plt.subplots(figsize = (8, 4))
 ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
