@@ -626,8 +626,9 @@ ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko', fontsize = 16)
 ax.set_ylabel(' ', fontsize = 16)
-ax.tick_params(axis='both', which='major', labelsize=16)
-ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+ax.tick_params(axis='y', which='major', labelsize=14)
+ax.tick_params(axis='x', which='major', labelsize=16)
+ax.set_title('Welche Variablen sind für Sie am wichtigsten?', fontsize = 16)
 ax.spines['top'].set_visible(False)
 
 row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
@@ -642,9 +643,9 @@ fig3, ax = plt.subplots(figsize = (8, 4))
 ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
-ax.set_xlabel('Anteil am Risiko')
+ax.set_xlabel('Anteil am Risiko', fontsize = 16)
 ax.tick_params(axis='both', which='major', labelsize=16)
-ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+ax.set_title('Welche Bedeutung haben die Variablen?', fontsize = 16)
 ax.spines['top'].set_visible(False)
 
 row2_col2.pyplot(fig3, use_container_width = True) #Test obd dies funktioniert hat
