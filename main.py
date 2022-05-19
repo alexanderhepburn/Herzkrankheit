@@ -247,7 +247,7 @@ y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum'
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors*100, align='center')
+ax.barh(y_achse, list_of_all_risk_factors, align='center')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
