@@ -618,21 +618,9 @@ y_label = ['BMI',
            'Hautkrebs']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
-def farbederbars(list_of_all_risk_factors):
-    for i in list_of_all_risk_factors:
-        if i < 0:
-            colorbar = '#93c47d'
-        elif 0.05 <= i < 0.052:
-            colorbar = '#ffd966'
-        elif 0.052 <= i < 0.055:
-            colorbar = '#f6b26b'
-        else:
-            colorbar = '#cc4125'
-        return colorbar
-
     
 fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars(list_of_all_risk_factors))
+ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
