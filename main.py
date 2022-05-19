@@ -616,13 +616,8 @@ y_label = ['BMI',
            'Asthma', 
            'Nierenkrankheiten', 
            'Hautkrebs']
+
 y_achse = np.arange(len(list_of_all_risk_factors))
-
-row5_col1 = st.columns([1])
-
-#Header links
-row5_col1.write(berechneRisikoVonBMI)
-
 
 fig2, ax = plt.subplots(figsize = (8, 4))
 ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
