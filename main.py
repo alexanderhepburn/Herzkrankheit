@@ -266,7 +266,7 @@ def berechneRisikoVonPhysicalHealth():
     }
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
-    PysicalHealth_Risiko = user_Risiko-heartdisease
+    PhysicalHealth_Risiko = user_Risiko-heartdisease
     return PhysicalHealth_Risiko #{'PhysicalHealth_Risiko':PhysicalHealth_Risiko}
 
 
