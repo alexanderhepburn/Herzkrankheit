@@ -244,7 +244,6 @@ def berechneRisikoVonSchlaf():
 
 list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 
-Liste22 = list(list_of_all_risk_factors.values())
 
 
 #y_achse = np.arange(len(all_risks()))
