@@ -624,7 +624,7 @@ ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko', fontsize = 16)
-ax.set_ylabel(fontsize = 16)
+ax.set_ylabel(' ', fontsize = 16)
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 ax.spines['top'].set_visible(False)
 
