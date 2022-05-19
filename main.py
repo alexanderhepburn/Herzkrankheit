@@ -132,7 +132,7 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.subheader("Welche 5 Faktoren sind am wichtigsten?")
+row2_col1.subheader("Wie setzt sich das Risiko zusammen?")
 
 #Header rechts
 row2_col2.subheader("Welchen Anteil haben veränderbare Faktoren?")
