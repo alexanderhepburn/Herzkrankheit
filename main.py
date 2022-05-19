@@ -622,26 +622,24 @@ def farbederbars(list_of_all_risk_factors):
     for i in list_of_all_risk_factors:
         if i < 0:
             colorbar = '#93c47d'
-        elif 0 <= i < 0.2:
+        elif 0.5 <= i < 0.6:
             colorbar = '#ffd966'
-        elif 0.2 <= i < 0.3:
+        elif 0.6 <= i < 0.7:
             colorbar = '#f6b26b'
         else:
             colorbar = '#cc4125'
         return colorbar
 
     
-#fig2, ax = plt.subplots(figsize = (8, 4))
-#ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars(list_of_all_risk_factors))
-#ax.set_yticks(y_achse, labels=y_label)
-#ax.invert_yaxis()  # labels read top-to-bottom
-#ax.set_xlabel('Anteil am Risiko')
-#ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
-#ax.spines['top'].set_visible(False)
+fig2, ax = plt.subplots(figsize = (8, 4))
+ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars(list_of_all_risk_factors))
+ax.set_yticks(y_achse, labels=y_label)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('Anteil am Risiko')
+ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+ax.spines['top'].set_visible(False)
 
-#row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
-row5_col1.write(list_of_all_risk_factors, use_container_width = True)
-
+row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
 
 
 #Plot veränderbarer Features:
