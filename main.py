@@ -169,7 +169,7 @@ def berechneRisikoVonAlkohol():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
         'Smoking': [manager.jaOderNein(raucher)],
-        'AlcoholDrinking': 0, # 0 = 'Nein'
+        'AlcoholDrinking': 1, # 1 = 'Ja'
         "Stroke": [manager.jaOderNein(schlaganfall)],
         "PhysicalHealth": [physicalHealth],
         "MentalHealth": [mentalHealth],
