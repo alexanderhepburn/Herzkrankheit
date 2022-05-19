@@ -581,7 +581,7 @@ def berechneRisikoVonSkinCancer():
     SkinCancer_Risiko = user_Risiko-heartdisease
     return SkinCancer_Risiko 
 
-#Plot der wichtigsten 5 Features:
+#Plot aller Features:
 list_of_all_risk_factors = [berechneRisikoVonBMI(),
                             berechneRisikoVonSmoking(),
                             berechneRisikoVonAlkohol(),
@@ -618,8 +618,21 @@ y_label = ['BMI',
            'Hautkrebs']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
+def farbederbars():
+    for i in num:
+        if i < 0:
+            colorbar = '#93c47d'
+        elif 0 <= i < 0.02:
+            colorbar = '#ffd966'
+        elif 0.02 <= i < 0.03:
+            colorbar = '#f6b26b'
+        else:
+            colorbar = 'cc4125'
+        return colorbar
+
+    
 fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
+ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars())
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
