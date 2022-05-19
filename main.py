@@ -244,9 +244,7 @@ def berechneRisikoVonSchlaf():
 
 list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 
-
-
-#y_achse = np.arange(len(all_risks()))
+y_achse = np.arange(len(list_of_all_risk_factors))
 
 #fig2, ax = plt.subplots(figsize = (8, 4))
 #ax.barh(y_pos, brfs, align='center')
