@@ -99,7 +99,7 @@ ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
 ax.set_ylabel("Risiko") #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
 plt.yticks([0, 0.25, 0.5, 0.75, 1])
 plt.xticks([])
-ax.tick_params(axis='both', which='major', labelsize=16)
+ax.tick_params(axis='y', which='major', labelsize=16)
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 row1_col1.pyplot(fig1, use_container_width = True)
@@ -626,6 +626,7 @@ ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko', fontsize = 16)
 ax.set_ylabel(' ', fontsize = 16)
+ax.tick_params(axis='both', which='major', labelsize=16)
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 ax.spines['top'].set_visible(False)
 
@@ -642,6 +643,7 @@ ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
+ax.tick_params(axis='both', which='major', labelsize=16)
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 ax.spines['top'].set_visible(False)
 
