@@ -582,14 +582,40 @@ def berechneRisikoVonSkinCancer():
     return SkinCancer_Risiko 
 
 #Plot der wichtigsten 5 Features:
-
-
-
-
-
-#Plot veränderbarer Features:
-list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
+list_of_all_risk_factors = [berechneRisikoVonBMI(),
+                            berechneRisikoVonSmoking(),
+                            berechneRisikoVonAlkohol(),
+                            berechneRisikoVonStroke(),
+                            berechneRisikoVonPhysicalHealth(),
+                            berechneRisikoVonMentalHealth(),
+                            berechneRisikoVonDiffWalking(),
+                            berechneRisikoVonSex(),
+                            berechneRisikoVonAgeCategory(),
+                            berechneRisikoVonRace(),
+                            berechneRisikoVonDiabetic(),
+                            berechneRisikoVonSport(),
+                            berechneRisikoVonGenHealth(),
+                            berechneRisikoVonSchlaf(),
+                            berechneRisikoVonAsthma(),
+                            berechneRisikoVonKidneyDisease(),
+                            berechneRisikoVonSkinCancer()]
+y_label = ['BMI', 
+           'Rauchen', 
+           'Alkoholkonsum', 
+           'Schlaganfall', 
+           'Körperliche Gesundheit', 
+           'Mentale Gesundheit', 
+           'Gehschwierigkeiten', 
+           'Geschlecht', 
+           'Alter', 
+           'Ethnie', 
+           'Diabetes', 
+           'Sport', 
+           'Generelles Wohlbefinden', 
+           'Schlaf', 
+           'Asthma', 
+           'Nierenkrankheiten', 
+           'Hautkrebs']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 fig2, ax = plt.subplots(figsize = (8, 4))
@@ -600,7 +626,25 @@ ax.set_xlabel('Anteil am Risiko')
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 ax.spines['top'].set_visible(False)
 
-row2_col2.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
+row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
+
+
+
+
+#Plot veränderbarer Features:
+list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
+y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
+y_achse = np.arange(len(list_of_var_risk_factors))
+
+fig3, ax = plt.subplots(figsize = (8, 4))
+ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
+ax.set_yticks(y_achse, labels=y_label)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('Anteil am Risiko')
+ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+ax.spines['top'].set_visible(False)
+
+row2_col2.pyplot(fig3, use_container_width = True) #Test obd dies funktioniert hat
 
 
 
