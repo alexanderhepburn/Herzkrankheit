@@ -132,7 +132,7 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.subheader("Welche 5 Faktoren ausgenommen des Alters sind am wichtigsten?")
+row2_col1.subheader("Welche veränderbaren Faktoren sind am wichtigsten?")
 
 #Header rechts
 row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
@@ -247,11 +247,14 @@ y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum'
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors, align='center')
+ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
 ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+ax.spines['top'].set_visible(False)
+
+
 
 row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
 
