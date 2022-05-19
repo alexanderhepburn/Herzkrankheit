@@ -132,10 +132,10 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.subheader("Welche veränderbaren Faktoren sind am wichtigsten?")
+row2_col1.subheader("Welche 5 Faktoren sind am wichtigsten?")
 
 #Header rechts
-row2_col2.subheader("Welche konkreten Maßnahmen können helfen?")
+row2_col2.subheader("Welchen Anteil haben veränderbare Faktoren?")
 
 #Die Funktionen mit welchen das Risiko von einzelnen Faktoren berechnet werden können
 user_Risiko = berechneHeartDisease()
@@ -165,6 +165,33 @@ def berechneRisikoVonBMI():
     BMI_Risiko = user_Risiko-heartdisease
     return BMI_Risiko #{'BMI_Risiko':BMI_Risiko}
 
+
+def berechneRisikoVonSmoking():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': 0, # 0 = 'Nein'
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Smoking_Risiko = user_Risiko-heartdisease
+    return Smoking_Risiko #{'Smoking_Risiko':Smoking_Risiko}
+
+
 def berechneRisikoVonAlkohol():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
@@ -189,6 +216,214 @@ def berechneRisikoVonAlkohol():
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     Smoking_Risiko = user_Risiko-heartdisease
     return Smoking_Risiko #{'Smoking_Risiko':Smoking_Risiko}
+
+
+def berechneRisikoVonStroke():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": 1, # 1 = 'Ja'
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Stroke_Risiko = user_Risiko-heartdisease
+    return Stroke_Risiko #{'Stroke_Risiko':Stroke_Risiko}
+
+
+def berechneRisikoVonPhysicalHealth():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": 14,
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    PysicalHealth_Risiko = user_Risiko-heartdisease
+    return PhysicalHealth_Risiko #{'PhysicalHealth_Risiko':PhysicalHealth_Risiko}
+
+
+def berechneRisikoVonMentalHealth():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": 14,
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    MentalHealth_Risiko = user_Risiko-heartdisease
+    return MentalHealth_Risiko #{'MentalHealth_Risiko':MentalHealth_Risiko}
+
+
+def berechneRisikoVonDiffWalking():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": 0, # 0 = 'Nein'
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    DiffWalking_Risiko = user_Risiko-heartdisease
+    return DiffWalking_Risiko #{'DiffWalking_Risiko':DiffWalking_Risiko}
+
+
+def berechneRisikoVonSex():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": 'Männlich',
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Sex_Risiko = user_Risiko-heartdisease
+    return Sex_Risiko #{'Sex_Risiko':Sex_Risiko}
+
+
+def berechneRisikoVonAgeCategory():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": '18-24',
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    AgeCategory_Risiko = user_Risiko-heartdisease
+    return AgeCategory_Risiko #{'AgeCategory_Risiko':AgeCategory_Risiko}
+
+
+def berechneRisikoVonRace():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": 'White',
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Race_Risiko = user_Risiko-heartdisease
+    return Race_Risiko #{'Race_Risiko':Race_Risiko}
+
+
+def berechneRisikoVonDiabetic():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": 0, # 0 = 'Nein'
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Diabetic_Risiko = user_Risiko-heartdisease
+    return Diabetic_Risiko #{'Diabetic_Risiko':Diabetic_Risiko}
 
 
 def berechneRisikoVonSport():
@@ -217,6 +452,32 @@ def berechneRisikoVonSport():
     return Sport_Risiko #{'Sport_Risiko':Sport_Risiko}
 
 
+def berechneRisikoVonGenHealth():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": 'Good',
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    GenHealth_Risiko = user_Risiko-heartdisease
+    return GenHealth_Risiko #{'GenHealth_Risiko':GenHealth_Risiko}
+
+
 def berechneRisikoVonSchlaf():
     data = {
         "BMI": [körpergewicht/((körpergrösse/100)**2)],
@@ -242,6 +503,91 @@ def berechneRisikoVonSchlaf():
     Schlaf_Risiko = user_Risiko-heartdisease
     return Schlaf_Risiko #{'Schlaf_Risiko':Schlaf_Risiko}
 
+
+def berechneRisikoVonAsthma():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": 0, # 0 = 'Nein'
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    Asthma_Risiko = user_Risiko-heartdisease
+    return Asthma_Risiko #{'Asthma_Risiko':Asthma_Risiko}
+
+
+def berechneRisikoVonKidneyDisease():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": 0, # 0 = 'Nein'
+        "SkinCancer": [manager.jaOderNein(skinCancer)]
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    KidneyDisease_Risiko = user_Risiko-heartdisease
+    return KidneyDisease_Risiko 
+
+
+def berechneRisikoVonSkinCancer():
+    data = {
+        "BMI": [körpergewicht/((körpergrösse/100)**2)],
+        'Smoking': [manager.jaOderNein(raucher)],
+        'AlcoholDrinking': [manager.jaOderNein(alkohol)],
+        "Stroke": [manager.jaOderNein(schlaganfall)],
+        "PhysicalHealth": [physicalHealth],
+        "MentalHealth": [mentalHealth],
+        "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
+        "Sex": [manager.sexKonvertieren(geschlecht)],
+        "AgeCategory": [manager.alterKonvertieren(ageCategory)],
+        "Race": [manager.rasseKonvertieren(rasse)],
+        "Diabetic": [manager.jaOderNein(diabetic)],
+        "PhysicalActivity": [manager.jaOderNein(physicalactivity)],
+        "GenHealth": [manager.genHealthKonvertieren(genHealth)],
+        "SleepTime": [schlaffZeit],
+        "Asthma": [manager.jaOderNein(asthma)],
+        "KidneyDisease": [manager.jaOderNein(kidneyDisease)],
+        "SkinCancer": 0 # 0 = 'Nein'
+    }
+    inputInfos = pd.DataFrame(data=data)
+    heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
+    SkinCancer_Risiko = user_Risiko-heartdisease
+    return SkinCancer_Risiko 
+
+#Plot der wichtigsten 5 Features:
+
+
+
+
+
+#Plot veränderbarer Features:
 list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
 y_achse = np.arange(len(list_of_all_risk_factors))
@@ -254,9 +600,7 @@ ax.set_xlabel('Anteil am Risiko')
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
 ax.spines['top'].set_visible(False)
 
-
-
-row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
+row2_col2.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
 
 
 
