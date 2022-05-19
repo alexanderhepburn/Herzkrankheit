@@ -125,6 +125,8 @@ def message1(berechneHeartDisease):
 #Aufruf der Nachricht
 row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
+row5_col1.write(list_of_all_risk_factors, use_container_width = True)
+
 #############################################################################################################
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
@@ -622,9 +624,9 @@ def farbederbars(list_of_all_risk_factors):
     for i in list_of_all_risk_factors:
         if i < 0:
             colorbar = '#93c47d'
-        elif 0.05 <= i < 0.75:
+        elif 0 <= i < 0.2:
             colorbar = '#ffd966'
-        elif 0.75 <= i < 0.1:
+        elif 0.2 <= i < 0.3:
             colorbar = '#f6b26b'
         else:
             colorbar = '#cc4125'
