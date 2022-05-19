@@ -622,9 +622,9 @@ def farbederbars(list_of_all_risk_factors):
     for i in list_of_all_risk_factors:
         if i < 0:
             colorbar = '#93c47d'
-        elif 0.8 <= i < 0.85:
+        elif 0.95 <= i < 1:
             colorbar = '#ffd966'
-        elif 0.85 <= i < 0.9:
+        elif 1 <= i < 1.05:
             colorbar = '#f6b26b'
         else:
             colorbar = '#cc4125'
