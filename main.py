@@ -94,6 +94,10 @@ def barcolor(berechneHeartDisease):
     return colorcode
 
 #Plot
+for label in (ax.get_xticklabels() + ax.get_yticklabels()):
+	label.set_fontsize(16)
+
+
 fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
 ax.set_ylabel("Risiko") #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
