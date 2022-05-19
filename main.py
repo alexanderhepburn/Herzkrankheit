@@ -125,8 +125,6 @@ def message1(berechneHeartDisease):
 #Aufruf der Nachricht
 row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
-row5_col1.write(list_of_all_risk_factors, use_container_width = True)
-
 #############################################################################################################
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
@@ -633,16 +631,16 @@ def farbederbars(list_of_all_risk_factors):
         return colorbar
 
     
-fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars(list_of_all_risk_factors))
-ax.set_yticks(y_achse, labels=y_label)
-ax.invert_yaxis()  # labels read top-to-bottom
-ax.set_xlabel('Anteil am Risiko')
-ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
-ax.spines['top'].set_visible(False)
+#fig2, ax = plt.subplots(figsize = (8, 4))
+#ax.barh(y_achse, list_of_all_risk_factors, align='center', color = farbederbars(list_of_all_risk_factors))
+#ax.set_yticks(y_achse, labels=y_label)
+#ax.invert_yaxis()  # labels read top-to-bottom
+#ax.set_xlabel('Anteil am Risiko')
+#ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
+#ax.spines['top'].set_visible(False)
 
-row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
-
+#row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
+row5_col1.write(list_of_all_risk_factors)
 
 
 
