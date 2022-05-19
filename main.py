@@ -622,9 +622,9 @@ def farbederbars(list_of_all_risk_factors):
     for i in list_of_all_risk_factors:
         if i < 0:
             colorbar = '#93c47d'
-        elif 0 <= i < 0.2:
+        elif 0 <= i < 0.1:
             colorbar = '#ffd966'
-        elif 0.2 <= i < 0.5:
+        elif 0.1 <= i < 0.2:
             colorbar = '#f6b26b'
         else:
             colorbar = '#cc4125'
@@ -710,4 +710,3 @@ if button3:
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
-row5_col1.write(list_of_all_risk_factors)
