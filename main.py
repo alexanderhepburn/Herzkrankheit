@@ -250,7 +250,7 @@ def berechneRisikoVonPhysicalHealth():
         'Smoking': [manager.jaOderNein(raucher)],
         'AlcoholDrinking': [manager.jaOderNein(alkohol)],
         "Stroke": [manager.jaOderNein(schlaganfall)],
-        "PhysicalHealth": 18,
+        "PhysicalHealth": 1,
         "MentalHealth": [mentalHealth],
         "DiffWalking": [manager.jaOderNein(problemeBeimGehen)],
         "Sex": [manager.sexKonvertieren(geschlecht)],
