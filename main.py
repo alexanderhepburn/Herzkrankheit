@@ -256,7 +256,7 @@ ax.spines['top'].set_visible(False)
 
 
 
-row2_col1.pyplot(fig2, use_container_width = True, ascending = False) #Test obd dies funktioniert hat
+row2_col1.pyplot(fig2, use_container_width = True, descending = True) #Test obd dies funktioniert hat
 
 
 
