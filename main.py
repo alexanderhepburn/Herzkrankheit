@@ -243,12 +243,12 @@ def berechneRisikoVonSchlaf():
     return Schlaf_Risiko #{'Schlaf_Risiko':Schlaf_Risiko}
 
 list_of_all_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-
+y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
 y_achse = np.arange(len(list_of_all_risk_factors))
 
 fig2, ax = plt.subplots(figsize = (8, 4))
 ax.barh(y_achse, list_of_all_risk_factors, align='center')
-ax.set_yticks(y_achse, labels=list_of_all_risk_factors)
+ax.set_yticks(y_achse, labels=y_label)
 ax.invert_yaxis()  # labels read top-to-bottom
 ax.set_xlabel('Anteil am Risiko')
 ax.set_title('Welche Variablen sind für Sie am wichtigsten?')
