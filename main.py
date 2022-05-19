@@ -640,7 +640,7 @@ def farbederbars(list_of_all_risk_factors):
 #ax.spines['top'].set_visible(False)
 
 #row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
-row5_col1.write(list_of_all_risk_factors())
+row5_col1.write(list_of_all_risk_factors, use_container_width = True)
 
 
 
