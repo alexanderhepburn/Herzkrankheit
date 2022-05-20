@@ -738,20 +738,20 @@ Excel_contents = { 'Feature' : ['BMI',
                                        berechneRisikoVonSkinCancer()]
                  }
 
-df_Excel_contents = pd.DataFrame(data=Excel_contents)
+#df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
-def convert_df(df_Excel_contents):
-   return df.to_csv().encode('utf-8')
+#def convert_df(df_Excel_contents):
+#   return df.to_csv().encode('utf-8')
+#
+#csv = convert_df(df_Excel_contents)
+#
+#download_results = row5_col1.download_button(label = 'Ihre Resultate', 
+#                                             data = df_Excel_contents, 
+#                                             file_name = 'Mein Resultat.csv', 
+#                                             mime = 'text/csv', 
+#                                             help = 'Hier links klicken zum Download als Excel-Datei', 
+#                                             key='download-csv')
 
-csv = convert_df(df_Excel_contents)
-
-download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-                                             data = df_Excel_contents, 
-                                             file_name = 'Mein Resultat.csv', 
-                                             mime = 'text/csv', 
-                                             help = 'Hier links klicken zum Download als Excel-Datei', 
-                                             key='download-csv')
-
-if download_results:
-    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
+#if download_results:
+#    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
