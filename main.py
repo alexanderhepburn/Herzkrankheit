@@ -740,10 +740,10 @@ Excel_contents = { 'Feature' : ['BMI',
 
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
-#def convert_df(Excel_contents):
-#   return df.to_csv().encode('utf-8')
+def convert_df(df_Excel_contents):
+   return df.to_csv().encode('utf-8')
 
-#csv = convert_df(Excel_contents)
+csv = convert_df(df_Excel_contents)
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
                                              data = df_Excel_contents, 
