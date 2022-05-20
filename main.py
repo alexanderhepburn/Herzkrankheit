@@ -742,7 +742,7 @@ Excel_contents = { 'Feature' : ['BMI',
 #Erstellung eines DataFrames
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
-csv_Excel_contents = df_Excel_contents.to_csv().encode('utf-8')
+csv_Excel_contents = df_Excel_contents.to_csv(columns=['Column_1','Column_2', 'Solumn_3']).encode('utf-8')
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
                                              data = csv_Excel_contents, 
