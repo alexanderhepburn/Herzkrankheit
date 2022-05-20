@@ -96,7 +96,7 @@ def barcolor(berechneHeartDisease):
 #Plot
 fig1, ax = plt.subplots(figsize = (8, 4))
 ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
-ax.set_ylabel("Risiko", fontsize = 16) #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
+ax.set_ylabel("Risiko", fontsize = 18) #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
 plt.yticks([0, 0.25, 0.5, 0.75, 1])
 plt.xticks([])
 ax.tick_params(axis='y', which='major', labelsize=16)
@@ -700,4 +700,10 @@ if button3:
     
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
+
+row5_col1 = st.columns([1])
+
+row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
+
+
 
