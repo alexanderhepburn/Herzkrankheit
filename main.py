@@ -742,17 +742,15 @@ df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
 row5_col1.markdown(df_Excel_contents)
 
-#def convert_df(df_Excel_contents):
-#   return df.to_csv().encode('utf-8')
-#
-#csv = convert_df(df_Excel_contents)
-#
-#download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-#                                             data = df_Excel_contents, 
-#                                             file_name = 'Mein Resultat.csv', 
-#                                             mime = 'text/csv', 
-#                                             help = 'Hier links klicken zum Download als Excel-Datei', 
-#                                             key='download-csv')
+# bis hierin alles ok, Output in Form: Index Feature_Name Wert_des_Features Index+1 (...)
+
+
+download_results = row5_col1.download_button(label = 'Ihre Resultate', 
+                                             data = df_Excel_contents, 
+                                             file_name = 'Mein Resultat.csv', 
+                                             mime = None, 
+                                             help = 'Hier links klicken zum Download als Excel-Datei', 
+                                             key='download-csv')
 
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
