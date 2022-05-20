@@ -744,11 +744,12 @@ row5_col1.markdown(df_Excel_contents)
 
 # bis hierin alles ok, Output in Form: Index Feature_Name Wert_des_Features Index+1 (...)
 
+csv_Excel_contents = df_Excel_contents.to_csv().encode('utf-8')
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-                                             data = df_Excel_contents, 
+                                             data = csv_Excel_contents, 
                                              file_name = 'Mein Resultat.csv', 
-                                             mime = None, 
+                                             mime = 'text/csv', 
                                              help = 'Hier links klicken zum Download als Excel-Datei', 
                                              key='download-csv')
 
