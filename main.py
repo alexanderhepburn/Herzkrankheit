@@ -727,13 +727,10 @@ Excel_contents = ''
 'Hautkrebs', berechneRisikoVonSkinCancer()
 ''
 
-
 row5_col1.download_button('Ihre Resultate', Excel_contents, 'text/csv')
+with row5_col1:
+    download_results = st.download_button('Ihre Resultate')
+if download_results:
+    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
-
-with open('myfile.csv') as f:
-   row5_col1.download_button('Ihre Resultate', f)
-
-#if download_button:
-   #row5_col2.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
