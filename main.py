@@ -732,6 +732,6 @@ Excel_contents = '''
 row5_col1.download_button('Ihre Resultate', Excel_contents, 'text/csv')
 
 
-if download_button:
+if download_button('Ihre Resultate', Excel_contents, 'text/csv'):
    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
