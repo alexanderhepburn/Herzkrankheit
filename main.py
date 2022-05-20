@@ -727,10 +727,10 @@ Excel_contents = ''
 'Hautkrebs', berechneRisikoVonSkinCancer()
 ''
 
-def convert_df(Excel_contents):
-   return df.to_csv().encode('utf-8')
-
-csv = convert_df(Excel_contents)
+#def convert_df(Excel_contents):
+#   return df.to_csv().encode('utf-8')
+#
+#csv = convert_df(Excel_contents)
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
                                              data = csv, file_name = 'Mein Resultat.csv', 
