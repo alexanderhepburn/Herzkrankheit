@@ -705,5 +705,33 @@ row5_col1, row5_col2 = st.columns([1, 1])
 
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
+#Funktion
+Excel_contents = '''
+'Faktor', 'Anteil am Risiko'
+'BMI', berechneRisikoVonBMI()
+'Rauchen', berechneRisikoVonSmoking()
+'Alkoholkonsum', berechneRisikoVonAlkohol()
+'Schlaganfall', berechneRisikoVonStroke()
+'Körperliche Gesundheit', berechneRisikoVonPhysicalHealth()
+'Mentale Gesundheit', berechneRisikoVonMentalHealth()
+'Gehschwierigkeiten', berechneRisikoVonDiffWalking()
+'Geschlecht', berechneRisikoVonSex()
+'Alter', berechneRisikoVonAgeCategory()
+'Ethnie', berechneRisikoVonRace()
+'Diabetes', berechneRisikoVonDiabetic()
+'Sport', berechneRisikoVonSport()
+'Generelles Wohlbefinden', berechneRisikoVonGenHealth()
+'Schlaf', berechneRisikoVonSchlaf()
+'Asthma', berechneRisikoVonAsthma()
+'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
+'Hautkrebs', berechneRisikoVonSkinCancer()
+'''
 
+
+
+row5_col1.download_button('Ihre Resultate', Excel_contents, 'text/csv')
+
+
+if st.download_button():
+   st.write('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
