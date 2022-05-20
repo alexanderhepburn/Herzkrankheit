@@ -707,10 +707,10 @@ row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
 #Funktion
 Excel_contents = (
-'Faktor', 'Anteil am Risiko'
-'BMI', berechneRisikoVonBMI()
-'Rauchen', berechneRisikoVonSmoking()
-'Alkoholkonsum', berechneRisikoVonAlkohol()
+'Faktor': 'Anteil am Risiko'
+'BMI': berechneRisikoVonBMI()
+'Rauchen': berechneRisikoVonSmoking()
+'Alkoholkonsum': berechneRisikoVonAlkohol()
 'Schlaganfall', berechneRisikoVonStroke()
 'Körperliche Gesundheit', berechneRisikoVonPhysicalHealth()
 'Mentale Gesundheit', berechneRisikoVonMentalHealth()
