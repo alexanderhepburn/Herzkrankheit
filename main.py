@@ -727,7 +727,7 @@ Excel_contents = ''
 'Hautkrebs', berechneRisikoVonSkinCancer()
 ''
 
-row5_col1.download_button('Ihre Resultate', Excel_contents, 'text/csv')
+row5_col1.download_button(label = 'Ihre Resultate', data = Excel_contents, file_name = 'Mein Resultat', mime = 'text/csv', help = 'Hier links klicken zum Download')
 with row5_col1:
     download_results = st.download_button('Ihre Resultate')
 if download_results:
