@@ -738,7 +738,7 @@ Excel_contents = { 'Feature' : ['BMI',
                                        berechneRisikoVonSkinCancer()]
                  }
 
-#df_Excel_contents = pd.DataFrame(data=Excel_contents)
+df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
 #def convert_df(df_Excel_contents):
 #   return df.to_csv().encode('utf-8')
