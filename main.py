@@ -732,6 +732,6 @@ download_results = row5_col1.download_button(label = 'Ihre Resultate', data = Ex
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
-with open('Mein Resultat.csv') as f:
-	st.download_button('Ihre Resultate', f)
+#with open('Ihre Resultate') as f:
+#	st.download_button('Ihre Resultate', f)
 
