@@ -745,12 +745,12 @@ df_Excel_contents = pd.DataFrame(data=Excel_contents)
 #
 #csv = convert_df(df_Excel_contents)
 #
-#download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-#                                             data = df_Excel_contents, 
-#                                             file_name = 'Mein Resultat.csv', 
-#                                             mime = 'text/csv', 
-#                                             help = 'Hier links klicken zum Download als Excel-Datei', 
-#                                             key='download-csv')
+download_results = row5_col1.download_button(label = 'Ihre Resultate', 
+                                             data = df_Excel_contents, 
+                                             file_name = 'Mein Resultat.csv', 
+                                             mime = 'text/csv', 
+                                             help = 'Hier links klicken zum Download als Excel-Datei', 
+                                             key='download-csv')
 
 #if download_results:
 #    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
