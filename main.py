@@ -706,25 +706,25 @@ row5_col1, row5_col2 = st.columns([1, 1])
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
 #Funktion
-Excel_contents = ''
-    'Faktor', 'Anteil am Risiko'
-    'BMI', berechneRisikoVonBMI()
-    'Rauchen', berechneRisikoVonSmoking()
-    'Alkoholkonsum', berechneRisikoVonAlkohol()
-    'Schlaganfall', berechneRisikoVonStroke()
-    'Körperliche Gesundheit', berechneRisikoVonPhysicalHealth()
-    'Mentale Gesundheit', berechneRisikoVonMentalHealth()
-    'Gehschwierigkeiten', berechneRisikoVonDiffWalking()
-    'Geschlecht', berechneRisikoVonSex()
-    'Alter', berechneRisikoVonAgeCategory()
-    'Ethnie', berechneRisikoVonRace()
-    'Diabetes', berechneRisikoVonDiabetic()
-    'Sport', berechneRisikoVonSport()
-    'Generelles Wohlbefinden', berechneRisikoVonGenHealth()
-    'Schlaf', berechneRisikoVonSchlaf()
-    'Asthma', berechneRisikoVonAsthma()
-    'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
-    'Hautkrebs', berechneRisikoVonSkinCancer()''
+Excel_contents = '''
+'Faktor', 'Anteil am Risiko'
+'BMI', berechneRisikoVonBMI()
+'Rauchen', berechneRisikoVonSmoking()
+'Alkoholkonsum', berechneRisikoVonAlkohol()
+'Schlaganfall', berechneRisikoVonStroke()
+'Körperliche Gesundheit', berechneRisikoVonPhysicalHealth()
+'Mentale Gesundheit', berechneRisikoVonMentalHealth()
+'Gehschwierigkeiten', berechneRisikoVonDiffWalking()
+'Geschlecht', berechneRisikoVonSex()
+'Alter', berechneRisikoVonAgeCategory()
+'Ethnie', berechneRisikoVonRace()
+'Diabetes', berechneRisikoVonDiabetic()
+'Sport', berechneRisikoVonSport()
+'Generelles Wohlbefinden', berechneRisikoVonGenHealth()
+'Schlaf', berechneRisikoVonSchlaf()
+'Asthma', berechneRisikoVonAsthma()
+'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
+'Hautkrebs', berechneRisikoVonSkinCancer()'''
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', data = Excel_contents, file_name = 'Mein Resultat.csv', mime = 'text/csv', help = 'Hier links klicken zum Download als Excel-Datei')
 
