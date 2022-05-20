@@ -706,7 +706,7 @@ row5_col1, row5_col2 = st.columns([1, 1])
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
 #Funktion
-Excel_contents = ''
+Excel_contents = (''
 'Faktor', 'Anteil am Risiko'
 'BMI', berechneRisikoVonBMI()
 'Rauchen', berechneRisikoVonSmoking()
@@ -725,7 +725,7 @@ Excel_contents = ''
 'Asthma', berechneRisikoVonAsthma()
 'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
 'Hautkrebs', berechneRisikoVonSkinCancer()
-''
+'')
 
 row5_col1.download_button(label = 'Ihre Resultate', data = Excel_contents, file_name = 'Mein Resultat.csv', mime = 'text/csv', help = 'Hier links klicken zum Download')
 
