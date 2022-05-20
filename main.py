@@ -701,7 +701,7 @@ if button3:
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
-row5_col1, row5_col2 = st.columns([1, 1])
+row5_col1, row5_col2 = st.columns([1, 0])
 
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
