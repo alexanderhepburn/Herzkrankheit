@@ -661,7 +661,19 @@ row3_col1, row3_col2 = st.columns([1, 1])
 row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 
 #Header rechts
-row3_col2.subheader("action title?")
+row3_col2.subheader("Ranking_Function()")
+
+def Ranking_Function():
+  z = berechneHeartDisease()
+  x = Log_Reg.predict_proba(xTest).copy()
+  x = x.values.tolist()
+  solution = []
+  for i in x:
+    solution += i
+  solution = sorted(solution)
+  fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
+  params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)] #Dieser Abschnitt funktioniert noch nicht ganz
+  return params
 # weiß noch nicht, was man hier machen kann
 
 ##############################################################################################
