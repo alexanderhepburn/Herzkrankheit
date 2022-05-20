@@ -730,7 +730,7 @@ Excel_contents = '''
 
 
 row5_col1.download_button('Ihre Resultate', Excel_contents, 'text/csv')
-row5_col1.download_button('Ihre Resultate', Excel_contents)
+
 
 #with open('myfile.csv') as f:
  #  st.download_button('Ihre Resultate', f)
