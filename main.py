@@ -706,26 +706,39 @@ row5_col1, row5_col2 = st.columns([1, 1])
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
 #Funktion
-Excel_contents = ''
-'Faktor', 'Anteil am Risiko'
-'BMI', berechneRisikoVonBMI()
-'Rauchen', berechneRisikoVonSmoking()
-'Alkoholkonsum', berechneRisikoVonAlkohol()
-'Schlaganfall', berechneRisikoVonStroke()
-'Koerperliche Gesundheit', berechneRisikoVonPhysicalHealth()
-'Mentale Gesundheit', berechneRisikoVonMentalHealth()
-'Gehschwierigkeiten', berechneRisikoVonDiffWalking()
-'Geschlecht', berechneRisikoVonSex()
-'Alter', berechneRisikoVonAgeCategory()
-'Ethnie', berechneRisikoVonRace()
-'Diabetes', berechneRisikoVonDiabetic()
-'Sport', berechneRisikoVonSport()
-'Generelles Wohlbefinden', berechneRisikoVonGenHealth()
-'Schlaf', berechneRisikoVonSchlaf()
-'Asthma', berechneRisikoVonAsthma()
-'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
-'Hautkrebs', berechneRisikoVonSkinCancer()
-''
+Excel_contents = { 'Feature' : ['BMI', 
+                             'Rauchen', 
+                             'Alkoholkonsum', 
+                             'Schlaganfall', 
+                             'Koerperliche Gesundheit', 
+                             'Mentale Gesundheit', 'Gehschwierigkeiten', 
+                             'Geschlecht', 
+                             'Alter', 
+                             'Ethnie', 
+                             'Diabetes', 
+                             'Sport', 
+                             'Generelles Wohlbefinden', 
+                             'Schlaf', 'Asthma', 'Nierenkrankheiten', 'Hautkrebs'],
+                  'Anteil am Risiko': [berechneRisikoVonBMI(), 
+                                       berechneRisikoVonSmoking(), 
+                                       berechneRisikoVonAlkohol(), 
+                                       berechneRisikoVonStroke(), 
+                                       berechneRisikoVonPhysicalHealth(), 
+                                       berechneRisikoVonMentalHealth(), 
+                                       berechneRisikoVonDiffWalking(), 
+                                       berechneRisikoVonSex(), 
+                                       berechneRisikoVonAgeCategory(), 
+                                       berechneRisikoVonRace(), 
+                                       berechneRisikoVonDiabetic(), 
+                                       berechneRisikoVonSport(), 
+                                       berechneRisikoVonGenHealth(), 
+                                       berechneRisikoVonSchlaf(), 
+                                       berechneRisikoVonAsthma(), 
+                                       berechneRisikoVonKidneyDisease(), 
+                                       berechneRisikoVonSkinCancer()]
+                 }
+
+df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
 #def convert_df(Excel_contents):
 #   return df.to_csv().encode('utf-8')
@@ -733,7 +746,7 @@ Excel_contents = ''
 #csv = convert_df(Excel_contents)
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-                                             data = Excel_contents, 
+                                             data = df_Excel_contents, 
                                              file_name = 'Mein Resultat.csv', 
                                              mime = 'text/csv', 
                                              help = 'Hier links klicken zum Download als Excel-Datei', 
