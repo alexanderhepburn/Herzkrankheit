@@ -701,11 +701,12 @@ if button3:
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
+#Aufbau
 row5_col1, row5_col2 = st.columns([1, 1])
 
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
-#Funktion
+#Aufnahme der Daten
 Excel_contents = { 'Feature' : ['BMI', 
                              'Rauchen', 
                              'Alkoholkonsum', 
@@ -738,6 +739,7 @@ Excel_contents = { 'Feature' : ['BMI',
                                        berechneRisikoVonSkinCancer()]
                  }
 
+#Erstellung eines DataFrames
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
 csv_Excel_contents = df_Excel_contents.to_csv().encode('utf-8')
@@ -749,6 +751,7 @@ download_results = row5_col1.download_button(label = 'Ihre Resultate',
                                              help = 'Hier links klicken zum Download als Excel-Datei', 
                                              key='download-csv')
 
+#Extras
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
