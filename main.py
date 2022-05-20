@@ -724,7 +724,8 @@ Excel_contents = ''
 'Schlaf', berechneRisikoVonSchlaf()
 'Asthma', berechneRisikoVonAsthma()
 'Nierenkrankheiten', berechneRisikoVonKidneyDisease()
-'Hautkrebs', berechneRisikoVonSkinCancer()''
+'Hautkrebs', berechneRisikoVonSkinCancer()
+''
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', data = Excel_contents, file_name = 'Mein Resultat.csv', mime = 'text/csv', help = 'Hier links klicken zum Download als Excel-Datei')
 
