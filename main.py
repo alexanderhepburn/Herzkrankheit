@@ -740,10 +740,6 @@ Excel_contents = { 'Feature' : ['BMI',
 
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
-row5_col1.markdown(df_Excel_contents)
-
-# bis hierin alles ok, Output in Form: Index Feature_Name Wert_des_Features Index+1 (...)
-
 csv_Excel_contents = df_Excel_contents.to_csv().encode('utf-8')
 
 download_results = row5_col1.download_button(label = 'Ihre Resultate', 
