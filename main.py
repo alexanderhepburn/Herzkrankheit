@@ -773,7 +773,7 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Shap provisorisch hier")
 
-explainer = shap.Explainer(manager)   # model?
-shap_values = explainer(xTrain)
+#explainer = shap.Explainer(model)   # Wie bekomme ich hier unser model rein?
+#shap_values = explainer(xTrain)
 
-shap.plots.waterfall(shap_values[0])
+#shap.plots.waterfall(shap_values[0])
