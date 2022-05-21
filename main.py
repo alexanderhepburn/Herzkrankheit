@@ -773,7 +773,7 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Shap provisorisch hier")
 
-explainer = shap.Explainer(berechneHeartDisease())   # model?
-shap_values = explainer(list_of_all_risk_factors)
+#explainer = shap.Explainer(berechneHeartDisease())   # model?
+#shap_values = explainer(list_of_all_risk_factors)
 
-row2_col1.pyplot.shap.plots.waterfall(shap_values[0])
+row6_col1.pyplot(shap.plots.waterfall(Excel_contents[0]))
