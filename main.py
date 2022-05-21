@@ -16,6 +16,8 @@ from bisect import bisect_left, bisect_right #für Funktion 3
 
 Log_Reg = pickle.load(open('finalized_LogReg_model.sav', 'rb'))
 manager = Herz()
+Master_dataframe = pd.read_csv("heart_2020_cleaned.csv")
+xTrain, xTest, yTrain, yTest = train_test_split(Master_dataframe["HeartDisease"], Master_dataframe.drop(axis=1, columns=["HeartDisease"]), random_state=1)
 
 ###UI Aufbau
 
