@@ -9,6 +9,7 @@ import numpy as np
 from pandas import DataFrame
 from sklearn.feature_selection import RFE
 import webbrowser
+pip install shap
 
 #Global Variablen
 
