@@ -776,4 +776,4 @@ row6_col1.subheader("Shap provisorisch hier")
 #explainer = shap.Explainer(berechneHeartDisease())   # model?
 #shap_values = explainer(list_of_all_risk_factors)
 
-row6_col1.pyplot(shap.plots.waterfall(Excel_contents[0]))
+row6_col1.pyplot.shap.plots.waterfall(Excel_contents[0])
