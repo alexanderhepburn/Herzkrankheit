@@ -10,6 +10,7 @@ from pandas import DataFrame
 from sklearn.feature_selection import RFE
 import webbrowser
 import shap
+from bisect import bisect_left, bisect_right #für Funktion 3
 
 #Global Variablen
 
@@ -661,6 +662,13 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 
 #Header rechts
 #row3_col2.subheader(Ranking_Function())
+def get_closests(df, col, val):
+    lower_idx = bisect_left(df[col].values, val)
+    higher_idx = bisect_right(df[col].values, val)
+if higher_idx == lower_idx:      #val is not in the list
+    return lower_idx - 1, lower_idx
+else:                            #val is in the list
+    return lower_idx
 
 def Ranking_Function():
   z = berechneHeartDisease()
@@ -671,8 +679,9 @@ def Ranking_Function():
     solution += i
   solution = sorted(solution)
   fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
-  params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)] #Dieser Abschnitt funktioniert noch nicht ganz -> hat man bei iloc nicht immer 2 argumente? also iloc [:, min()] oder iloc[min(), :], damit jeweils alle Zeilen/Spalten ausgewählt werden? JW
-  return params
+  ranking = get_closests(fancy_df, 'Probability_1', z)
+  #params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)] #Dieser Abschnitt funktioniert noch nicht ganz -> hat man bei iloc nicht immer 2 argumente? also iloc [:, min()] oder iloc[min(), :], damit jeweils alle Zeilen/Spalten ausgewählt werden? JW
+  return ranking
 row3_col2.subheader(Ranking_Function())
 # weiß noch nicht, was man hier machen kann
 
