@@ -672,7 +672,7 @@ def Ranking_Function():
     solution += i
   solution = sorted(solution)
   fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
-  params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)] #Dieser Abschnitt funktioniert noch nicht ganz
+  params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)] #Dieser Abschnitt funktioniert noch nicht ganz -> hat man bei iloc nicht immer 2 argumente? also iloc [:, min()] oder iloc[min(), :], damit jeweils alle Zeilen/Spalten ausgewählt werden? JW
   return params
 # weiß noch nicht, was man hier machen kann
 
