@@ -640,22 +640,16 @@ list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), b
 y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
 y_achse = np.arange(len(list_of_var_risk_factors))
 
-#fig3, ax = plt.subplots(figsize = (8, 4))
-#ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
-#ax.set_yticks(y_achse, labels=y_label)
-#ax.invert_yaxis()  # labels read top-to-bottom
-#ax.set_xlabel('Anteil am Risiko', fontsize = 16)
-#ax.tick_params(axis='both', which='major', labelsize=16)
-#ax.set_title('Welche Bedeutung haben die Variablen?', fontsize = 16)
-#ax.spines['top'].set_visible(False)
+fig3, ax = plt.subplots(figsize = (8, 4))
+ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
+ax.set_yticks(y_achse, labels=y_label)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('Anteil am Risiko', fontsize = 16)
+ax.tick_params(axis='both', which='major', labelsize=16)
+ax.set_title('Welche Bedeutung haben die Variablen?', fontsize = 16)
+ax.spines['top'].set_visible(False)
 
-#row2_col2.pyplot(fig3, use_container_width = True) #Test obd dies funktioniert hat
-
-##SHAP
-explainer = shap.Explainer(list_of_all_risk_factors)
-shap_values = explainer(list_of_all_risk_factors)
-
-row2_col1.pyplot.shap.plots.waterfall(shap_values[0])
+row2_col2.pyplot(fig3, use_container_width = True) #Test obd dies funktioniert hat
 
 ##############################################################################################
 #Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
@@ -772,3 +766,14 @@ download_results = row5_col1.download_button(label = 'Ihre Resultate',
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
+    
+    
+###SHAP
+#Aufbau
+row6_col1, row6_col2 = st.columns([1, 1])
+row6_col1.subheader("Shap provisorisch hier")
+
+explainer = shap.Explainer(list_of_all_risk_factors)
+shap_values = explainer(list_of_all_risk_factors)
+
+row2_col1.pyplot.shap.plots.waterfall(shap_values[0])
