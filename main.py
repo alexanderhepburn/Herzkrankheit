@@ -665,18 +665,31 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 #Header rechts
 #row3_col2.subheader(Ranking_Function())
 
+#def Ranking_Function():
+#  user_risk_Heart_Disease = berechneHeartDisease()
+#  Risk_of_all_people_in_xTest = Log_Reg.predict_proba(xTest).copy()
+#  Risk_of_all_people_in_xTest = Risk_of_all_people_in_xTest.values.tolist()
+#  soon_to_be_sorted_List = []
+#  for i in Risk_of_all_people_in_xTest:
+#    soon_to_be_sorted_List += i
+#  sorted_List = sorted(soon_to_be_sorted_List)
+#  fancy_df = pd.DataFrame(sorted_List, columns = ['Probability_1'])
+#  ranking = np.searchsorted(fancy_df['Probability_1'], user_risk_Heart_Disease, side = 'left')
+#  ranking = (ranking/len(fancy_df))*100
+#  return ranking # The Result is the percentage in full numbers (3 means 3%). Meaning, at 3%, 97% of people have a higher risk for heart disease
+
 def Ranking_Function():
-  user_risk_Heart_Disease = berechneHeartDisease()
-  Risk_of_all_people_in_xTest = Log_Reg.predict_proba(xTest).copy()
-  Risk_of_all_people_in_xTest = Risk_of_all_people_in_xTest.values.tolist()
-  soon_to_be_sorted_List = []
-  for i in Risk_of_all_people_in_xTest:
-    soon_to_be_sorted_List += i
-  sorted_List = sorted(soon_to_be_sorted_List)
-  fancy_df = pd.DataFrame(sorted_List, columns = ['Probability_1'])
-  ranking = np.searchsorted(fancy_df['Probability_1'], user_risk_Heart_Disease, side = 'left')
-  ranking = (ranking/len(fancy_df))*100
-  return ranking # The Result is the percentage in full numbers (3 means 3%). Meaning, at 3%, 97% of people have a higher risk for heart disease
+  z = 0.4654
+  x = Log_Reg.predict_proba(xTest).copy()
+  x = x.values.tolist()
+  solution = []
+  for i in x:
+    solution += i
+  solution = sorted(solution)
+  fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
+  params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
+  #params = fancy_df.iloc[min(max(9 - round(z / 10), 6), 8)]
+  return params
 
 row3_col2.subheader(Ranking_Function())
 # weiß noch nicht, was man hier machen kann
