@@ -665,10 +665,10 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 def get_closests(df, col, val):
     lower_idx = bisect_left(df[col].values, val)
     higher_idx = bisect_right(df[col].values, val)
-if higher_idx == lower_idx:      #val is not in the list
-    return lower_idx - 1, lower_idx
-else:                            #val is in the list
-    return lower_idx
+    if higher_idx == lower_idx:      #val is not in the list
+        return lower_idx - 1, lower_idx
+    else:                            #val is in the list
+        return lower_idx
 
 def Ranking_Function():
   z = berechneHeartDisease()
