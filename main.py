@@ -792,5 +792,5 @@ row6_col1.subheader("Seaborn provisorisch hier")
 
 keys = list(Excel_contents.keys())
 # get values in the same order as keys, and parse percentage values
-vals = [float(Excel_contents[k][:-1]) for k in keys]
+vals = [Excel_contents[k]) for k in keys]
 row6_col1.sns.barplot(x=keys, y=vals)
