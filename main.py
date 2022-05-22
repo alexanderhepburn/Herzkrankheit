@@ -698,7 +698,7 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 ###Plot
 
 fig4 = plt.figure(figsize=(8,4))
-sns.displot(data = fancy_df, 
+sns.displot(data = params, 
             x = 'Anteil_am_Risiko',
             kind = 'kde'
            )
