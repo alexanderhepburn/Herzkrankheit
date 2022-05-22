@@ -791,9 +791,11 @@ row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
 fig00 = plt.figure(figsize=(8,4))
-sns.histplot(data=Excel_contents, 
+sns.barplot(data=Excel_contents, 
              x = 'Anteil am Risiko', 
              y = 'Feature',
-             hue = 'Feature')
+             hue = 'Feature'
+             order=Excel_contents.sort_values('Features').'Anteil am Risiko')
+
 row6_col1.pyplot(fig00)
 
