@@ -790,7 +790,15 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
-keys = list(Excel_contents.keys())
-# get values in the same order as keys, and parse percentage values
-vals = [Excel_contents[k][:-1] for k in keys]
-#row6_col1.sns.barplot(x=keys, y=vals)
+sns.set_theme(style="ticks")
+
+figXY, ax = plt.subplots(figsize=(7, 5))
+sns.despine(figXY)
+
+row6_col1.sns.histplot(
+    df_Excel_contents,
+    x="Anteil am Risiko", y="Feature",
+    palette="light:m_r",
+    edgecolor=".3",
+    linewidth=.5,
+)
