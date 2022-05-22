@@ -698,6 +698,8 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 
 ###Versuch eines Plots
 
+fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
+
 fig4 = plt.figure(figsize=(8,4))
 sns.kdeplot(data = fancy_df, 
             x = 'Anteil_am_Risiko',
