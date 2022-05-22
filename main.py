@@ -792,7 +792,7 @@ row6_col1.subheader("Seaborn provisorisch hier")
 
 sns.set_theme(style="ticks")
 
-def figXYZ:
+def figXYZ():
     figXY, ax = plt.subplots(figsize=(7, 5))
     sns.histplot(
         df_Excel_contents,
