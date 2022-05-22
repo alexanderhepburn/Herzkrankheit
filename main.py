@@ -793,9 +793,7 @@ row6_col1.subheader("Seaborn provisorisch hier")
 fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
              x = 'Anteil_am_Risiko', 
-             y = 'Feature',
-             
-             #order=Excel_contents.sort_values('Features').
+             y = 'Feature')
 
 row6_col1.pyplot(fig00)
 
