@@ -796,7 +796,7 @@ fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
             x = 'Anteil_am_Risiko', 
             y = 'Feature',
-            palette=np.array(pal[::-1])[rank]
+            palette=np.array(pal[::-1])['Feature']
            )
 
 row6_col1.pyplot(fig00)
