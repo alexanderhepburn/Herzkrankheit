@@ -698,15 +698,12 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 
 ###Versuch eines Plots
 
-df_fürdenplot = pd.Dataframe(data = y_probability_pred)
-
 
 fig4 = plt.figure(figsize=(8,4))
-sns.barplot(data = df_fürdenplot, 
-            x = 'Anteil_am_Risiko',
-            y = 'Feature',
-            palette = 'Spectral'
-           )
+sns.countplot(data = fancy_df,
+              x = 'Risiko',
+              palette = 'Spectral'
+             )
 
 row3_col1.pyplot(fig4, use_container_width = True)
 
