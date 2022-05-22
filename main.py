@@ -620,6 +620,7 @@ Excel_contents = { 'Feature' : ['BMI',
 
 #Erstellung eines DataFrames
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
+df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
 
 ###Seaborn-Plot
 
@@ -635,56 +636,29 @@ sns.barplot(data=df_sorted,
 row2_col1.pyplot(fig2, use_container_width = True)
 
 
-
-list_of_all_risk_factors = [berechneRisikoVonBMI(),
-                            berechneRisikoVonSmoking(),
-                            berechneRisikoVonAlkohol(),
-                            berechneRisikoVonStroke(),
-                            berechneRisikoVonPhysicalHealth(),
-                            berechneRisikoVonMentalHealth(),
-                            berechneRisikoVonDiffWalking(),
-                            berechneRisikoVonSex(),
-                            berechneRisikoVonAgeCategory(),
-                            berechneRisikoVonRace(),
-                            berechneRisikoVonDiabetic(),
-                            berechneRisikoVonSport(),
-                            berechneRisikoVonGenHealth(),
-                            berechneRisikoVonSchlaf(),
-                            berechneRisikoVonAsthma(),
-                            berechneRisikoVonKidneyDisease(),
-                            berechneRisikoVonSkinCancer()]
-y_label = ['BMI', 
-           'Rauchen', 
-           'Alkoholkonsum', 
-           'Schlaganfall', 
-           'Körperliche Gesundheit', 
-           'Mentale Gesundheit', 
-           'Gehschwierigkeiten', 
-           'Geschlecht', 
-           'Alter', 
-           'Ethnie', 
-           'Diabetes', 
-           'Sport', 
-           'Generelles Wohlbefinden', 
-           'Schlaf', 
-           'Asthma', 
-           'Nierenkrankheiten', 
-           'Hautkrebs']
-
-
 #Plot veränderbarer Features:
-y_achse = np.arange(len(list_of_all_risk_factors))
-list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
-y_achse = np.arange(len(list_of_var_risk_factors))
+#Vorbereitung der Daten
+Excel_contents2 = { 'Feature' : ['BMI',
+                                 'Rauchen',
+                                 'Sport', 
+                                 'Schlaf'
+                                ],
+                   'Anteil_am_Risiko': [berechneRisikoVonBMI(),
+                                        berechneRisikoVonSmoking(),
+                                        berechneRisikoVonSport(),
+                                        berechneRisikoVonSchlaf(),
+                                       ]
 
-###Seaborn-Plot 2
-df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
+#Erstellung eines DataFrames
+df_Excel_contents2 = pd.DataFrame(data=Excel_contents2)
+df_sorted2 = df_Excel_contents2.sort_values('Anteil_am_Risiko', ascending = False)
+
+#Seaborn-Plot 2
 
 fig3 = plt.figure(figsize=(8,4))
-sns.barplot(data=df_sorted, 
-            x = list_of_var_risk_factors,
-            y = y_achse,
+sns.barplot(data = df_sorted, 
+            x = 'Anteil_am_Risiko,
+            y = 'Feature',
             palette = 'Spectral'
            )
 
