@@ -792,13 +792,16 @@ row6_col1.subheader("Seaborn provisorisch hier")
 
 sns.set_theme(style="ticks")
 
-figXY, ax = plt.subplots(figsize=(7, 5))
-sns.despine(figXY)
+def figXYZ:
+    figXY, ax = plt.subplots(figsize=(7, 5))
+    sns.histplot(
+        df_Excel_contents,
+        x="Anteil am Risiko", y="Feature",
+        palette="light:m_r",
+        edgecolor=".3",
+        linewidth=.5,
+        )
 
-row6_col1.pyplot.sns.histplot(
-    df_Excel_contents,
-    x="Anteil am Risiko", y="Feature",
-    palette="light:m_r",
-    edgecolor=".3",
-    linewidth=.5,
-)
+figXYZ()
+
+
