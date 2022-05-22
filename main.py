@@ -665,19 +665,6 @@ sns.barplot(data = df_sorted2,
 
 row2_col2.pyplot(fig3, use_container_width = True)
 
-
-
-#fig3, ax = plt.subplots(figsize = (8, 4))
-#ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
-#ax.set_yticks(y_achse, labels=y_label)
-#ax.invert_yaxis()  # labels read top-to-bottom
-#ax.set_xlabel('Anteil am Risiko', fontsize = 16)
-#ax.tick_params(axis='both', which='major', labelsize=16)
-#ax.set_title('Welche Bedeutung haben die Variablen?', fontsize = 16)
-#ax.spines['top'].set_visible(False)
-
-#row2_col2.pyplot(fig3, use_container_width = True) #Test obd dies funktioniert hat
-
 ##############################################################################################
 #Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
 #Erstellen von 2 Spalten
