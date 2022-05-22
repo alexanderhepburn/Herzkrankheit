@@ -795,5 +795,5 @@ def countPlot():
     sns.countplot(x = "Anteil am Risiko", data = df_Excel_contents)
     st.pyplot(fig000)
     
-row6_col1.pyplot(fig000())
+row6_col1.pyplot(fig000(), use_container_wudth = True)
 
