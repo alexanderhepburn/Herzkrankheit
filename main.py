@@ -689,7 +689,7 @@ def Ranking_Function():
     params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
     return params
 
-row3_col2.subheader(Ranking_Function())
+#row3_col2.subheader(Ranking_Function())
 # weiß noch nicht, was man hier machen kann
 
 ##############################################################################################
