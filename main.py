@@ -791,14 +791,15 @@ row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
 #data00 = Excel_contents.groupby('Anteil_am_Risiko').size()
-pal = sns.color_palette("Spectral")
+#pal = sns.color_palette('Spectral')
 
 
 fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
             x = 'Anteil_am_Risiko', 
             y = 'Feature',
-            palette=np.array(pal)
+            palette = 'Spectral'
+            #np.array(pal)
            )
 
 row6_col1.pyplot(fig00)
