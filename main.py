@@ -792,13 +792,13 @@ row6_col1.subheader("Seaborn provisorisch hier")
 
 #Task jetzt: Gruppieren, ascending = False
 
-df_Excel_contents.sort_values('Anteil_am_Risiko')
+df_Excel_contents.sort_values('Feature')
+
 fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=df_Excel_contents, 
             x = 'Anteil_am_Risiko', 
             y = 'Feature',
             palette = 'Spectral'
-            
            )
 
 row6_col1.pyplot(fig00)
