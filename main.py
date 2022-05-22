@@ -586,6 +586,54 @@ def berechneRisikoVonSkinCancer():
     return SkinCancer_Risiko 
 
 #Plot aller Features:
+Excel_contents = { 'Feature' : ['BMI', 
+                             'Rauchen', 
+                             'Alkoholkonsum', 
+                             'Schlaganfall', 
+                             'Koerperliche Gesundheit', 
+                             'Mentale Gesundheit', 'Gehschwierigkeiten', 
+                             'Geschlecht', 
+                             'Alter', 
+                             'Ethnie', 
+                             'Diabetes', 
+                             'Sport', 
+                             'Generelles Wohlbefinden', 
+                             'Schlaf', 'Asthma', 'Nierenkrankheiten', 'Hautkrebs'],
+                  'Anteil_am_Risiko': [berechneRisikoVonBMI(), 
+                                       berechneRisikoVonSmoking(), 
+                                       berechneRisikoVonAlkohol(), 
+                                       berechneRisikoVonStroke(), 
+                                       berechneRisikoVonPhysicalHealth(), 
+                                       berechneRisikoVonMentalHealth(), 
+                                       berechneRisikoVonDiffWalking(), 
+                                       berechneRisikoVonSex(), 
+                                       berechneRisikoVonAgeCategory(), 
+                                       berechneRisikoVonRace(), 
+                                       berechneRisikoVonDiabetic(), 
+                                       berechneRisikoVonSport(), 
+                                       berechneRisikoVonGenHealth(), 
+                                       berechneRisikoVonSchlaf(), 
+                                       berechneRisikoVonAsthma(), 
+                                       berechneRisikoVonKidneyDisease(), 
+                                       berechneRisikoVonSkinCancer()]
+                 }
+
+#Erstellung eines DataFrames
+df_Excel_contents = pd.DataFrame(data=Excel_contents)
+
+###Seaborn-Plot
+
+df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
+
+fig2 = plt.figure(figsize=(8,4))
+sns.barplot(data=df_sorted, 
+            x = 'Anteil_am_Risiko', 
+            y = 'Feature',
+            palette = 'Spectral'
+           )
+
+row2_col1.pyplot(fig2)
+
 list_of_all_risk_factors = [berechneRisikoVonBMI(),
                             berechneRisikoVonSmoking(),
                             berechneRisikoVonAlkohol(),
@@ -621,23 +669,9 @@ y_label = ['BMI',
            'Nierenkrankheiten', 
            'Hautkrebs']
 
-y_achse = np.arange(len(list_of_all_risk_factors))
-
-fig2, ax = plt.subplots(figsize = (8, 4))
-ax.barh(y_achse, list_of_all_risk_factors, align='center', color = 'gold')
-ax.set_yticks(y_achse, labels=y_label)
-ax.invert_yaxis()  # labels read top-to-bottom
-ax.set_xlabel('Anteil am Risiko', fontsize = 16)
-ax.set_ylabel(' ', fontsize = 16)
-ax.tick_params(axis='y', which='major', labelsize=14)
-ax.tick_params(axis='x', which='major', labelsize=16)
-ax.set_title('Welche Variablen sind für Sie am wichtigsten?', fontsize = 16)
-ax.spines['top'].set_visible(False)
-
-row2_col1.pyplot(fig2, use_container_width = True) #Test obd dies funktioniert hat
-
 
 #Plot veränderbarer Features:
+y_achse = np.arange(len(list_of_all_risk_factors))
 list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
 y_achse = np.arange(len(list_of_var_risk_factors))
