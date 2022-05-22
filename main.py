@@ -794,7 +794,7 @@ fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
              x = 'Anteil_am_Risiko', 
              y = 'Feature',
-             hue = 'Feature',
+             
              #order=Excel_contents.sort_values('Features'))
 
 row6_col1.pyplot(fig00)
