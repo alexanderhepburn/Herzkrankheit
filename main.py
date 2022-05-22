@@ -635,24 +635,6 @@ sns.barplot(data=df_sorted,
 row2_col1.pyplot(fig2, use_container_width = True)
 
 
-###Seaborn-Plot 2
-df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
-
-fig3 = plt.figure(figsize=(8,4))
-sns.barplot(data=df_sorted, 
-            x = berechneRisikoVonBMI(), 
-                berechneRisikoVonSchlaf(), 
-                berechneRisikoVonSport(), 
-                berechneRisikoVonAlkohol() 
-            y = 'BMI', 
-                'Ausmaß an Schlaf', 
-                'Sportliche Betätigung', 
-                'Alkoholkonsum'
-            palette = 'Spectral'
-           )
-
-row2_col2.pyplot(fig3, use_container_width = True)
-
 
 list_of_all_risk_factors = [berechneRisikoVonBMI(),
                             berechneRisikoVonSmoking(),
@@ -690,11 +672,25 @@ y_label = ['BMI',
            'Hautkrebs']
 
 
-#Plot veränderbarer Features:
-#y_achse = np.arange(len(list_of_all_risk_factors))
-#list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
-#y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
-#y_achse = np.arange(len(list_of_var_risk_factors))#
+Plot veränderbarer Features:
+y_achse = np.arange(len(list_of_all_risk_factors))
+list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
+y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
+y_achse = np.arange(len(list_of_var_risk_factors))
+
+###Seaborn-Plot 2
+df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
+
+fig3 = plt.figure(figsize=(8,4))
+sns.barplot(data=df_sorted, 
+            x = list_of_var_risk_factors
+            y = y_achse
+            palette = 'Spectral'
+           )
+
+row2_col2.pyplot(fig3, use_container_width = True)
+
+
 
 #fig3, ax = plt.subplots(figsize = (8, 4))
 #ax.barh(y_achse, list_of_var_risk_factors, align='center', color = 'gold')
