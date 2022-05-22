@@ -704,10 +704,12 @@ def plotlistfct():
         plotlist.append(i)
     return plotlist
 
+df_plotlist = df.Dataframe(plotlist)
+
 
 
 fig4 = plt.figure(figsize=(8,4))
-sns.displot(data = plotlist, 
+sns.displot(data = df_plotlist, 
             x = 'Anteil_am_Risiko',
             kind = 'kde'
            )
