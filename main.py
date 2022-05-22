@@ -802,6 +802,6 @@ def figXYZ():
         linewidth=.5,
         )
 
-figXYZ()
+row6_col1.pyplot(figXYZ())
 
 
