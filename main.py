@@ -644,10 +644,10 @@ sns.barplot(data=df_sorted,
                  berechneRisikoVonSchlaf(), 
                  berechneRisikoVonSport(), 
                  berechneRisikoVonAlkohol()] 
-            y = ['BMI', 
-                 'Ausmaß an Schlaf', 
-                 'Sportliche Betätigung', 
-                 'Alkoholkonsum']
+            y = 'BMI', 
+                'Ausmaß an Schlaf', 
+                'Sportliche Betätigung', 
+                'Alkoholkonsum'
             palette = 'Spectral'
            )
 
