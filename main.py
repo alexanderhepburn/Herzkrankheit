@@ -714,7 +714,7 @@ if button1:
 
 
 #Spalte mitte
-row4_col2.subheader("Mentale Gesundheit stärken")
+row4_col2.subheader("Mentale Gesundheit")
 with row4_col2:
     button2 = st.button("Optionen mentale Gesundheit")
 if button2:
