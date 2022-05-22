@@ -791,6 +791,9 @@ row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
 fig00 = plt.figure(figsize=(8,4))
-sns.kdeplot(data=Excel_contents, x = 'Anteil am Risiko', hue = 'Feature')
+sns.histplot(data=Excel_contents, 
+             x = 'Anteil am Risiko', 
+             y = 'Feature'
+             hue = 'Feature')
 row6_col1.pyplot(fig00)
 
