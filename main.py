@@ -648,6 +648,7 @@ Excel_contents2 = { 'Feature' : ['BMI',
                                         berechneRisikoVonSport(),
                                         berechneRisikoVonSchlaf(),
                                        ]
+                  }
 
 #Erstellung eines DataFrames
 df_Excel_contents2 = pd.DataFrame(data=Excel_contents2)
