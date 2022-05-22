@@ -695,7 +695,19 @@ def Ranking_Function():
   return round(params, 2)#percentile_of_user #3 means 3%
 row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% aller befragten Menschen')
 #row3_col2.subheader(print(Ranking_Function()))
-# weiß noch nicht, was man hier machen kann
+
+###Versuch eines Plots
+
+fig4 = plt.figure(figsize=(8,4))
+sns.displot(data = fancy_df, 
+            x = 'Anteil_am_Risiko',
+            y = 'Feature',
+            palette = 'Spectral'
+           )
+
+row3_col1.pyplot(fig4, use_container_width = True)
+
+
 
 ##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
