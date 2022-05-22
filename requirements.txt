@@ -2,4 +2,4 @@ pandas
 sklearn
 matplotlib
 streamlit
-shap
+seaborn
