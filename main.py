@@ -791,5 +791,5 @@ row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
 sns.histplot(x='Anteil am Risiko', y='Feature', data=Excel_contents)
-row6_col1.pyplot(fig00)
+row6_col1.pyplot()
 
