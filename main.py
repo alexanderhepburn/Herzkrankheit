@@ -672,7 +672,7 @@ y_label = ['BMI',
            'Hautkrebs']
 
 
-Plot veränderbarer Features:
+#Plot veränderbarer Features:
 y_achse = np.arange(len(list_of_all_risk_factors))
 list_of_var_risk_factors = [berechneRisikoVonBMI(), berechneRisikoVonSchlaf(), berechneRisikoVonSport(), berechneRisikoVonAlkohol()]
 y_label = ['BMI', 'Ausmaß an Schlaf', 'Sportliche Betätigung', 'Alkoholkonsum']
