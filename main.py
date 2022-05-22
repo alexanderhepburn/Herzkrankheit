@@ -657,7 +657,7 @@ df_sorted2 = df_Excel_contents2.sort_values('Anteil_am_Risiko', ascending = Fals
 #Seaborn-Plot 2
 
 fig3 = plt.figure(figsize=(8,4))
-sns.barplot(data = df_sorted, 
+sns.barplot(data = df_sorted2, 
             x = 'Anteil_am_Risiko',
             y = 'Feature',
             palette = 'Spectral'
