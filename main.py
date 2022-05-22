@@ -718,10 +718,10 @@ def Ranking_Function():
     soon_to_be_sorted_List_of_x_test_proba = []
     for i in Risk_of_all_people_in_x_test:
       soon_to_be_sorted_List_of_x_test_proba += i
-    sorted_list_of_x_test_proba = sorted(soon_to_be_sorted_List_of_x_test_proba)
-    fancy_df = pd.DataFrame(sorted_list_of_x_test_proba, columns = ['Probability_1'])
-    percentile_of_user = np.searchsorted(fancy_df['Probability_1'], user_risk_Heart_Disease, side = 'left')
-    return percentile_of_user #3 means 3%
+    #sorted_list_of_x_test_proba = sorted(soon_to_be_sorted_List_of_x_test_proba)
+    #fancy_df = pd.DataFrame(sorted_list_of_x_test_proba, columns = ['Probability_1'])
+    #percentile_of_user = np.searchsorted(fancy_df['Probability_1'], user_risk_Heart_Disease, side = 'left')
+    return soon_to_be_sorted_List_of_x_test_proba#percentile_of_user #3 means 3%
 
 row3_col2.subheader(Ranking_Function())
 # weiß noch nicht, was man hier machen kann
