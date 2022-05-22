@@ -672,7 +672,7 @@ row3_col1, row3_col2 = st.columns([1, 1])
 row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 
 #Header rechts
-row3_col2.subheader('This is 3, 2')
+#row3_col2.subheader('This is 3, 2')
 
 #Um einen Bug zu umgehen, mache ich das jetzt direkt so
 x_test = pd.read_csv("x_test_heart_data.csv")
@@ -691,7 +691,7 @@ def Ranking_Function():
   #params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
   #params = (params/len(fancy_df))*100
   #return params#percentile_of_user #3 means 3%
-
+row3_col2.subheader('This is 3, 2')
 #row3_col2.subheader(print(Ranking_Function()))
 # weiß noch nicht, was man hier machen kann
 
