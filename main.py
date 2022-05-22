@@ -785,12 +785,12 @@ if download_results:
 
     
     
-###SHAP
+###Seaborn
 #Aufbau
 row6_col1, row6_col2 = st.columns([1, 1])
-row6_col1.subheader("Shap provisorisch hier")
+row6_col1.subheader("Seaborn provisorisch hier")
 
-#explainer = shap.Explainer(model)   # Wie bekomme ich hier unser model rein?
-#shap_values = explainer(xTrain)
-
-#shap.plots.waterfall(shap_values[0])
+keys = list(Excel_contents.keys())
+# get values in the same order as keys, and parse percentage values
+vals = [float(Excel_contents[k][:-1]) for k in keys]
+row6_col1.sns.barplot(x=keys, y=vals)
