@@ -705,7 +705,8 @@ x_test = pd.read_csv("x_test_heart_data.csv")
 def Ranking_Function():
   z = 0.4654 #z ist user_input in der App. Hier ist es manuell eine Zahl zum testen
   x = Log_Reg.predict_proba(x_test).copy()
-  x = x.values.tolist()
+  x = x.values
+  x = x.tolist()
   solution = []
   for i in x:
     solution += i
