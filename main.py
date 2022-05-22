@@ -700,7 +700,7 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 
 
 fig4 = plt.figure(figsize=(8,4))
-sns.countplot(data = solution,
+sns.countplot(data = x_test,
               x = 'Risiko',
               palette = 'Spectral'
              )
