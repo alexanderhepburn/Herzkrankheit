@@ -678,9 +678,8 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 #  return ranking # The Result is the percentage in full numbers (3 means 3%). Meaning, at 3%, 97% of people have a higher risk for heart disease
 
 def Ranking_Function():
-    g
     z = berechneHeartDisease()
-    x = Log_Reg.predict_proba('xTest').copy() #Diese Linie ist wo die Probleme passieren!
+    x = Log_Reg.predict_proba(xTest).copy() #Diese Linie ist wo die Probleme passieren!
     x = x.values.tolist()
     solution = []
     for i in x:
@@ -688,7 +687,7 @@ def Ranking_Function():
     solution = sorted(solution)
     fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
     params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
-    return z
+    return params
 
 row3_col2.subheader(Ranking_Function())
 # weiß noch nicht, was man hier machen kann
