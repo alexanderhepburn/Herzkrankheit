@@ -640,10 +640,10 @@ df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
 
 fig3 = plt.figure(figsize=(8,4))
 sns.barplot(data=df_sorted, 
-            x = [berechneRisikoVonBMI(), 
-                 berechneRisikoVonSchlaf(), 
-                 berechneRisikoVonSport(), 
-                 berechneRisikoVonAlkohol()] 
+            x = berechneRisikoVonBMI(), 
+                berechneRisikoVonSchlaf(), 
+                berechneRisikoVonSport(), 
+                berechneRisikoVonAlkohol() 
             y = 'BMI', 
                 'Ausmaß an Schlaf', 
                 'Sportliche Betätigung', 
