@@ -795,7 +795,7 @@ sns.set_theme(style="ticks")
 figXY, ax = plt.subplots(figsize=(7, 5))
 sns.despine(figXY)
 
-row6_col1.sns.histplot(
+sns.histplot(
     df_Excel_contents,
     x="Anteil am Risiko", y="Feature",
     palette="light:m_r",
