@@ -790,7 +790,7 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
-pal = sns.color_palette("Spectral", len('Anteil_am_Risiko'.values()))
+pal = sns.color_palette("Spectral", len('Anteil_am_Risiko'.value()))
 
 fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
