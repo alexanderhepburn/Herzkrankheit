@@ -817,23 +817,3 @@ download_results = row5_col1.download_button(label = 'Ihre Resultate',
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
-    
-    
-###Seaborn
-#Aufbau
-row6_col1, row6_col2 = st.columns([1, 1])
-row6_col1.subheader("Seaborn provisorisch hier")
-
-#Task jetzt: Gruppieren, ascending = False
-
-df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
-
-fig00 = plt.figure(figsize=(8,4))
-sns.barplot(data=df_sorted, 
-            x = 'Anteil_am_Risiko', 
-            y = 'Feature',
-            palette = 'Spectral'
-           )
-
-row6_col1.pyplot(fig00)
-
