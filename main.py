@@ -678,19 +678,21 @@ row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
 x_test = pd.read_csv("x_test_heart_data.csv")
 
 def Ranking_Function():
-  z = 0.4654 #z ist user_input in der App. Hier ist es manuell eine Zahl zum testen
-  x = Log_Reg.predict_proba(x_test).copy()
-  return 'HI'
-  #x = x.to_numpy()
-  #x = x.tolist()
-  #solution = []
-  #for i in x:
-  #  solution += i
-  #solution = sorted(solution)
-  #fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
-  #params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
-  #params = (params/len(fancy_df))*100
-  #return params#percentile_of_user #3 means 3%
+  z = berechneHeartDisease() #z ist user_input in der App. Hier ist es manuell eine Zahl zum testen
+  y_probability_pred = Log_Reg.predict_proba(x_test)
+  y_probability_pred = y_probability_pred.copy()
+  y_probability_pred = pd.DataFrame(y_probability_pred, columns=[['0', '1']])
+  y_probability_pred = y_probability_pred['1']
+  y_probability_pred = y_probability_pred.to_numpy()
+  y_probability_pred = y_probability_pred.tolist()
+  solution = []
+  for i in y_probability_pred:
+    solution += i
+  solution = sorted(solution)
+  fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
+  params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
+  params = (params/len(fancy_df))*100
+  return params#percentile_of_user #3 means 3%
 row3_col2.subheader(Ranking_Function())
 #row3_col2.subheader(print(Ranking_Function()))
 # weiß noch nicht, was man hier machen kann
