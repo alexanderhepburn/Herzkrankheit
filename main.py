@@ -698,7 +698,7 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 ###Plot
 
 
-row3_col1.write(fancy_df).head(5)
+row3_col1.write(fancy_df()).head(5)
 
 
 #row3_col1.pyplot(fig4, use_container_width = True)
