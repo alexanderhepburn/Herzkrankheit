@@ -698,9 +698,12 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 ###Plot
 
 
-row3_col1.write(fancy_df()).head(5)
-
-
+#fig4 = plt.figure(figsize=(8,4))
+#sns.displot(data = fancy_df,         #Hier kann ich auf den Dataframe nicht zugreifen ://
+#            x = 'Anteil_am_Risiko',
+#            kinde = 'kde'
+#           )
+#
 #row3_col1.pyplot(fig4, use_container_width = True)
 
 
