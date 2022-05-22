@@ -790,6 +790,7 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
-sns.histplot(x='Anteil am Risiko', y='Feature', data=Excel_contents)
-row6_col1.pyplot()
+fig00 = plt.figure(figsize=(8,4))
+sns.histplot(data=Excel_contents, x = 'Anteil am Risiko', hue = 'Feature')
+row6_col1.pyplot(fig00)
 
