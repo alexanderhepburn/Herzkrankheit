@@ -795,7 +795,7 @@ sns.barplot(data=Excel_contents,
              x = 'Anteil_am_Risiko', 
              y = 'Feature',
              
-             #order=Excel_contents.sort_values('Features'))
+             #order=Excel_contents.sort_values('Features').
 
 row6_col1.pyplot(fig00)
 
