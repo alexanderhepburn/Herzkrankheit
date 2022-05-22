@@ -698,23 +698,10 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 ###Plot
 
 
-plotlist = []
-def plotlistfct():
-    for i in y_probability_pred:
-        plotlist.append(i)
-    return plotlist
-
-df_plotlist = df.Dataframe(plotlistfct())
+row3_col1.write(fancy_df).head(5)
 
 
-
-fig4 = plt.figure(figsize=(8,4))
-sns.displot(data = df_plotlist, 
-            x = 'Anteil_am_Risiko',
-            kind = 'kde'
-           )
-
-row3_col1.pyplot(fig4, use_container_width = True)
+#row3_col1.pyplot(fig4, use_container_width = True)
 
 
 
