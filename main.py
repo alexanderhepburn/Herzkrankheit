@@ -704,7 +704,7 @@ def plotlistfct():
         plotlist.append(i)
     return plotlist
 
-df_plotlist = df.Dataframe(plotlist)
+df_plotlist = df.Dataframe(plotlistfct())
 
 
 
