@@ -746,38 +746,7 @@ row5_col1, row5_col2 = st.columns([1, 1])
 
 row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
 
-#Aufnahme der Daten
-Excel_contents = { 'Feature' : ['BMI', 
-                             'Rauchen', 
-                             'Alkoholkonsum', 
-                             'Schlaganfall', 
-                             'Koerperliche Gesundheit', 
-                             'Mentale Gesundheit', 'Gehschwierigkeiten', 
-                             'Geschlecht', 
-                             'Alter', 
-                             'Ethnie', 
-                             'Diabetes', 
-                             'Sport', 
-                             'Generelles Wohlbefinden', 
-                             'Schlaf', 'Asthma', 'Nierenkrankheiten', 'Hautkrebs'],
-                  'Anteil_am_Risiko': [berechneRisikoVonBMI(), 
-                                       berechneRisikoVonSmoking(), 
-                                       berechneRisikoVonAlkohol(), 
-                                       berechneRisikoVonStroke(), 
-                                       berechneRisikoVonPhysicalHealth(), 
-                                       berechneRisikoVonMentalHealth(), 
-                                       berechneRisikoVonDiffWalking(), 
-                                       berechneRisikoVonSex(), 
-                                       berechneRisikoVonAgeCategory(), 
-                                       berechneRisikoVonRace(), 
-                                       berechneRisikoVonDiabetic(), 
-                                       berechneRisikoVonSport(), 
-                                       berechneRisikoVonGenHealth(), 
-                                       berechneRisikoVonSchlaf(), 
-                                       berechneRisikoVonAsthma(), 
-                                       berechneRisikoVonKidneyDisease(), 
-                                       berechneRisikoVonSkinCancer()]
-                 }
+#Aufnahme der Daten aus Funktion 2
 
 #Erstellung eines DataFrames
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
