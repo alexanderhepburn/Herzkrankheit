@@ -693,7 +693,7 @@ def Ranking_Function():
   params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
   params = (params/len(fancy_df))*100
   return round(params, 2)#percentile_of_user #3 means 3%
-row3_col2.subheader(Ranking_Function())
+row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% aller befragten Menschen')
 #row3_col2.subheader(print(Ranking_Function()))
 # weiß noch nicht, was man hier machen kann
 
