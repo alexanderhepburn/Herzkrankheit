@@ -790,18 +790,10 @@ if download_results:
 row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
-sns.set_theme(style="ticks")
-
-def figXYZ():
-    figXY, ax = plt.subplots(figsize=(7, 5))
-    sns.histplot(
-        df_Excel_contents,
-        x="Anteil am Risiko", y="Feature",
-        palette="light:m_r",
-        edgecolor=".3",
-        linewidth=.5,
-        )
-
-row6_col1.pyplot(figXYZ())
-
+def countPlot():
+    fig000, sns = plt.figure(figsize=(10, 4))
+    sns.countplot(x = "Anteil am Risiko", data = df_Excel_contents)
+    st.pyplot(fig000)
+    
+row6_col1.pyplot(fig000())
 
