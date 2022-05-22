@@ -793,7 +793,7 @@ row6_col1.subheader("Seaborn provisorisch hier")
 fig00 = plt.figure(figsize=(8,4))
 sns.histplot(data=Excel_contents, 
              x = 'Anteil am Risiko', 
-             y = 'Feature'
+             y = 'Feature',
              hue = 'Feature')
 row6_col1.pyplot(fig00)
 
