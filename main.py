@@ -791,7 +791,7 @@ row6_col1, row6_col2 = st.columns([1, 1])
 row6_col1.subheader("Seaborn provisorisch hier")
 
 def countPlot():
-    fig000, sns = plt.figure(figsize=(10, 4))
+    fig000, ax = plt.figure(figsize=(10, 4))
     sns.countplot(x = "Anteil am Risiko", data = df_Excel_contents)
     st.pyplot(fig000)
     
