@@ -748,7 +748,7 @@ Excel_contents = { 'Feature' : ['BMI',
                              'Sport', 
                              'Generelles Wohlbefinden', 
                              'Schlaf', 'Asthma', 'Nierenkrankheiten', 'Hautkrebs'],
-                  'Anteil am Risiko': [berechneRisikoVonBMI(), 
+                  'Anteil_am_Risiko': [berechneRisikoVonBMI(), 
                                        berechneRisikoVonSmoking(), 
                                        berechneRisikoVonAlkohol(), 
                                        berechneRisikoVonStroke(), 
@@ -792,10 +792,10 @@ row6_col1.subheader("Seaborn provisorisch hier")
 
 fig00 = plt.figure(figsize=(8,4))
 sns.barplot(data=Excel_contents, 
-             x = 'Anteil am Risiko', 
+             x = 'Anteil_am_Risiko', 
              y = 'Feature',
              hue = 'Feature',
-             order=Excel_contents.sort_values('Features').Anteil am Risiko)
+             order=Excel_contents.sort_values('Features').Anteil_am_Risiko)
 
 row6_col1.pyplot(fig00)
 
