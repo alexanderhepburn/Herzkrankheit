@@ -637,12 +637,12 @@ row2_col1.pyplot(fig2, use_container_width = True)
 #Plot veränderbarer Features:
 #Vorbereitung der Daten
 Excel_contents2 = { 'Feature' : ['BMI',
-                                 'Rauchen',
+                                 'Mentale Gesundheit',
                                  'Sport', 
                                  'Schlaf'
                                 ],
                    'Anteil_am_Risiko': [berechneRisikoVonBMI(),
-                                        berechneRisikoVonSmoking(),
+                                        berechneRisikoVonMentalHealth(),
                                         berechneRisikoVonSport(),
                                         berechneRisikoVonSchlaf(),
                                        ]
@@ -694,18 +694,7 @@ def Ranking_Function():
   params = (params/len(fancy_df))*100
   return round(params, 2)#percentile_of_user #3 means 3%
 row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% aller befragten Menschen')
-#row3_col2.subheader(print(Ranking_Function()))
 
-###Versuch eines Plots
-
-
-fig4 = plt.figure(figsize=(8,4))
-sns.countplot(data = x_test,
-              x = 'Risiko',
-              palette = 'Spectral'
-             )
-
-row3_col1.pyplot(fig4, use_container_width = True)
 
 
 
@@ -725,13 +714,13 @@ if button1:
 
 
 #Spalte mitte
-row4_col2.subheader("Mit Rauchen aufhören")
+row4_col2.subheader("Mentale Gesundheit stärken")
 with row4_col2:
-    button2 = st.button("Optionen Rauchen")
+    button2 = st.button("Optionen mentale Gesundheit")
 if button2:
-    row4_col2.markdown('Infobroschüre: [Smokefree](https://www.smokefree.ch/de/wie-aufhoeren/selber-aufhoeren/#:~:text=Ersetze%20das%20Rauchen%20mit%20Bewegung,immer%20wieder%20f%C3%BCr%20deinen%20Rauchstopp.)  \n' +
-                      'Schweizerische Herzstiftung: [swissheart](https://swissheart.ch/so-bleiben-sie-gesund/gesund-leben/rauchstopp)  \n' +
-                      'Nikotinersatztherapie: [Nicorette](https://www.nicorette.de/raucherentwoehnung/rauchen-aufhoeren-tipps)')
+    row4_col2.markdown('Infobroschüre: [Psy-Gesundheit](https://www.santepsy.ch/de/seiten/tout-au-long-de-la-vie/wie-kummere-ich-mich-um-meine-psychische-gesundheit-77)  \n' +
+                      'Staatliche Vorsorge und Hilfe: [Bundesamt für Gesundheit (BAG)](https://www.bag.admin.ch/bag/de/home/strategie-und-politik/politische-auftraege-und-aktionsplaene/politische-auftraege-im-bereich-psychische-gesundheit.html)  \n' +
+                      'Versicherung: [Zurich](https://www.zurich.de/de-de/pk/vorsorge-vermoegen/berufsunfaehigkeits-versicherung/mentale-gesundheit)')
 
 
 #Spalte rechts
