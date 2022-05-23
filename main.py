@@ -712,7 +712,7 @@ def Ranking_Function():
   params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
   percentile_of_user = params/len(fancy_df)
   return round(percentile_of_user, 1)#percentile_of_user #0.03 means 3%
-row3_col2.subheader(f'In einem Raum mit 1000 Personen, wäre ihr Risiko höher als das von {Ranking_Function()*1000} Personen')
+row3_col2.subheader(f'In einem Raum mit 1000 Personen, wäre ihr Risiko höher als das von {int(Ranking_Function()*1000)} Personen')
 
 ###Plot
 
