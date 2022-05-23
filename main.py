@@ -24,7 +24,8 @@ st.set_page_config(
     page_icon = '❤️',
     layout = 'wide'
     )
-st.title('Heart Health Assessment App')
+
+st.markdown("<h1 style='text-align: center'>Heart Health Assesment App</h1>", unsafe_allow_html=True)
 
 #Input Sliders/Selectboxes
 st.sidebar.markdown('Bitte beantworten Sie die folgenden Fragen:')
@@ -77,10 +78,11 @@ def berechneHeartDisease():
 ####Beginn Funktion 1: Graphische Darstellung des Risikos und passende Message###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
-row1_col1, row1_col2 = st.columns([1, 2]) #[1, 2] bezeichnet den Platz, welcher dem Graphen (links) und dem Text (rechts) zukommen soll. So 1/3 Graph, 2/3 Text 
+row1_col1, row1_col2 = st.columns([1, 1]) #[1, 2] bezeichnet den Platz, welcher dem Graphen (links) und dem Text (rechts) zukommen soll. So 1/3 Graph, 2/3 Text
 
 #Header links
-row1_col1.subheader("Ihr Resultat")
+row1_col1.markdown("<h3 style='text-align: center'>Ihr Resultat</h3>", unsafe_allow_html=True)
+
 
 #Zuteilung der Farbe je nach Risiko
 def barcolor(berechneHeartDisease):
@@ -106,8 +108,7 @@ ax.spines['right'].set_visible(False)
 row1_col1.pyplot(fig1, use_container_width = True)
 
 #Header rechts
-row1_col2.subheader("Wie ist Ihr Risiko zu interpretieren?")
-
+row1_col2.markdown("<h3 style='text-align: center'>Wie ist Ihr Risiko zu interpretieren?</h3>", unsafe_allow_html=True)
 #Format des Risikos in % und gerundet:
 HeartRiskInPerc = berechneHeartDisease()*100
 HeartRisk = round(HeartRiskInPerc)
@@ -127,6 +128,8 @@ def message1(berechneHeartDisease):
 #Aufruf der Nachricht
 row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 
+
+
 #############################################################################################################
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
@@ -134,13 +137,14 @@ row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
 row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.subheader("Wie setzt sich das Risiko zusammen?")
+row2_col1.markdown("<h3 style='text-align: center'>Wie setzt sich das Risiko zusammen?</h3>", unsafe_allow_html=True)
 
 #Header rechts
-row2_col2.subheader("Welchen Anteil haben veränderbare Faktoren?")
-
+row2_col2.markdown("<h3 style='text-align: center'>Welchen Anteil haben veränderbare Faktoren?</h3>", unsafe_allow_html=True)
 #Die Funktionen mit welchen das Risiko von einzelnen Faktoren berechnet werden können
 user_Risiko = berechneHeartDisease()
+
+
 
 def berechneRisikoVonBMI():
     data = {
@@ -583,6 +587,21 @@ def berechneRisikoVonSkinCancer():
     SkinCancer_Risiko = user_Risiko-heartdisease
     return SkinCancer_Risiko 
 
+stat1, stat2, stat3, stat4 = st.columns([1, 1, 1, 1])
+
+stat1.header(berechneRisikoVonSchlaf())
+stat1.subheader("Schlaf")
+stat2.header("")
+stat3.header("test")
+stat4.header("test")
+
+
+
+
+
+
+
+
 #Plot aller Features:
 Excel_contents = { 'Feature' : ['BMI', 
                              'Rauchen', 
@@ -714,7 +733,7 @@ row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% al
 row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
 
 #Spalte links
-row4_col1.subheader("Hilfe beim Abnehmen")
+row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
 with row4_col1:
     button1 = st.button('Optionen Abnehmen')
 if button1:
@@ -724,7 +743,7 @@ if button1:
 
 
 #Spalte mitte
-row4_col2.subheader("Mentale Gesundheit")
+row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
 with row4_col2:
     button2 = st.button("Optionen mentale Gesundheit")
 if button2:
@@ -734,7 +753,7 @@ if button2:
 
 
 #Spalte rechts
-row4_col3.subheader("Jetzt besser schlafen")
+row4_col3.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
 with row4_col3:
     button3 = st.button("Optionen besser schlafen")
 if button3:
@@ -748,7 +767,7 @@ if button3:
 #Aufbau
 row5_col1, row5_col2 = st.columns([1, 1])
 
-row5_col1.subheader("Hier können Sie Ihre Resultate downloaden")
+row5_col1.subheader("Ihre Resultate herunterladen")
 
 #Aufnahme der Daten aus Funktion 2
 
@@ -765,6 +784,15 @@ download_results = row5_col1.download_button(label = 'Ihre Resultate',
                                              key='download-csv')
 
 #Extras
+
+
 if download_results:
     row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
 
+row5_col2.subheader("Ihre Tabelle hochladen")
+uploaded_file = row5_col2.file_uploader("Excel-Tabelle hochladen:")
+if uploaded_file is not None:
+     dataframe = pd.read_csv(uploaded_file)
+     prediction = pd.DataFrame(Log_Reg.predict_proba(dataframe)).loc[:, 1]
+     dataframe["HeartDiseaseRisk"] = prediction
+     row5_col2.download_button('HeartDiseaseRisk Datei herunterladen', dataframe.to_csv(), 'text/csv')
