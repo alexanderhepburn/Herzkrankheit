@@ -25,6 +25,23 @@ st.set_page_config(
     layout = 'wide'
     )
 
+st.markdown("""
+        <style>
+               .css-18e3th9 {
+                    padding-top: .5rem;
+                    padding-bottom: 10rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+               .css-1d391kg {
+                    padding-top: 3.5rem;
+                    padding-right: 1rem;
+                    padding-bottom: 3.5rem;
+                    padding-left: 1rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
 st.markdown("<h1 style='text-align: center'>Heart Health Assesment App</h1>", unsafe_allow_html=True)
 
 #Input Sliders/Selectboxes
@@ -78,10 +95,8 @@ def berechneHeartDisease():
 ####Beginn Funktion 1: Graphische Darstellung des Risikos und passende Message###############################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Nachricht
-row1_col1, row1_col2 = st.columns([1, 1]) #[1, 2] bezeichnet den Platz, welcher dem Graphen (links) und dem Text (rechts) zukommen soll. So 1/3 Graph, 2/3 Text
+row1_col1, row1_col2, row1_col3, row1_col4 = st.columns([1, 1, 1, 1]) #[1, 2] bezeichnet den Platz, welcher dem Graphen (links) und dem Text (rechts) zukommen soll. So 1/3 Graph, 2/3 Text
 
-#Header links
-row1_col1.markdown("<h3 style='text-align: center'>Ihr Resultat</h3>", unsafe_allow_html=True)
 
 
 #Zuteilung der Farbe je nach Risiko
@@ -96,51 +111,30 @@ def barcolor(berechneHeartDisease):
         colorcode = '#cc4125'
     return colorcode
 
+
 #Plot
-fig1, ax = plt.subplots(figsize = (8, 4))
-ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
-ax.set_ylabel("Risiko", fontsize = 18) #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
-plt.yticks([0, 0.25, 0.5, 0.75, 1])
-plt.xticks([])
-ax.tick_params(axis='y', which='major', labelsize=16)
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-row1_col1.pyplot(fig1, use_container_width = True)
-
-#Header rechts
-row1_col2.markdown("<h3 style='text-align: center'>Wie ist Ihr Risiko zu interpretieren?</h3>", unsafe_allow_html=True)
-#Format des Risikos in % und gerundet:
-HeartRiskInPerc = berechneHeartDisease()*100
-HeartRisk = round(HeartRiskInPerc)
-
-#Definierung der Message je nach Ergebnis:
-def message1(berechneHeartDisease):
-    if berechneHeartDisease() < 0.25:
-        message = 'Das sieht sehr gut aus! Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei unter 25 %'
-    elif 0.25 <= berechneHeartDisease() < 0.5:
-        message = 'Kein Grund zur Sorge, Ihr Risiko liegt bei {}%. Wenn Sie Ihr Risiko weiter reduzieren wollen, empfehlen wir einen Blick auf unsere weiteren Funktionen weiter unten.'.format(HeartRisk)
-    elif 0.5 <= berechneHeartDisease() < 0.75:
-        message = 'Ihr Risiko liegt bei {}%. Bitte nutzen Sie unsere unten beigefügten Funktionen, um Ihr Risiko effektiv zu senken.'.format(HeartRisk)
-    else:
-        message = 'Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei über 75 %. Bitte informieren Sie sich weiter unten, wie Sie das Risiko senken können, und suchen Sie bei Unwohlsein ärztlichen Rat.'
-    return message
-
-#Aufruf der Nachricht
-row1_col2.write(message1(berechneHeartDisease), use_container_width = True)
-
+# fig1, ax = plt.subplots(figsize = (8, 4))
+# ax.bar(1, berechneHeartDisease(), color = barcolor(berechneHeartDisease))
+# ax.set_ylabel("Risiko", fontsize = 18) #Ich hab das [%] rausgenommen, da das sonst missverstanden werden kann wenn yticks unter 1 sind -T
+# plt.yticks([0, 0.25, 0.5, 0.75, 1])
+# plt.xticks([])
+# ax.tick_params(axis='y', which='major', labelsize=16)
+# ax.spines['top'].set_visible(False)
+# ax.spines['right'].set_visible(False)
+# row1_col1.pyplot(fig1, use_container_width = True)
 
 
 #############################################################################################################
 #Funktion 2: Welche Faktoren haben den größten Einfluss? ####################################################
 
 #Erstellen von 2 Spalten, die linke für den Graph, die rechte für eine automatisch generierte Interpretation
-row2_col1, row2_col2 = st.columns([1, 1])
+#row2_col1, row2_col2 = st.columns([1, 1])
 
 #Header links
-row2_col1.markdown("<h3 style='text-align: center'>Wie setzt sich das Risiko zusammen?</h3>", unsafe_allow_html=True)
+#row2_col1.markdown("<h3 style='text-align: center'>Wie setzt sich das Risiko zusammen?</h3>", unsafe_allow_html=True)
 
 #Header rechts
-row2_col2.markdown("<h3 style='text-align: center'>Welchen Anteil haben veränderbare Faktoren?</h3>", unsafe_allow_html=True)
+#row2_col2.markdown("<h3 style='text-align: center'>Welchen Anteil haben veränderbare Faktoren?</h3>", unsafe_allow_html=True)
 #Die Funktionen mit welchen das Risiko von einzelnen Faktoren berechnet werden können
 user_Risiko = berechneHeartDisease()
 
@@ -587,13 +581,177 @@ def berechneRisikoVonSkinCancer():
     SkinCancer_Risiko = user_Risiko-heartdisease
     return SkinCancer_Risiko 
 
+def berechneCategorie(p):
+    if p <= 0.05:
+        return 1
+    elif p <= 0.1:
+        return 2
+    elif p <= 0.15:
+        return 3
+    elif p <= 0.2:
+        return 4
+    else:
+        return 5
+
+def farbeFuerCat(c):
+    switch = {
+        1: "c",
+        2: "tab:blue",
+        3: "yellow",
+        4: "darkorange",
+        5: "red",
+    }
+    return switch.get(c, "Error")
+
+
+fig, ax = plt.subplots()
+
+size = 0.25
+radius = 1
+startangle = 230
+t = .78
+
+## Herzkrankheit Risiko
+
+risiko = round(berechneHeartDisease() * 100, 1)
+
+
+ax.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=30.0)
+ax.set(aspect="equal")
+row1_col1.pyplot(fig, use_container_width = True)
+row1_col1.markdown("<h3 style='text-align: center'>Herzkrankheit Risiko</h3>", unsafe_allow_html=True)
+## Risko im Vergleich
+
+risiko = round(berechneHeartDisease() * 100, 1)
+
+fig2, ax2 = plt.subplots()
+
+ax2.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax2.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=30.0)
+ax2.set(aspect="equal")
+row1_col2.pyplot(fig2, use_container_width = True)
+row1_col2.markdown("<h3 style='text-align: center'>Risiko im Vergleich</h3>", unsafe_allow_html=True)
+
+
+## BMI Anteil
+
+cat = berechneCategorie(berechneRisikoVonBMI())
+
+fig3, ax3 = plt.subplots()
+
+ax3.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax3.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax3.set(aspect="equal")
+row1_col3.pyplot(fig3, use_container_width = True)
+row1_col3.markdown("<h3 style='text-align: center'>BMI Anteil</h3>", unsafe_allow_html=True)
+
+## Sport Anteil
+
+cat = berechneCategorie(berechneRisikoVonSport())
+
+fig4, ax4 = plt.subplots()
+
+ax4.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax4.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax4.set(aspect="equal")
+row1_col4.pyplot(fig4, use_container_width = True)
+row1_col4.markdown("<h3 style='text-align: center'>Sport Anteil</h3>", unsafe_allow_html=True)
+
+
+
+row2_col1, row2_col2, row2_col3, row2_col4 = st.columns([1, 1, 1, 1])
+
+
+
+## Schlaf Anteil
+
+cat = berechneCategorie(berechneRisikoVonSchlaf())
+
+fig5, ax5 = plt.subplots()
+
+ax5.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax5.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax5.set(aspect="equal")
+row2_col1.pyplot(fig5, use_container_width = True)
+row2_col1.markdown("<h3 style='text-align: center'>Schlaf Anteil</h3>", unsafe_allow_html=True)
+
+## Mentale Gesundheit Anteil
+
+cat = berechneCategorie(berechneRisikoVonMentalHealth() * 16)
+
+fig6, ax6 = plt.subplots()
+
+ax6.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax6.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax6.set(aspect="equal")
+row2_col2.pyplot(fig6, use_container_width = True)
+row2_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
+
+## Physiche Gesundheit Anteil
+
+cat = berechneCategorie(berechneRisikoVonPhysicalHealth() * 13)
+
+fig7, ax7 = plt.subplots()
+
+ax7.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax7.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax7.set(aspect="equal")
+row2_col3.pyplot(fig7, use_container_width = True)
+row2_col3.markdown("<h3 style='text-align: center'>Physiche Gesundheit</h3>", unsafe_allow_html=True)
+## Alkohol Anteil
+
+cat = 0
+if alkohol == "Ja":
+    cat = 3
+else:
+    cat = 1
+
+fig8, ax8 = plt.subplots()
+
+ax8.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+       wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
+ax8.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax8.set(aspect="equal")
+row2_col4.pyplot(fig8, use_container_width = True)
+row2_col4.markdown("<h3 style='text-align: center'>Alkohol Anteil</h3>", unsafe_allow_html=True)
+
+#Header links
+
+
+
+#Header rechts
+#row1_col3.markdown("<h3 style='text-align: center'>Wie ist Ihr Risiko zu interpretieren?</h3>", unsafe_allow_html=True)
+#Format des Risikos in % und gerundet:
+HeartRiskInPerc = berechneHeartDisease()*100
+HeartRisk = round(HeartRiskInPerc)
+
+#Definierung der Message je nach Ergebnis:
+def message1(berechneHeartDisease):
+    if berechneHeartDisease() < 0.25:
+        message = 'Das sieht sehr gut aus! Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei unter 25 %'
+    elif 0.25 <= berechneHeartDisease() < 0.5:
+        message = 'Kein Grund zur Sorge, Ihr Risiko liegt bei {}%. Wenn Sie Ihr Risiko weiter reduzieren wollen, empfehlen wir einen Blick auf unsere weiteren Funktionen weiter unten.'.format(HeartRisk)
+    elif 0.5 <= berechneHeartDisease() < 0.75:
+        message = 'Ihr Risiko liegt bei {}%. Bitte nutzen Sie unsere unten beigefügten Funktionen, um Ihr Risiko effektiv zu senken.'.format(HeartRisk)
+    else:
+        message = 'Ihr Risiko, an einer Herzerkrankung zu leiden, liegt bei über 75 %. Bitte informieren Sie sich weiter unten, wie Sie das Risiko senken können, und suchen Sie bei Unwohlsein ärztlichen Rat.'
+    return message
+
+#Aufruf der Nachricht
+#row1_col3.write(message1(berechneHeartDisease), use_container_width = True)
+
+
+
 stat1, stat2, stat3, stat4 = st.columns([1, 1, 1, 1])
 
-stat1.header(berechneRisikoVonSchlaf())
-stat1.subheader("Schlaf")
-stat2.header("")
-stat3.header("test")
-stat4.header("test")
 
 
 
