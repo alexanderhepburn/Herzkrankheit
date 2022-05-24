@@ -1,12 +1,13 @@
 import pandas as pd
 import pickle
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 class Herz:
     """Herz Class"""
     def __init__(self):
-        print("init")
+        return
 
     def speicherModell(self):
         df = pd.read_csv("heart_2020_cleaned.csv")
@@ -93,5 +94,45 @@ class Herz:
         inputInfos = pd.DataFrame(data=data)
         heartdisease = model.predict_proba(inputInfos)[0][1]
         return heartdisease
+
+    def rankingFunction(self, heartDisease, logReg):
+        x_test = pd.read_csv("x_test_heart_data.csv")
+        z = heartDisease  # z ist user_input in der App. Hier ist es manuell eine Zahl zum testen
+        y_probability_pred = logReg.predict_proba(x_test)
+        y_probability_pred = y_probability_pred.copy()
+        y_probability_pred = pd.DataFrame(y_probability_pred, columns=[['0', '1']])
+        y_probability_pred = y_probability_pred['1']
+        y_probability_pred = y_probability_pred.to_numpy()
+        y_probability_pred = y_probability_pred.tolist()
+        solution = []
+        for i in y_probability_pred:
+            solution += i
+        solution = sorted(solution)
+        fancy_df = pd.DataFrame(solution, columns=['Probability_1'])
+        params = np.searchsorted(fancy_df['Probability_1'], z, side='left')
+        params = (params / len(fancy_df)) * 100
+        return round(params, 2)  # percentile_of_user #3 means 3%
+
+    def berechneCategorie(self, p):
+        if p <= 0.05:
+            return 1
+        elif p <= 0.1:
+            return 2
+        elif p <= 0.15:
+            return 3
+        elif p <= 0.2:
+            return 4
+        else:
+            return 5
+
+    def farbeFuerCat(self, c):
+        switch = {
+            1: "c",
+            2: "tab:blue",
+            3: "yellow",
+            4: "darkorange",
+            5: "red",
+        }
+        return switch.get(c, "Error")
 
 

@@ -39,6 +39,14 @@ st.markdown("""
                     padding-bottom: 3.5rem;
                     padding-left: 1rem;
                 }
+                .custom-h3 {
+                    margin-top: -70px;
+                    margin-bottom: -40px;
+                }
+                .custom-h6 {
+                    margin-top: -30px;
+                    margin-bottom: -40px;
+                }
         </style>
         """, unsafe_allow_html=True)
 
@@ -579,29 +587,7 @@ def berechneRisikoVonSkinCancer():
     inputInfos = pd.DataFrame(data=data)
     heartdisease = Log_Reg.predict_proba(inputInfos)[0][1]
     SkinCancer_Risiko = user_Risiko-heartdisease
-    return SkinCancer_Risiko 
-
-def berechneCategorie(p):
-    if p <= 0.05:
-        return 1
-    elif p <= 0.1:
-        return 2
-    elif p <= 0.15:
-        return 3
-    elif p <= 0.2:
-        return 4
-    else:
-        return 5
-
-def farbeFuerCat(c):
-    switch = {
-        1: "c",
-        2: "tab:blue",
-        3: "yellow",
-        4: "darkorange",
-        5: "red",
-    }
-    return switch.get(c, "Error")
+    return SkinCancer_Risiko
 
 
 fig, ax = plt.subplots()
@@ -610,57 +596,59 @@ size = 0.25
 radius = 1
 startangle = 230
 t = .78
+fontSize = 20.0
 
 ## Herzkrankheit Risiko
 
 risiko = round(berechneHeartDisease() * 100, 1)
 
-
 ax.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=30.0)
+ax.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=fontSize)
 ax.set(aspect="equal")
 row1_col1.pyplot(fig, use_container_width = True)
-row1_col1.markdown("<h3 style='text-align: center'>Herzkrankheit Risiko</h3>", unsafe_allow_html=True)
+
+row1_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Herzkrankheit Risiko</h3>", unsafe_allow_html=True)
+row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>HAloo dlakf sdlkfj dlksfa  sdfklad klsaf dfsk dlks lkjdfs jkldfs dklj</h6>", unsafe_allow_html=True)
 ## Risko im Vergleich
 
-risiko = round(berechneHeartDisease() * 100, 1)
+
+risiko = round(manager.rankingFunction(berechneHeartDisease(), logReg=Log_Reg), 1)
 
 fig2, ax2 = plt.subplots()
-
 ax2.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax2.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=30.0)
+ax2.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=fontSize)
 ax2.set(aspect="equal")
 row1_col2.pyplot(fig2, use_container_width = True)
-row1_col2.markdown("<h3 style='text-align: center'>Risiko im Vergleich</h3>", unsafe_allow_html=True)
+row1_col2.markdown("<h3 style='text-align: center' class='custom-h3'>Risiko im Vergleich</h3>", unsafe_allow_html=True)
 
 
 ## BMI Anteil
 
-cat = berechneCategorie(berechneRisikoVonBMI())
+cat = manager.berechneCategorie(berechneRisikoVonBMI())
 
 fig3, ax3 = plt.subplots()
 
-ax3.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax3.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax3.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax3.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax3.set(aspect="equal")
 row1_col3.pyplot(fig3, use_container_width = True)
-row1_col3.markdown("<h3 style='text-align: center'>BMI Anteil</h3>", unsafe_allow_html=True)
+row1_col3.markdown("<h3 style='text-align: center' class='custom-h3'>BMI Anteil</h3>", unsafe_allow_html=True)
 
 ## Sport Anteil
 
-cat = berechneCategorie(berechneRisikoVonSport())
+cat = manager.berechneCategorie(berechneRisikoVonSport())
 
 fig4, ax4 = plt.subplots()
 
-ax4.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax4.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax4.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax4.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax4.set(aspect="equal")
 row1_col4.pyplot(fig4, use_container_width = True)
-row1_col4.markdown("<h3 style='text-align: center'>Sport Anteil</h3>", unsafe_allow_html=True)
+row1_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Sport Anteil</h3>", unsafe_allow_html=True)
 
 
 
@@ -670,42 +658,42 @@ row2_col1, row2_col2, row2_col3, row2_col4 = st.columns([1, 1, 1, 1])
 
 ## Schlaf Anteil
 
-cat = berechneCategorie(berechneRisikoVonSchlaf())
+cat = manager.berechneCategorie(berechneRisikoVonSchlaf())
 
 fig5, ax5 = plt.subplots()
 
-ax5.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax5.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax5.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax5.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax5.set(aspect="equal")
 row2_col1.pyplot(fig5, use_container_width = True)
-row2_col1.markdown("<h3 style='text-align: center'>Schlaf Anteil</h3>", unsafe_allow_html=True)
+row2_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Schlaf Anteil</h3>", unsafe_allow_html=True)
 
 ## Mentale Gesundheit Anteil
 
-cat = berechneCategorie(berechneRisikoVonMentalHealth() * 16)
+cat = manager.berechneCategorie(berechneRisikoVonMentalHealth() * 16)
 
 fig6, ax6 = plt.subplots()
 
-ax6.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax6.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax6.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax6.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax6.set(aspect="equal")
 row2_col2.pyplot(fig6, use_container_width = True)
-row2_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
+row2_col2.markdown("<h3 style='text-align: center' class='custom-h3'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
 
 ## Physiche Gesundheit Anteil
 
-cat = berechneCategorie(berechneRisikoVonPhysicalHealth() * 13)
+cat = manager.berechneCategorie(berechneRisikoVonPhysicalHealth() * 13)
 
 fig7, ax7 = plt.subplots()
 
-ax7.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax7.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax7.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax7.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax7.set(aspect="equal")
 row2_col3.pyplot(fig7, use_container_width = True)
-row2_col3.markdown("<h3 style='text-align: center'>Physiche Gesundheit</h3>", unsafe_allow_html=True)
+row2_col3.markdown("<h3 style='text-align: center' class='custom-h3'>Physiche Gesundheit</h3>", unsafe_allow_html=True)
 ## Alkohol Anteil
 
 cat = 0
@@ -716,12 +704,12 @@ else:
 
 fig8, ax8 = plt.subplots()
 
-ax8.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[farbeFuerCat(cat), 'w'],
+ax8.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.farbeFuerCat(cat), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
-ax8.text(0, 0, f'{cat}', ha='center', va='center', fontsize=30.0)
+ax8.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax8.set(aspect="equal")
 row2_col4.pyplot(fig8, use_container_width = True)
-row2_col4.markdown("<h3 style='text-align: center'>Alkohol Anteil</h3>", unsafe_allow_html=True)
+row2_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Alkohol Anteil</h3>", unsafe_allow_html=True)
 
 #Header links
 
@@ -794,6 +782,8 @@ Excel_contents = { 'Feature' : ['BMI',
                  }
 
 #Erstellung eines DataFrames
+
+row100_col1, row100_col2 = st.columns(2)
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
 
@@ -841,59 +831,18 @@ sns.barplot(data = df_sorted2,
 row2_col2.pyplot(fig3, use_container_width = True)
 
 ##############################################################################################
-#Funktion 3: Wo ist der Website-Nutzer im Vergleich zu den Daten?#############################
-#Erstellen von 2 Spalten
-row3_col1, row3_col2 = st.columns([1, 1])
-
-#Header links
-row3_col1.subheader("Wo befindet sich Ihr Risiko im Vergleich?")
-
-#Header rechts
-#row3_col2.subheader('This is 3, 2')
-
-#Um einen Bug zu umgehen, mache ich das jetzt direkt so
-x_test = pd.read_csv("x_test_heart_data.csv")
-
-def Ranking_Function():
-  z = berechneHeartDisease() #z ist user_input in der App. Hier ist es manuell eine Zahl zum testen
-  y_probability_pred = Log_Reg.predict_proba(x_test)
-  y_probability_pred = y_probability_pred.copy()
-  y_probability_pred = pd.DataFrame(y_probability_pred, columns=[['0', '1']])
-  y_probability_pred = y_probability_pred['1']
-  y_probability_pred = y_probability_pred.to_numpy()
-  y_probability_pred = y_probability_pred.tolist()
-  solution = []
-  for i in y_probability_pred:
-    solution += i
-  solution = sorted(solution)
-  fancy_df = pd.DataFrame(solution, columns = ['Probability_1'])
-  params = np.searchsorted(fancy_df['Probability_1'], z, side = 'left')
-  params = (params/len(fancy_df))*100
-  return round(params, 2)#percentile_of_user #3 means 3%
-row3_col2.subheader(f'Ihr Risiko ist höher als das von {Ranking_Function()}% aller befragten Menschen')
-
-###Plot
-
-
-#fig4 = plt.figure(figsize=(8,4))
-#sns.displot(data = fancy_df,         #Hier kann ich auf den Dataframe nicht zugreifen ://
-#            x = 'Anteil_am_Risiko',
-#            kinde = 'kde'
-#           )
-#
-#row3_col1.pyplot(fig4, use_container_width = True)
-
-
-
-##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
 #Erstellen von 3 Spalten
-row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
+row4_col1, row4_col2, row4_col3, row4_col4 = st.columns([1, 1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
+row5_col1, row5_col2, row5_col3, row5_col4, row5_col5, row5_col6, row5_col7, row5_col8, row5_col9, row5_col10, row5_col11, row5_col12 = st.columns(12)
+
+with row5_col1, row5_col3, row5_col4, row5_col6, row5_col7, row5_col9, row5_col10, row5_col12:
+    pass
 
 #Spalte links
 row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
 with row4_col1:
-    button1 = st.button('Optionen Abnehmen')
+    button1 = row5_col1.button('Optionen Abnehmen')
 if button1:
     row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
                        'Sport: [weightwatchers](https://www.weightwatchers.com/ch/de/blog/abnehmen?g_acctid=578-410-2929&g_adgroupid=131213429166&g_adid=576066783055&g_adtype=search&g_campaign=GE_WW_CH-DE_qdstw_qobjc_qbudc_qaudp_qrtgn_qpma_qostz_qdevz_qlobr_qgeon_qkwn&g_campaignid=11226104309&g_keyword=abnehmen&g_keywordid=kwd-44003010&g_network=g&gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVS2v2dR9a22u8y84x_mV9qO7KHGpA5qqYyorvUXO-R_-YZ0naegcaArI4EALw_wcB&gclsrc=aw.ds)  \n' + 
@@ -902,8 +851,9 @@ if button1:
 
 #Spalte mitte
 row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
+
 with row4_col2:
-    button2 = st.button("Optionen mentale Gesundheit")
+    button2 = row5_col5.button("Optionen mentale Gesundheit")
 if button2:
     row4_col2.markdown('Infobroschüre: [Psy-Gesundheit](https://www.santepsy.ch/de/seiten/tout-au-long-de-la-vie/wie-kummere-ich-mich-um-meine-psychische-gesundheit-77)  \n' +
                       'Staatliche Vorsorge und Hilfe: [Bundesamt für Gesundheit (BAG)](https://www.bag.admin.ch/bag/de/home/strategie-und-politik/politische-auftraege-und-aktionsplaene/politische-auftraege-im-bereich-psychische-gesundheit.html)  \n' +
@@ -913,7 +863,7 @@ if button2:
 #Spalte rechts
 row4_col3.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
 with row4_col3:
-    button3 = st.button("Optionen besser schlafen")
+    button3 = row5_col8.button("Optionen besser schlafen")
 if button3:
     row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)  \n' +
                       'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)  \n' +
@@ -922,35 +872,35 @@ if button3:
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
-#Aufbau
-row5_col1, row5_col2 = st.columns([1, 1])
-
-row5_col1.subheader("Ihre Resultate herunterladen")
-
-#Aufnahme der Daten aus Funktion 2
-
-#Erstellung eines DataFrames
-df_Excel_contents = pd.DataFrame(data=Excel_contents)
-
-csv_Excel_contents = df_Excel_contents.to_csv(index = False).encode('utf-8')
-
-download_results = row5_col1.download_button(label = 'Ihre Resultate', 
-                                             data = csv_Excel_contents, 
-                                             file_name = 'Mein Resultat.csv', 
-                                             mime = 'text/csv', 
-                                             help = 'Hier links klicken zum Download als Excel-Datei', 
-                                             key='download-csv')
-
 #Extras
 
+if st.sidebar.checkbox("Extras zeigen"):
 
-if download_results:
-    row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
+    row5_col1, row5_col2 = st.columns([1, 1])
 
-row5_col2.subheader("Ihre Tabelle hochladen")
-uploaded_file = row5_col2.file_uploader("Excel-Tabelle hochladen:")
-if uploaded_file is not None:
-     dataframe = pd.read_csv(uploaded_file)
-     prediction = pd.DataFrame(Log_Reg.predict_proba(dataframe)).loc[:, 1]
-     dataframe["HeartDiseaseRisk"] = prediction
-     row5_col2.download_button('HeartDiseaseRisk Datei herunterladen', dataframe.to_csv(), 'text/csv')
+    row5_col1.subheader("Ihre Resultate herunterladen")
+
+    # Aufnahme der Daten aus Funktion 2
+
+    # Erstellung eines DataFrames
+    df_Excel_contents = pd.DataFrame(data=Excel_contents)
+
+    csv_Excel_contents = df_Excel_contents.to_csv(index=False).encode('utf-8')
+
+    download_results = row5_col1.download_button(label='Ihre Resultate',
+                                                 data=csv_Excel_contents,
+                                                 file_name='Mein Resultat.csv',
+                                                 mime='text/csv',
+                                                 help='Hier links klicken zum Download als Excel-Datei',
+                                                 key='download-csv')
+
+    if download_results:
+        row5_col1.markdown('Vielen Dank für das Nutzen der App, wir wünschen alles Gute!')
+
+    row5_col2.subheader("Ihre Tabelle hochladen")
+    uploaded_file = row5_col2.file_uploader("Excel-Tabelle hochladen:")
+    if uploaded_file is not None:
+         dataframe = pd.read_csv(uploaded_file)
+         prediction = pd.DataFrame(Log_Reg.predict_proba(dataframe)).loc[:, 1]
+         dataframe["HeartDiseaseRisk"] = prediction
+         row5_col2.download_button('HeartDiseaseRisk Datei herunterladen', dataframe.to_csv(), 'csv')
