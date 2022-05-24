@@ -944,7 +944,7 @@ sns.barplot(data=df_sorted,
             x = 'Anteil am Risiko', 
             y = 'Feature',
             palette = 'Spectral'
-           )
+           ).set(ylabel = ' ')
 
 col10, col20 = st.columns([1, 1])
 
