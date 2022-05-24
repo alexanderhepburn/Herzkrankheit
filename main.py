@@ -59,6 +59,40 @@ st.markdown("""
                     padding-top: 60px; 
                     text-align: center;               
                 }
+                
+                .b-c {
+                  font-size: 16px;
+                  text-decoration: none;
+                  background-color: #00bfbe;
+                  text-color: white;
+                  padding: 15px 20px 15px 20px;
+                  border-radius: 12px;
+                }
+                
+                .css-1adrfps {
+                    padding-top: 40px !important;
+                }
+                
+                .b-c:link {
+                  color: white; 
+                }
+                
+                .b-c:active {
+                  color: white; 
+                }
+            
+                .b-c:visited {
+                  color: white; 
+                }
+                
+                .b-c:hover {
+                  color: white; 
+                }
+                
+                .c-h3 {
+                    margin-bottom: 14px;
+                }
+                
                 @media screen and (max-width: 1600px) {
                     .custom-h3 {
                         margin-top: -50px;
@@ -951,34 +985,23 @@ col20.pyplot(fig3, use_container_width = True)
 #Erstellen von 3 Spalten
 row4_col1, row4_col2, row4_col3, row4_col4 = st.columns([1, 1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
 
-# Define your javascript
-my_js = """
-<script type="text/javascript">
-    document.getElementById("b4").onclick = function () {
-        location.href = "www.yoursite.com";
-    };
-</script>
-"""
-
-
-st.markdown(my_js, unsafe_allow_html=True)
 
 #Spalte links
-row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
-row4_col1.markdown("<div class='c-container'><button id='b1' style='text-align: center' class='b-c'>Optionen Abnehmen</button></div>", unsafe_allow_html=True)
+row4_col1.markdown("<h3 class='c-h3' style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
+row4_col1.markdown("<div class='c-container'><a href='https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen' style='text-align: center' class='b-c'>Optionen Abnehmen</button></a>", unsafe_allow_html=True)
 
 #Spalte mitte
-row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
-row4_col2.markdown("<div class='c-container'><button id='b2' style='text-align: center' class='b-c'>Optionen mentale Gesundheit</button></div>", unsafe_allow_html=True)
+row4_col2.markdown("<h3 class='c-h3' style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
+row4_col2.markdown("<div class='c-container'><a href='https://www.bag.admin.ch/bag/de/home/strategie-und-politik/politische-auftraege-und-aktionsplaene/politische-auftraege-im-bereich-psychische-gesundheit.html' style='text-align: center' class='b-c'>Optionen mentale Gesundheit</a></div>", unsafe_allow_html=True)
 
 #Spalte rechts
-row4_col3.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
-row4_col3.markdown("<div class='c-container'><button id='b3' style='text-align: center' class='b-c'>Jetzt besser schlafen</button></div>", unsafe_allow_html=True)
+row4_col3.markdown("<h3 class='c-h3' style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
+row4_col3.markdown("<div class='c-container'><a href='https://www.helios-gesundheit.de/magazin/gesunder-schlaf/news/schlafhygiene-8-wertvolle-tipps-zum-einschlafen/' style='text-align: center' class='b-c'>Optionen besser schlafen</a></div>", unsafe_allow_html=True)
 
 
 #Spalte rechts
-row4_col4.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
-row4_col4.markdown("""<div class='c-container'><button id='b4' style='text-align: center' class='b-c'>Jetzt besser schlafen</button></div>""", unsafe_allow_html=True)
+row4_col4.markdown("<h3 class='c-h3' style='text-align: center'>Sport Informationen</h3>", unsafe_allow_html=True)
+row4_col4.markdown("""<div class='c-container'><a href='https://www.ausdauerblog.de/mit-sport-anfangen/' style='text-align: center' class='b-c'>Mit Sport anfangen</a></div>""", unsafe_allow_html=True)
 
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
