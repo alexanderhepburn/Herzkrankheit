@@ -224,10 +224,10 @@ def barcolor(berechneHeartDisease):
 
 #Header rechts
 #row2_col2.markdown("<h3 style='text-align: center'>Welchen Anteil haben veränderbare Faktoren?</h3>", unsafe_allow_html=True)
-#Die Funktionen mit welchen das Risiko von einzelnen Faktoren berechnet werden können
+
+
+#Die Funktionen mit welchen das Risiko von einzelnen Faktoren verglichen werden kann
 user_Risiko = berechneHeartDisease()
-
-
 
 def berechneRisikoVonBMI():
     data = {
@@ -693,7 +693,6 @@ row1_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Herzkrankhe
 row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Der angegebene Wert gibt die Wahrscheinlichkeit einer Herzkrankheit wieder</h6>", unsafe_allow_html=True)
 
 ## Risko im Vergleich
-
 
 risiko = round(manager.rankingFunction(berechneHeartDisease(), logReg=Log_Reg), 1)
 
