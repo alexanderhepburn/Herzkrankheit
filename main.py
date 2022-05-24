@@ -46,15 +46,58 @@ st.markdown("""
                 }
                 .custom-h6 {
                     margin-top: -30px;
-                    margin-bottom: -40px;
+                    margin-bottom: -30px;
                 }
                 .c-container {
                     text-align: center;
                 }
+                .c-t-h6 {
+                    text-align: center; 
+                }
+                
+                .c-t-h3 {
+                    padding-top: 60px; 
+                    text-align: center;               
+                }
+                @media screen and (max-width: 1600px) {
+                    .custom-h3 {
+                        margin-top: -50px;
+                        font-size: 20px;
+                    }
+                    
+                    .custom-h6 {
+                        margin-top: -20px;
+                        font-size: 14px;
+                    }
+                }
+                @media screen and (max-width: 1280px) {
+                    .custom-h3 {
+                        margin-top: -50px;
+                        font-size: 18px;
+                    }
+                    
+                    .custom-h6 {
+                        margin-top: -15px;
+                        font-size: 13px;
+                    }
+                }  
+                
+                @media screen and (max-width: 1080px) {
+                    .custom-h3 {
+                        margin-top: -50px;
+                        font-size: 16px;
+                    }
+                    
+                    .custom-h6 {
+                        margin-top: -5px;
+                        font-size: 11px;
+                    }
+                }        
+                
         </style>
         """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center'>Heart Health Assesment App</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center'>Heart Health Assessment App</h1>", unsafe_allow_html=True)
 
 #Input Sliders/Selectboxes
 st.sidebar.markdown('Bitte beantworten Sie die folgenden Fragen:')
@@ -606,7 +649,7 @@ fontSize = 20.0
 
 risiko = round(berechneHeartDisease() * 100, 1)
 
-ax.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
+ax.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=[manager.farbeFuerPro(risiko), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
 ax.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=fontSize)
 ax.set(aspect="equal")
@@ -621,7 +664,7 @@ row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Der angegeb
 risiko = round(manager.rankingFunction(berechneHeartDisease(), logReg=Log_Reg), 1)
 
 fig2, ax2 = plt.subplots()
-ax2.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=['c', 'w'],
+ax2.pie([(risiko*t), 100-(risiko*t)], radius=radius, colors=[manager.farbeFuerPro(risiko), 'w'],
        wedgeprops=dict(width=size, edgecolor='w'), startangle=startangle, counterclock=False)
 ax2.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=fontSize)
 ax2.set(aspect="equal")
@@ -641,7 +684,7 @@ ax3.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.far
 ax3.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax3.set(aspect="equal")
 row1_col3.pyplot(fig3, use_container_width = True)
-row1_col3.markdown("<h3 style='text-align: center' class='custom-h3'>BMI Anteil</h3>", unsafe_allow_html=True)
+row1_col3.markdown("<h3 style='text-align: center' class='custom-h3'>BMI</h3>", unsafe_allow_html=True)
 if cat == 1:
     row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
 if cat == 2:
@@ -665,7 +708,7 @@ ax4.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.far
 ax4.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax4.set(aspect="equal")
 row1_col4.pyplot(fig4, use_container_width = True)
-row1_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Sport Anteil</h3>", unsafe_allow_html=True)
+row1_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Sport</h3>", unsafe_allow_html=True)
 if cat == 1:
     row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
 if cat == 2:
@@ -693,7 +736,7 @@ ax5.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.far
 ax5.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax5.set(aspect="equal")
 row2_col1.pyplot(fig5, use_container_width = True)
-row2_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Schlaf Anteil</h3>", unsafe_allow_html=True)
+row2_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Schlaf</h3>", unsafe_allow_html=True)
 if cat == 1:
     row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
 if cat == 2:
@@ -766,7 +809,7 @@ ax8.pie([(cat/5)*100*t, 100-((cat/5)*100*t)], radius=radius, colors=[manager.far
 ax8.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax8.set(aspect="equal")
 row2_col4.pyplot(fig8, use_container_width = True)
-row2_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Alkohol Anteil</h3>", unsafe_allow_html=True)
+row2_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Alkohol</h3>", unsafe_allow_html=True)
 if cat == 1:
     row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
 if cat == 2:
@@ -779,10 +822,11 @@ if cat == 5:
     row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 row999_col1 = st.columns(1)
+row999_col1[0].markdown("<h3 class='c-t-h3'>Zusammenfassung</h3>", unsafe_allow_html=True)
 if risiko > 50:
-    row999_col1[0].text('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
+    row999_col1[0].markdown("<h6 class='c-t-h6'>Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.</h6>", unsafe_allow_html=True)
 if risiko <=50:
-    row999_col1[0].text('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
+    row999_col1[0].markdown("<h6 class='c-t-h6'>Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.</h6>", unsafe_allow_html=True)
 
     
     

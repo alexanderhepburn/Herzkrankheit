@@ -135,4 +135,17 @@ class Herz:
         }
         return switch.get(c, "Error")
 
+    def farbeFuerPro(self, p):
+        p = p/100
+        if p <= 0.2:
+            return "c"
+        elif p <= 0.4:
+            return "tab:blue"
+        elif p <= 0.6:
+            return "yellow"
+        elif p <= 0.8:
+            return "darkorange"
+        else:
+            return "red"
+
 
