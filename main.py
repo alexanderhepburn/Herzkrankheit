@@ -10,6 +10,7 @@ from pandas import DataFrame
 from sklearn.feature_selection import RFE
 import webbrowser
 import seaborn as sns
+from streamlit.components.v1 import html
 
 #Global Variablen
 
@@ -34,7 +35,7 @@ st.markdown("""
                     padding-right: 5rem;
                 }
                .css-1d391kg {
-                    padding-top: 3.5rem;
+                    padding-top: 0.5rem;
                     padding-right: 1rem;
                     padding-bottom: 3.5rem;
                     padding-left: 1rem;
@@ -46,6 +47,9 @@ st.markdown("""
                 .custom-h6 {
                     margin-top: -30px;
                     margin-bottom: -40px;
+                }
+                .c-container {
+                    text-align: center;
                 }
         </style>
         """, unsafe_allow_html=True)
@@ -649,6 +653,7 @@ if cat == 4:
 if cat == 5:
     row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
+
 ## Sport Anteil
 
 cat = manager.berechneCategorie(berechneRisikoVonSport())
@@ -775,9 +780,9 @@ if cat == 5:
 
 row999_col1 = st.columns(1)
 if risiko > 50:
-    row2_col1.write('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
+    row999_col1.write('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
 if risiko <=50:
-    row2_col1.write('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
+    row999_col1.write('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
 
     
     
@@ -898,10 +903,23 @@ row2_col2.pyplot(fig3, use_container_width = True)
 ##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
 #Erstellen von 3 Spalten
-row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
+row4_col1, row4_col2, row4_col3, row4_col4 = st.columns([1, 1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
+
+# Define your javascript
+my_js = """
+<script type="text/javascript">
+    document.getElementById("b4").onclick = function () {
+        location.href = "www.yoursite.com";
+    };
+</script>
+"""
+
+
+st.markdown(my_js, unsafe_allow_html=True)
 
 #Spalte links
 row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
+row4_col1.markdown("<div class='c-container'><button id='b1' style='text-align: center' class='b-c'>Optionen Abnehmen</button></div>", unsafe_allow_html=True)
 with row4_col1:
     button1 = st.button('Optionen Abnehmen')
 if button1:
@@ -912,23 +930,17 @@ if button1:
 
 #Spalte mitte
 row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
-with row4_col2:
-    button2 = st.button("Optionen mentale Gesundheit")
-if button2:
-    row4_col2.markdown('Infobroschüre: [Psy-Gesundheit](https://www.santepsy.ch/de/seiten/tout-au-long-de-la-vie/wie-kummere-ich-mich-um-meine-psychische-gesundheit-77)  \n' +
-                      'Staatliche Vorsorge und Hilfe: [Bundesamt für Gesundheit (BAG)](https://www.bag.admin.ch/bag/de/home/strategie-und-politik/politische-auftraege-und-aktionsplaene/politische-auftraege-im-bereich-psychische-gesundheit.html)  \n' +
-                      'Versicherung: [Zurich](https://www.zurich.de/de-de/pk/vorsorge-vermoegen/berufsunfaehigkeits-versicherung/mentale-gesundheit)')
-
+row4_col2.markdown("<div class='c-container'><button id='b2' style='text-align: center' class='b-c'>Optionen mentale Gesundheit</button></div>", unsafe_allow_html=True)
 
 #Spalte rechts
 row4_col3.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
-with row4_col3:
-    button3 = st.button("Optionen besser schlafen")
-if button3:
-    row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)  \n' +
-                      'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)  \n' +
-                      'Hintergründe und weitere Tipps: [Helios](https://www.helios-gesundheit.de/magazin/gesunder-schlaf/news/schlafhygiene-8-wertvolle-tipps-zum-einschlafen/)')
-    
+row4_col3.markdown("<div class='c-container'><button id='b3' style='text-align: center' class='b-c'>Jetzt besser schlafen</button></div>", unsafe_allow_html=True)
+
+
+#Spalte rechts
+row4_col4.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
+row4_col4.markdown("""<div class='c-container'><button id='b4' style='text-align: center' class='b-c'>Jetzt besser schlafen</button></div>""", unsafe_allow_html=True)
+
 ##########################################################################################
 #Funktion 5: Downloaden einer Zusammenfassung der Ergebnisse##############################
 
