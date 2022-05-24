@@ -782,8 +782,6 @@ Excel_contents = { 'Feature' : ['BMI',
                  }
 
 #Erstellung eines DataFrames
-
-row100_col1, row100_col2 = st.columns(2)
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
 df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
 
@@ -833,16 +831,12 @@ row2_col2.pyplot(fig3, use_container_width = True)
 ##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
 #Erstellen von 3 Spalten
-row4_col1, row4_col2, row4_col3, row4_col4 = st.columns([1, 1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
-row5_col1, row5_col2, row5_col3, row5_col4, row5_col5, row5_col6, row5_col7, row5_col8, row5_col9, row5_col10, row5_col11, row5_col12 = st.columns(12)
-
-with row5_col1, row5_col3, row5_col4, row5_col6, row5_col7, row5_col9, row5_col10, row5_col12:
-    pass
+row4_col1, row4_col2, row4_col3 = st.columns([1, 1, 1]) #3 Möglichkeiten, auf Websiten zuzugreifen (z.B. Anti-Rauchen, Abnehmen und Schlaf- /Stressmanagement)
 
 #Spalte links
 row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
 with row4_col1:
-    button1 = row5_col1.button('Optionen Abnehmen')
+    button1 = st.button('Optionen Abnehmen')
 if button1:
     row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
                        'Sport: [weightwatchers](https://www.weightwatchers.com/ch/de/blog/abnehmen?g_acctid=578-410-2929&g_adgroupid=131213429166&g_adid=576066783055&g_adtype=search&g_campaign=GE_WW_CH-DE_qdstw_qobjc_qbudc_qaudp_qrtgn_qpma_qostz_qdevz_qlobr_qgeon_qkwn&g_campaignid=11226104309&g_keyword=abnehmen&g_keywordid=kwd-44003010&g_network=g&gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVS2v2dR9a22u8y84x_mV9qO7KHGpA5qqYyorvUXO-R_-YZ0naegcaArI4EALw_wcB&gclsrc=aw.ds)  \n' + 
@@ -851,9 +845,8 @@ if button1:
 
 #Spalte mitte
 row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
-
 with row4_col2:
-    button2 = row5_col5.button("Optionen mentale Gesundheit")
+    button2 = st.button("Optionen mentale Gesundheit")
 if button2:
     row4_col2.markdown('Infobroschüre: [Psy-Gesundheit](https://www.santepsy.ch/de/seiten/tout-au-long-de-la-vie/wie-kummere-ich-mich-um-meine-psychische-gesundheit-77)  \n' +
                       'Staatliche Vorsorge und Hilfe: [Bundesamt für Gesundheit (BAG)](https://www.bag.admin.ch/bag/de/home/strategie-und-politik/politische-auftraege-und-aktionsplaene/politische-auftraege-im-bereich-psychische-gesundheit.html)  \n' +
@@ -863,7 +856,7 @@ if button2:
 #Spalte rechts
 row4_col3.markdown("<h3 style='text-align: center'>Jetzt besser schlafen</h3>", unsafe_allow_html=True)
 with row4_col3:
-    button3 = row5_col8.button("Optionen besser schlafen")
+    button3 = st.button("Optionen besser schlafen")
 if button3:
     row4_col3.markdown('Übersicht: [atupri](https://www.atupri.ch/de/gesund-leben/wissen/psyche/schlafen)  \n' +
                       'Pharmazeutische Lösungen: [Valverde](https://www.valverde.ch/produkte/valverde-schlaf-und-schlaf-forte?gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVTie4PnhCWpMvMhvxjLqfA1MFtxZ0lEiYvKNWpE2-ShNG1hx2L0UaAl5bEALw_wcB)  \n' +
