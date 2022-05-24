@@ -942,7 +942,7 @@ df_sorted = df_Excel_contents.sort_values('Anteil am Risiko', ascending = False)
 fig2 = plt.figure(figsize=(8,4))
 sns.barplot(data=df_sorted, 
             x = 'Anteil am Risiko', 
-            y = ' ',
+            y = 'Feature',
             palette = 'Spectral'
            )
 
@@ -974,7 +974,7 @@ df_sorted2 = df_Excel_contents2.sort_values('Anteil am Risiko', ascending = Fals
 fig3 = plt.figure(figsize=(8,4))
 sns.barplot(data = df_sorted2, 
             x = 'Anteil am Risiko',
-            y = ' ',
+            y = 'Feature',
             palette = 'Spectral'
            )
 
