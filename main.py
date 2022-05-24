@@ -609,7 +609,8 @@ ax.set(aspect="equal")
 row1_col1.pyplot(fig, use_container_width = True)
 
 row1_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Herzkrankheit Risiko</h3>", unsafe_allow_html=True)
-row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>HAloo dlakf sdlkfj dlksfa  sdfklad klsaf dfsk dlks lkjdfs jkldfs dklj</h6>", unsafe_allow_html=True)
+row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Der angegebene Wert gibt die Wahrscheinlichkeit einer Herzkrankheit wieder</h6>", unsafe_allow_html=True)
+
 ## Risko im Vergleich
 
 
@@ -622,6 +623,7 @@ ax2.text(0, 0, f'{risiko}%', ha='center', va='center', fontsize=fontSize)
 ax2.set(aspect="equal")
 row1_col2.pyplot(fig2, use_container_width = True)
 row1_col2.markdown("<h3 style='text-align: center' class='custom-h3'>Risiko im Vergleich</h3>", unsafe_allow_html=True)
+row1_col2.markdown(f"<h6 style='text-align: center' class='custom-h6'>Das für Sie berechnete Risiko ist höher als das von {risiko} % Personen aus den Testdaten</h6>", unsafe_allow_html=True)
 
 
 ## BMI Anteil
@@ -636,6 +638,16 @@ ax3.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax3.set(aspect="equal")
 row1_col3.pyplot(fig3, use_container_width = True)
 row1_col3.markdown("<h3 style='text-align: center' class='custom-h3'>BMI Anteil</h3>", unsafe_allow_html=True)
+if cat == 1:
+    row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row1_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr BMI wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil des BMI am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 ## Sport Anteil
 
@@ -649,7 +661,16 @@ ax4.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax4.set(aspect="equal")
 row1_col4.pyplot(fig4, use_container_width = True)
 row1_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Sport Anteil</h3>", unsafe_allow_html=True)
-
+if cat == 1:
+    row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row1_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil sportlicher Betätigung wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil mangelhafter sportlicher Betätigung am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 
 row2_col1, row2_col2, row2_col3, row2_col4 = st.columns([1, 1, 1, 1])
@@ -668,6 +689,16 @@ ax5.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax5.set(aspect="equal")
 row2_col1.pyplot(fig5, use_container_width = True)
 row2_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Schlaf Anteil</h3>", unsafe_allow_html=True)
+if cat == 1:
+    row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row2_col1.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Anteil von Schlaf wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil mangelhaften Schlafes am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 ## Mentale Gesundheit Anteil
 
@@ -681,6 +712,16 @@ ax6.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax6.set(aspect="equal")
 row2_col2.pyplot(fig6, use_container_width = True)
 row2_col2.markdown("<h3 style='text-align: center' class='custom-h3'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
+if cat == 1:
+    row2_col2.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre mentale Gesundheit wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil mentaler Gesundheit am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row2_col2.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre mentale Gesundheit wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil mentaler Gesundheit am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row2_col2.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre mentale Gesundheit wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil mentaler Gesundheit am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row2_col2.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre mentale Gesundheit wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil mentaler Gesundheit am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row2_col2.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre mentale Gesundheit wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil mentaler Gesundheit am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 ## Physiche Gesundheit Anteil
 
@@ -694,6 +735,17 @@ ax7.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax7.set(aspect="equal")
 row2_col3.pyplot(fig7, use_container_width = True)
 row2_col3.markdown("<h3 style='text-align: center' class='custom-h3'>Physiche Gesundheit</h3>", unsafe_allow_html=True)
+if cat == 1:
+    row2_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre physische Gesundheit wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil physischer Gesundheit am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row2_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre physische Gesundheit wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil physischer Gesundheit am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row2_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre physische Gesundheit wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil physischer Gesundheit am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row2_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre physische Gesundheit wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil physischer Gesundheit am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row2_col3.markdown("<h6 style='text-align: center' class='custom-h6'>Ihre physische Gesundheit wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil physischer Gesundheit am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
+
 ## Alkohol Anteil
 
 cat = 0
@@ -710,6 +762,16 @@ ax8.text(0, 0, f'{cat}', ha='center', va='center', fontsize=fontSize)
 ax8.set(aspect="equal")
 row2_col4.pyplot(fig8, use_container_width = True)
 row2_col4.markdown("<h3 style='text-align: center' class='custom-h3'>Alkohol Anteil</h3>", unsafe_allow_html=True)
+if cat == 1:
+    row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 1 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko bei unter 5 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 2:
+    row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 2 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko zwischen 5 % und 10 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 3:
+    row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 3 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko zwischen 10 % und 15 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 4:
+    row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 4 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko zwischen 15 % und 20 % liegt.</h6>", unsafe_allow_html=True)
+if cat == 5:
+    row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
 #Header links
 
