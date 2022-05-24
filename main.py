@@ -912,7 +912,7 @@ Excel_contents = { 'Feature' : ['BMI',
                              'Sport', 
                              'Generelles Wohlbefinden', 
                              'Schlaf', 'Asthma', 'Nierenkrankheiten', 'Hautkrebs'],
-                  'Anteil_am_Risiko': [berechneRisikoVonBMI(), 
+                  'Anteil am Risiko': [berechneRisikoVonBMI(), 
                                        berechneRisikoVonSmoking(), 
                                        berechneRisikoVonAlkohol(), 
                                        berechneRisikoVonStroke(), 
@@ -958,7 +958,7 @@ Excel_contents2 = { 'Feature' : ['BMI',
                                  'Sport', 
                                  'Schlaf'
                                 ],
-                   'Anteil_am_Risiko': [berechneRisikoVonBMI(),
+                   'Anteil am Risiko': [berechneRisikoVonBMI(),
                                         berechneRisikoVonMentalHealth(),
                                         berechneRisikoVonSport(),
                                         berechneRisikoVonSchlaf(),
@@ -967,7 +967,7 @@ Excel_contents2 = { 'Feature' : ['BMI',
 
 #Erstellung eines DataFrames
 df_Excel_contents2 = pd.DataFrame(data=Excel_contents2)
-df_sorted2 = df_Excel_contents2.sort_values('Anteil_am_Risiko', ascending = False)
+df_sorted2 = df_Excel_contents2.sort_values('Anteil am Risiko', ascending = False)
 
 #Seaborn-Plot 2
 
