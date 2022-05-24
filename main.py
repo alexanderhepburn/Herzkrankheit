@@ -933,11 +933,11 @@ Excel_contents = { 'Feature' : ['BMI',
 
 #Erstellung eines DataFrames
 df_Excel_contents = pd.DataFrame(data=Excel_contents)
-df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
+df_sorted = df_Excel_contents.sort_values('Anteil am Risiko', ascending = False)
 
 ###Seaborn-Plot
 
-df_sorted = df_Excel_contents.sort_values('Anteil_am_Risiko', ascending = False)
+df_sorted = df_Excel_contents.sort_values('Anteil am Risiko', ascending = False)
 
 fig2 = plt.figure(figsize=(8,4))
 sns.barplot(data=df_sorted, 
