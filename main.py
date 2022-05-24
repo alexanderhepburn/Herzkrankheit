@@ -609,7 +609,7 @@ ax.set(aspect="equal")
 row1_col1.pyplot(fig, use_container_width = True)
 
 row1_col1.markdown("<h3 style='text-align: center' class='custom-h3'>Herzkrankheit Risiko</h3>", unsafe_allow_html=True)
-row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>HAloo dlakf sdlkfj dlksfa  sdfklad klsaf dfsk dlks lkjdfs jkldfs dklj</h6>", unsafe_allow_html=True, use_container_width = True)
+row1_col1.markdown("<h6 style='text-align: center' class='custom-h6'>HAloo dlakf sdlkfj dlksfa  sdfklad klsaf dfsk dlks lkjdfs jkldfs dklj</h6>", unsafe_allow_html=True)
 ## Risko im Vergleich
 
 
