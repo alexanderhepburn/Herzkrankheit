@@ -975,7 +975,7 @@ fig3 = plt.figure(figsize=(8,4))
 sns.barplot(data = df_sorted2, 
             x = 'Anteil am Risiko',
             y = 'Feature',
-            ylabel = ' ',
+            plt.ylabel = ' ',
             palette = 'Spectral'
            )
 
