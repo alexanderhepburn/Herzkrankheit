@@ -1016,6 +1016,15 @@ if st.sidebar.checkbox("Extras zeigen"):
     # Aufnahme der Daten aus Funktion 2
 
     # Erstellung eines DataFrames
+    
+    #Hinzufügung von percentile und Gesamtrisiko:
+    Excel_contents = Excel_contents.copy()
+    Excel_contents = Excel_contents['Feature'].insert(0, 'Risiko Percentile')
+    Excel_contents = Excel_contents['Anteil am Risiko'].insert(0, round(manager.rankingFunction(berechneHeartDisease(), logReg=Log_Reg), 1))
+    Excel_contents = Excel_contents['Feature'].insert(0, 'Gesamtrisiko')
+    Excel_contents = Excel_contents['Anteil am Risiko'].insert(0, round(berechneHeartDisease() * 100, 1))
+    #Ende meiner Modifikationen
+    
     df_Excel_contents = pd.DataFrame(data=Excel_contents)
 
     csv_Excel_contents = df_Excel_contents.to_csv(index=False).encode('utf-8')
