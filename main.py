@@ -780,9 +780,9 @@ if cat == 5:
 
 row999_col1 = st.columns(1)
 if risiko > 50:
-    row999_col1.write('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
+    row999_col1[0].text('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
 if risiko <=50:
-    row999_col1.write('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
+    row999_col1[0].text('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
 
     
     
@@ -868,7 +868,9 @@ sns.barplot(data=df_sorted,
             palette = 'Spectral'
            )
 
-row2_col1.pyplot(fig2, use_container_width = True)
+col10, col20 = st.columns([1, 1])
+
+col10.pyplot(fig2, use_container_width = True)
 
 
 #Plot veränderbarer Features:
@@ -898,7 +900,7 @@ sns.barplot(data = df_sorted2,
             palette = 'Spectral'
            )
 
-row2_col2.pyplot(fig3, use_container_width = True)
+col20.pyplot(fig3, use_container_width = True)
 
 ##############################################################################################
 #Funktion 4: Erstellen einer Verbindung zu Anbietern##########################################
@@ -920,13 +922,6 @@ st.markdown(my_js, unsafe_allow_html=True)
 #Spalte links
 row4_col1.markdown("<h3 style='text-align: center'>Hilfe beim Abnehmen</h3>", unsafe_allow_html=True)
 row4_col1.markdown("<div class='c-container'><button id='b1' style='text-align: center' class='b-c'>Optionen Abnehmen</button></div>", unsafe_allow_html=True)
-with row4_col1:
-    button1 = st.button('Optionen Abnehmen')
-if button1:
-    row4_col1.markdown('Versicherung: [CSS-Versicherung](https://www.css.ch/de/privatkunden/meine-gesundheit/ernaehrung/gesund-abnehmen.html)  \n' + 
-                       'Sport: [weightwatchers](https://www.weightwatchers.com/ch/de/blog/abnehmen?g_acctid=578-410-2929&g_adgroupid=131213429166&g_adid=576066783055&g_adtype=search&g_campaign=GE_WW_CH-DE_qdstw_qobjc_qbudc_qaudp_qrtgn_qpma_qostz_qdevz_qlobr_qgeon_qkwn&g_campaignid=11226104309&g_keyword=abnehmen&g_keywordid=kwd-44003010&g_network=g&gclid=Cj0KCQjwspKUBhCvARIsAB2IYuuVS2v2dR9a22u8y84x_mV9qO7KHGpA5qqYyorvUXO-R_-YZ0naegcaArI4EALw_wcB&gclsrc=aw.ds)  \n' + 
-                       'Ernährung: [EatSmarter](https://eatsmarter.de/abnehmen/gesund-abnehmen/ernaehrungsplan-zum-abnehmen)')
-
 
 #Spalte mitte
 row4_col2.markdown("<h3 style='text-align: center'>Mentale Gesundheit</h3>", unsafe_allow_html=True)
