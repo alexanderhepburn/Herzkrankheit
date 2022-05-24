@@ -773,9 +773,10 @@ if cat == 4:
 if cat == 5:
     row2_col4.markdown("<h6 style='text-align: center' class='custom-h6'>Ihr Alkoholkonsum wurde in Kategorie 5 eingestuft. Dies bedeutet, dass der Anteil des Alkoholkonsums am Risiko über 20 % liegt.</h6>", unsafe_allow_html=True)
 
-#Header links
-
-
+if risiko > 50:
+    row2_col1.write('Insgesamt scheint Ihr Risiko, an einer Herzkrankheit zu leiden, im Vergleich zu Durchschnitt erhöht. Wir raten Ihnen daher, die weiteren Funktionen dieser App zu nutzen, um Ihr Risiko effektiv zu senken, und bei Unwohlsein ärztlichen Rat aufzusuchen.')
+if risiko <=50:
+    row2_col1.write('Ihr Risiko, an einer Herzkrankheit zu leiden, ist kleiner oder gleich dem Durchschnitt. Gerne können Sie präventiv die weiteren Funktionen dieser App nutzen, um Ihr Risiko weiter zu senken. Bitte beachten Sie jedoch, dass das berechntete Ergebnis nicht bedeutet, dass Sie an keiner Herzkrankheit leiden! Wir raten Ihnen daher, bei Unwohlsein unbedingt ärztlichen Rat zu suchen.')
 
 #Header rechts
 #row1_col3.markdown("<h3 style='text-align: center'>Wie ist Ihr Risiko zu interpretieren?</h3>", unsafe_allow_html=True)
