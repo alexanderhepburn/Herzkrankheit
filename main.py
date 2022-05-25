@@ -50,6 +50,7 @@ st.markdown("""
                 }
                 .c-container {
                     text-align: center;
+                    margin-bottom: 50px;
                 }
                 .c-t-h6 {
                     text-align: center; 
@@ -1045,4 +1046,4 @@ if st.sidebar.checkbox("Extras zeigen"):
          dataframe = pd.read_csv(uploaded_file)
          prediction = pd.DataFrame(Log_Reg.predict_proba(dataframe)).loc[:, 1]
          dataframe["HeartDiseaseRisk"] = prediction
-         row5_col2.download_button('HeartDiseaseRisk Datei herunterladen', dataframe.to_csv(), 'csv')
+         row5_col2.download_button('HeartDiseaseRisk Datei herunterladen', dataframe.to_csv(), "heartdiseaserisk.csv", "text/csv")
